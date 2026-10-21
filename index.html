@@ -3,370 +3,939 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Resumo — Governança de TI</title>
+<title>Revisão — Biologia Celular e Bioquímica</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0d1117;--card:#1c2333;--bord:#30363d;--a1:#06b6d4;--a2:#22d3ee;--a3:#67e8f9;--a4:#34d399;--a5:#fbbf24;--a6:#f87171;--a7:#a78bfa;--text:#e6edf3;--muted:#8b949e}
+:root{
+  --bg:#0b1116;
+  --card:#131d26;
+  --bord:#233544;
+  --a1:#10b981;
+  --a2:#34d399;
+  --a3:#06b6d4;
+  --a4:#3b82f6;
+  --a5:#f59e0b;
+  --a6:#f43f5e;
+  --a7:#a855f7;
+  --text:#e6edf3;
+  --muted:#8b9eb0
+}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-header{background:linear-gradient(135deg,#161b22,#0d1117);border-bottom:1px solid var(--bord);padding:3rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(6,182,212,.13),transparent 65%);pointer-events:none}
-.badge{display:inline-block;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:var(--a1);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem}
-header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#e6edf3 30%,var(--a1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
-header p{color:var(--muted);font-size:.95rem;max-width:640px;margin:0 auto}
-.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:1.4rem}
-.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.78rem;color:var(--muted)}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.68}
+header{background:linear-gradient(135deg,#101d26,#0b1116);border-bottom:1px solid var(--bord);padding:2.8rem 2rem 2.3rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.15),transparent 65%);pointer-events:none}
+.badge{display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);color:var(--a1);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
+header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#e6edf3 25%,var(--a1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
+header p{color:var(--muted);font-size:.95rem;max-width:680px;margin:0 auto}
+.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:1.3rem}
+.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.77rem;color:var(--muted)}
 .mpill span{color:var(--text);font-weight:600}
-.tabs{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.print-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,.15);border:1px solid var(--a1);color:var(--a2);padding:.45rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.print-btn:hover{background:var(--a1);color:#0b1116}
+.tabs{position:sticky;top:0;z-index:100;background:rgba(11,17,22,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.83rem;font-weight:600;padding:.9rem 1.2rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.82rem;font-weight:600;padding:.9rem 1.1rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--a1);border-bottom-color:var(--a1)}
-main{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+main{max-width:1040px;margin:0 auto;padding:2.4rem 1.5rem 5rem}
 .sec{display:none;animation:fi .3s ease}
 .sec.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.sh{display:flex;align-items:center;gap:.85rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bord)}
-.si{width:2.6rem;height:2.6rem;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;flex-shrink:0}
+.sh{display:flex;align-items:center;gap:.85rem;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:1px solid var(--bord)}
+.si{width:2.7rem;height:2.7rem;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
 .sh h2{font-size:1.4rem;font-weight:800}
 .sh p{font-size:.84rem;color:var(--muted);margin-top:.15rem}
+.sub{font-size:1.05rem;font-weight:700;margin:1.8rem 0 .85rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
 .grid{display:grid;gap:1rem}
-.g2{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(195px,1fr))}
-.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.25rem 1.35rem;transition:border-color .2s,transform .2s}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem 1.35rem;transition:border-color .2s,transform .2s}
 .card:hover{border-color:var(--a1);transform:translateY(-2px)}
-.ch{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.6rem}
-.ci{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
-.card h3{font-size:.92rem;font-weight:700}
-.card p,.card li{font-size:.83rem;color:var(--muted);margin-bottom:.3rem}
-.card ul{padding-left:1.1rem}
+.ch{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.55rem}
+.ci{font-size:1.25rem;flex-shrink:0;margin-top:.05rem}
+.card h3{font-size:.93rem;font-weight:700;color:var(--text)}
+.card p,.card li{font-size:.83rem;color:var(--muted);margin-bottom:.32rem}
+.card ul{padding-left:1.15rem}
 .card strong{color:var(--text)}
 .hl{border-radius:10px;padding:.95rem 1.2rem;margin:1rem 0;font-size:.84rem;color:var(--text)}
-.hlc{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.2)}.hlc strong{color:var(--a1)}
-.hlg{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2)}.hlg strong{color:var(--a4)}
-.hly{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2)}.hly strong{color:var(--a5)}
-.hlr{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.2)}.hlr strong{color:var(--a6)}
-.hlv{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2)}.hlv strong{color:var(--a7)}
-.quote{background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(34,211,238,.04));border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:1.2rem 1.5rem;margin:1.2rem 0;font-style:italic;color:var(--text);position:relative}
-.quote::before{content:'"';position:absolute;top:-.4rem;left:1rem;font-size:3.5rem;color:var(--a1);opacity:.2;font-style:normal;line-height:1}
-.tw{overflow-x:auto;margin:1rem 0}
-table{width:100%;border-collapse:collapse;font-size:.81rem}
-thead th{background:rgba(6,182,212,.1);color:var(--a1);font-weight:700;text-align:left;padding:.55rem .9rem}
-tbody td{padding:.5rem .9rem;border-top:1px solid var(--bord);color:var(--muted)}
+.hlg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25)}.hlg strong{color:var(--a2)}
+.hlc{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.25)}.hlc strong{color:var(--a3)}
+.hlb{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.25)}.hlb strong{color:var(--a4)}
+.hly{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25)}.hly strong{color:var(--a5)}
+.hlr{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25)}.hlr strong{color:var(--a6)}
+.hlv{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25)}.hlv strong{color:var(--a7)}
+.tw{overflow-x:auto;margin:1rem 0;border-radius:10px;border:1px solid var(--bord)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:rgba(16,185,129,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
+tbody td{padding:.55rem .95rem;border-top:1px solid var(--bord);color:var(--muted)}
+tbody td strong{color:var(--text)}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 .tl{position:relative;padding-left:2rem}
-.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a4));border-radius:2px}
+.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a7));border-radius:2px}
 .ti{position:relative;margin-bottom:1.1rem}
 .dot{position:absolute;left:-1.45rem;top:.35rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--a1);border:2px solid var(--bg)}
-.ti:nth-child(2) .dot{background:var(--a2)}.ti:nth-child(3) .dot{background:var(--a3)}.ti:nth-child(4) .dot{background:var(--a4)}.ti:nth-child(5) .dot{background:var(--a5)}.ti:nth-child(6) .dot{background:var(--a6)}.ti:nth-child(7) .dot{background:var(--a7)}
-.ti h4{font-size:.9rem;font-weight:700}
-.ti p{font-size:.81rem;color:var(--muted);margin-top:.2rem}
-.sub{font-size:1rem;font-weight:700;margin:1.8rem 0 .8rem;color:var(--text)}
-.bta{border-top:3px solid var(--a1)!important}.btb{border-top:3px solid var(--a2)!important}.btg{border-top:3px solid var(--a4)!important}.bty{border-top:3px solid var(--a5)!important}.btr{border-top:3px solid var(--a6)!important}.btv{border-top:3px solid var(--a7)!important}
-.num{display:inline-flex;align-items:center;justify-content:center;width:1.55rem;height:1.55rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.4rem;flex-shrink:0;vertical-align:middle}
-#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#0d1117;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;cursor:pointer;box-shadow:0 4px 18px rgba(6,182,212,.3);display:none;place-items:center;transition:transform .2s}
+.ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a4)}.ti:nth-child(4) .dot{background:var(--a5)}.ti:nth-child(5) .dot{background:var(--a6)}.ti:nth-child(6) .dot{background:var(--a7)}
+.ti h4{font-size:.9rem;font-weight:700;color:var(--text)}
+.ti p{font-size:.82rem;color:var(--muted);margin-top:.2rem}
+.bta{border-top:3px solid var(--a1)!important}
+.btb{border-top:3px solid var(--a3)!important}
+.btc{border-top:3px solid var(--a4)!important}
+.bty{border-top:3px solid var(--a5)!important}
+.btr{border-top:3px solid var(--a6)!important}
+.btv{border-top:3px solid var(--a7)!important}
+.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(16,185,129,.15);color:var(--a2)}
+.tag{display:inline-block;padding:.15rem .55rem;border-radius:6px;font-size:.72rem;font-weight:700;margin-right:.3rem}
+.tag-g{background:rgba(16,185,129,.15);color:var(--a2)}
+.tag-c{background:rgba(6,182,212,.15);color:var(--a3)}
+.tag-y{background:rgba(245,158,11,.15);color:var(--a5)}
+.tag-r{background:rgba(244,63,94,.15);color:var(--a6)}
+.tag-v{background:rgba(168,85,247,.15);color:var(--a7)}
+#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#0b1116;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(16,185,129,.35);display:none;place-items:center;transition:transform .2s}
 #top:hover{transform:scale(1.1)}#top.show{display:grid}
+
+@media print{
+  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#047857;--a2:#065f46;--a3:#0369a1;--a4:#1d4ed8;--a5:#b45309;--a6:#be123c;--a7:#6d28d9}
+  body{background:#fff;color:#0f172a;font-size:9.5pt}
+  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #047857}
+  header h1{-webkit-text-fill-color:#047857;color:#047857}
+  .tabs,.print-btn,#top{display:none!important}
+  .sec{display:block!important;page-break-before:always;margin-bottom:2rem}
+  .sec:first-of-type{page-break-before:avoid}
+  .card,.hl,.tw,tr{page-break-inside:avoid}
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="badge">🏛️ Material de Estudo · Governança de TI</div>
-  <h1>Governança de TI</h1>
-  <p>Governança Corporativa, ITIL 4 e PMBoK — resumo completo das 3 apostilas · Prof. Alex Coelho</p>
+  <div class="badge">🧬 Revisão Completa · Biologia Celular &amp; Bioquímica</div>
+  <h1>Biologia Celular, Molecular &amp; Metabolismo</h1>
+  <p>Guia completo e estruturado cobrindo bases químicas da vida, citologia, biomoléculas, transporte de membrana e vias metabólicas.</p>
   <div class="mpills">
-    <div class="mpill">📚 <span>3 PDFs · 98 páginas</span></div>
-    <div class="mpill">🏛️ <span>Governança Corporativa &amp; TI</span></div>
-    <div class="mpill">📋 <span>ITIL 4 · Service Design</span></div>
-    <div class="mpill">📊 <span>PMBoK · Gestão de Projetos</span></div>
+    <div class="mpill">💧 <span>Água, Íons &amp; pH</span></div>
+    <div class="mpill">🔬 <span>Organelas &amp; Citoesqueleto</span></div>
+    <div class="mpill">🧱 <span>Membrana &amp; Transporte</span></div>
+    <div class="mpill">🧪 <span>Proteínas, Lipídios, Carboidratos &amp; Ác. Nucleicos</span></div>
+    <div class="mpill">⚡ <span>Metabolismo: Glicose, Lipídios &amp; Proteínas</span></div>
   </div>
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
 </header>
+
 <nav class="tabs">
-  <button class="tab active" onclick="show('a1',this)">🏛️ Governança Corporativa &amp; TI</button>
-  <button class="tab" onclick="show('a2',this)">📋 ITIL 2026</button>
-  <button class="tab" onclick="show('a3',this)">📊 PMBoK &amp; Projetos</button>
+  <button class="tab active" onclick="show('t1',this)">💧 1. Água, Sais, Íons e pH</button>
+  <button class="tab" onclick="show('t2',this)">🔬 2. Organização Celular &amp; Organelas</button>
+  <button class="tab" onclick="show('t3',this)">🧱 3. Membrana &amp; Transporte</button>
+  <button class="tab" onclick="show('t4',this)">🕸️ 4. Citoesqueleto</button>
+  <button class="tab" onclick="show('t5',this)">🥩 5. Aminoácidos &amp; Proteínas</button>
+  <button class="tab" onclick="show('t6',this)">🥑 6. Lipídios &amp; Carboidratos</button>
+  <button class="tab" onclick="show('t7',this)">🧬 7. DNA &amp; RNA</button>
+  <button class="tab" onclick="show('t8',this)">⚡ 8. Metabolismo da Glicose</button>
+  <button class="tab" onclick="show('t9',this)">🔥 9. Metabolismo Lipídico</button>
+  <button class="tab" onclick="show('t10',this)">♻️ 10. Metabolismo Proteico</button>
 </nav>
+
 <main>
 
-<!-- ABA 1: GOVERNANÇA -->
-<section id="a1" class="sec active">
-  <div class="sh"><div class="si" style="background:rgba(6,182,212,.1);color:var(--a1)">🏛️</div><div><h2>Governança Corporativa &amp; Governança de TI</h2><p>Definições · Princípios · Estrutura · Frameworks · Desafios · Caso Enron</p></div></div>
-
-  <div class="sub">🔑 Definições Fundamentais</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <div class="ch"><span class="ci">🏢</span><div><h3>Governança Corporativa</h3></div></div>
-      <p>Sistema pelo qual as empresas são <strong>dirigidas, monitoradas e incentivadas</strong>. Envolve relacionamentos entre acionistas, conselho, diretoria e stakeholders.</p>
-      <p style="margin-top:.4rem"><strong>Objetivos:</strong> Proteção de investidores · Melhoria do desempenho · Conformidade legal.</p>
+<!-- ==================== ABA 1: ÁGUA, SAIS, ÍONS E PH ==================== -->
+<section id="t1" class="sec active">
+  <div class="sh">
+    <div class="si" style="background:rgba(6,182,212,.12);color:var(--a3)">💧</div>
+    <div>
+      <h2>1. Água, Sais Minerais, Íons e pH</h2>
+      <p>Propriedades físico-químicas da água · Eletrólitos biológicos · Equilíbrio ácido-base e sistemas tampão</p>
     </div>
+  </div>
+
+  <div class="sub">🌊 A Molécula de Água (H₂O) e suas Propriedades</div>
+  <div class="hl hlc">
+    <strong>Geometria Angular e Polaridade:</strong> O átomo de oxigênio (altamente eletronegativo) atrai os elétrons compartilhados com os dois hidrogênios, gerando uma carga parcial negativa (<strong>δ⁻</strong> no O) e cargas parciais positivas (<strong>δ⁺</strong> nos H). Isso forma um <strong>dipolo elétrico</strong> capaz de estabelecer até <strong>4 ligações (pontes) de hidrogênio</strong> com moléculas vizinhas.
+  </div>
+
+  <div class="grid g3">
     <div class="card btb">
-      <div class="ch"><span class="ci">💻</span><div><h3>Governança de TI</h3></div></div>
-      <p>Subconjunto da governança corporativa focado em <strong>liderança, estruturas, processos e controle dos recursos de TI</strong>.</p>
-      <p style="margin-top:.4rem"><strong>Objetivos:</strong> Alinhar TI à estratégia · Gerar valor mensurável · Mitigar riscos tecnológicos.</p>
-    </div>
-  </div>
-  <div class="hl hlc"><strong>Relação:</strong> A Governança de TI <em>complementa</em> a corporativa, alinhando iniciativas tecnológicas à estratégia empresarial e garantindo suporte direto às operações e inovações.</div>
-
-  <div class="sub">📜 4 Princípios Cardeais da Governança Corporativa</div>
-  <div class="grid g2">
-    <div class="card"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">1</span><strong>Responsabilidade (Accountability)</strong> — Líderes prestam contas integrais e transparentes de suas decisões e ações.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">2</span><strong>Transparência (Disclosure)</strong> — Divulgação clara e tempestiva de informações financeiras e não financeiras.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(34,211,238,.15);color:var(--a2)">3</span><strong>Equidade (Fairness)</strong> — Tratamento justo e igualitário a todos os acionistas e partes interessadas.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(34,211,238,.15);color:var(--a2)">4</span><strong>Conformidade (Compliance)</strong> — Cumprimento rigoroso das leis, regulamentações e melhores práticas de mercado.</p></div>
-  </div>
-
-  <div class="sub">🏗️ Estrutura Hierárquica da Governança Corporativa</div>
-  <div class="card">
-    <div class="tl">
-      <div class="ti"><div class="dot"></div><h4>1. Assembleia Geral</h4><p>Órgão deliberativo supremo. Acionistas exercem direitos de voto e participação societária.</p></div>
-      <div class="ti"><div class="dot"></div><h4>2. Conselho de Administração</h4><p>Eleito pelos acionistas. Fixa orientação estratégica e supervisiona a diretoria executiva.</p></div>
-      <div class="ti"><div class="dot"></div><h4>3. Diretoria Executiva</h4><p>Responsável pela gestão operacional diária e implementação das estratégias aprovadas pelo Conselho.</p></div>
-      <div class="ti"><div class="dot"></div><h4>4. Auditoria Interna</h4><p>Avaliação independente da eficácia dos controles internos, gestão de riscos e processos.</p></div>
-    </div>
-  </div>
-
-  <div class="sub">⚙️ 5 Princípios da Governança de TI</div>
-  <div class="grid g3">
-    <div class="card bta"><h3 style="color:var(--a1);margin-bottom:.4rem">1. Alinhamento Estratégico</h3><p>Integrar as prioridades e investimentos de TI aos objetivos estratégicos do negócio.</p></div>
-    <div class="card btb"><h3 style="color:var(--a2);margin-bottom:.4rem">2. Entrega de Valor</h3><p>TI deve fornecer benefícios tangíveis, ROI e suporte às necessidades operacionais.</p></div>
-    <div class="card btg"><h3 style="color:var(--a4);margin-bottom:.4rem">3. Gestão de Riscos</h3><p>Identificar, avaliar e mitigar vulnerabilidades e ameaças tecnológicas.</p></div>
-    <div class="card bty"><h3 style="color:var(--a5);margin-bottom:.4rem">4. Gestão de Recursos</h3><p>Alocação eficiente de pessoas, aplicações, hardware/redes e capital financeiro.</p></div>
-    <div class="card btr"><h3 style="color:var(--a6);margin-bottom:.4rem">5. Medição de Desempenho</h3><p>Acompanhar a TI por métricas e KPIs para garantir melhoria contínua.</p></div>
-  </div>
-
-  <div class="sub">🔧 Frameworks de Governança e Gestão de TI</div>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Framework</th><th>Foco Principal</th><th>Desenvolvido por</th></tr></thead>
-      <tbody>
-        <tr><td><strong>COBIT</strong></td><td>Governança e gestão de TI (alinhamento, valor, riscos, recursos)</td><td>ISACA</td></tr>
-        <tr><td><strong>ITIL</strong></td><td>Gestão de Serviços de TI (ITSM): incidentes, mudanças, SLAs</td><td>Gov. Britânico / AXELOS</td></tr>
-        <tr><td><strong>ISO/IEC 38500</strong></td><td>Governança corporativa de TI — avaliar, direcionar, monitorar</td><td>ISO</td></tr>
-        <tr><td><strong>ISO/IEC 27001</strong></td><td>Segurança da Informação — requisitos para SGSI</td><td>ISO</td></tr>
-        <tr><td><strong>TOGAF</strong></td><td>Arquitetura Empresarial (Enterprise Architecture)</td><td>The Open Group</td></tr>
-        <tr><td><strong>PMBOK</strong></td><td>Boas práticas em Gestão de Projetos</td><td>PMI</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🚨 Desafios e Benefícios</div>
-  <div class="grid g2">
-    <div class="card btr">
-      <h3 style="color:var(--a6);margin-bottom:.5rem">⚠️ Desafios</h3>
-      <p>• <strong>Resistência à mudança</strong> — dificuldade cultural</p>
-      <p>• <strong>Desalinhamento estratégico</strong> — TI desconectada do negócio</p>
-      <p>• <strong>Tecnologia dinâmica</strong> — riscos em alvo móvel</p>
-      <p>• <strong>Complexidade regulatória</strong> — LGPD, SOX, múltiplos marcos</p>
-      <p>• <strong>Escassez de recursos</strong> — financeiros e humanos</p>
-    </div>
-    <div class="card btg">
-      <h3 style="color:var(--a4);margin-bottom:.5rem">✅ Benefícios</h3>
-      <p>• <strong>Transparência e controle</strong> — visibilidade dos investimentos</p>
-      <p>• <strong>Melhor gestão de riscos</strong> — redução de multas e falhas</p>
-      <p>• <strong>Otimização de investimentos</strong> — elimina desperdícios</p>
-      <p>• <strong>Performance organizacional</strong> — processos mais ágeis</p>
-      <p>• <strong>Valor sustentável</strong> — confiabilidade e atratividade</p>
-    </div>
-  </div>
-
-  <div class="sub">💥 Caso Enron — Lição de Governança</div>
-  <div class="card btr">
-    <div class="ch"><span class="ci">⚠️</span><div><h3>O Colapso da Enron (2001)</h3></div></div>
-    <p><strong>Contexto:</strong> Gigante do setor de energia que faliu de forma estrepitosa, tornando-se marco histórico para a governança corporativa.</p>
-    <p style="margin-top:.4rem"><strong>Causas:</strong> Falta de transparência contábil · Manipulação de demonstrativos · Fraudes financeiras · Negligência na gestão de riscos.</p>
-    <p style="margin-top:.4rem"><strong>Consequência:</strong> Perda imediata da confiança do mercado e falência total.</p>
-    <p style="margin-top:.4rem"><strong>Lição:</strong> Controles internos frouxos e ausência de accountability levam megacorporações ao colapso. Motivou a criação da <strong>Lei Sarbanes-Oxley (SOX)</strong>.</p>
-  </div>
-</section>
-
-<!-- ABA 2: ITIL -->
-<section id="a2" class="sec">
-  <div class="sh"><div class="si" style="background:rgba(52,211,153,.1);color:var(--a4)">📋</div><div><h2>ITIL 2026 — Gestão de Serviços de TI</h2><p>Conceito · Ciclo de Vida · ITIL 4 (SVS, SVC, Dimensões, Princípios) · Service Design</p></div></div>
-
-  <div class="hl hlg"><strong>ITIL — Information Technology Infrastructure Library:</strong> Conjunto de boas práticas para Gerenciamento de Serviços de TI (ITSM). Criado pelo governo britânico nos anos 1980, hoje é o padrão de facto mais adotado mundialmente. Lema: <em>"Adote e Adapte"</em> — é um framework flexível, NÃO uma norma rígida.</div>
-
-  <div class="sub">🎡 Ciclo de Vida do Serviço (ITIL v3) — 5 Estágios</div>
-  <div class="card">
-    <div class="tl">
-      <div class="ti"><div class="dot"></div><h4>1. Service Strategy (Estratégia de Serviço) — Centro</h4><p>Define a direção estratégica, políticas e objetivos gerais dos serviços de TI.</p></div>
-      <div class="ti"><div class="dot"></div><h4>2. Service Design (Desenho de Serviços)</h4><p>Projeta serviços novos ou alterados. Inclui: Supplier Mgmt, SLA Mgmt, Catalogue Mgmt, Availability Mgmt.</p></div>
-      <div class="ti"><div class="dot"></div><h4>3. Service Transition (Transição de Serviços)</h4><p>Controla mudanças e liberações: CMS, Testing &amp; Validation, Release &amp; Deployment Mgmt, Knowledge Mgmt, Change Mgmt.</p></div>
-      <div class="ti"><div class="dot"></div><h4>4. Service Operation (Operação de Serviços)</h4><p>Operação do dia a dia: Incident Mgmt, Event Mgmt, Problem Mgmt.</p></div>
-      <div class="ti"><div class="dot"></div><h4>5. Continual Service Improvement (CSI)</h4><p>Envolve todos os estágios. Mede, avalia e melhora continuamente serviços e processos.</p></div>
-    </div>
-  </div>
-
-  <div class="sub">🏗️ ITIL 4 — Sistema de Valor do Serviço (SVS)</div>
-  <div class="hl hlc"><strong>O SVS representa como todos os componentes e atividades da organização trabalham juntos para criar valor a partir de oportunidades e demandas.</strong></div>
-  <div class="grid g3">
-    <div class="card bta"><h3 style="color:var(--a1);margin-bottom:.3rem">1. Princípios Orientadores</h3><p>7 mensagens filosóficas aplicáveis a qualquer situação.</p></div>
-    <div class="card btb"><h3 style="color:var(--a2);margin-bottom:.3rem">2. Governança</h3><p>Estrutura de controle e direção da organização.</p></div>
-    <div class="card btg"><h3 style="color:var(--a4);margin-bottom:.3rem">3. Cadeia de Valor (SVC)</h3><p>Núcleo operacional com 6 atividades interconectadas.</p></div>
-    <div class="card bty"><h3 style="color:var(--a5);margin-bottom:.3rem">4. Práticas</h3><p>Substituem os "processos" — gerais, de serviços e técnicas.</p></div>
-    <div class="card btr"><h3 style="color:var(--a6);margin-bottom:.3rem">5. Melhoria Contínua</h3><p>Presente em todas as atividades do SVS.</p></div>
-  </div>
-
-  <div class="sub">🔗 Cadeia de Valor do Serviço (SVC) — 6 Atividades</div>
-  <div class="grid g2">
-    <div class="card"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">1</span><strong>Planejar (Plan):</strong> Compreender a visão compartilhada e direção para todos os produtos e serviços.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">2</span><strong>Melhorar (Improve):</strong> Melhoria contínua de produtos, serviços e práticas em todas as atividades.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">3</span><strong>Engajar (Engage):</strong> Entendimento das necessidades dos stakeholders, transparência e engajamento contínuo.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">4</span><strong>Projetar e Transicionar (Design &amp; Transition):</strong> Serviços atendam às expectativas de custo, qualidade e prazo.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(251,191,36,.15);color:var(--a5)">5</span><strong>Obter/Construir (Obtain/Build):</strong> Componentes disponíveis quando e onde necessários, conforme especificações.</p></div>
-    <div class="card"><p><span class="num" style="background:rgba(251,191,36,.15);color:var(--a5)">6</span><strong>Entregar e Suportar (Deliver &amp; Support):</strong> Operação do dia a dia e suporte aos usuários finais.</p></div>
-  </div>
-
-  <div class="sub">🔲 As 4 Dimensões do Gerenciamento de Serviços</div>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Dimensão</th><th>Foco e Escopo</th></tr></thead>
-      <tbody>
-        <tr><td><strong>1. Organizações e Pessoas</strong></td><td>Estruturas formais, cultura, papéis, responsabilidades, competências e liderança.</td></tr>
-        <tr><td><strong>2. Informação e Tecnologia</strong></td><td>Dados, bases de conhecimento, sistemas de apoio, tecnologias emergentes e segurança.</td></tr>
-        <tr><td><strong>3. Parceiros e Fornecedores</strong></td><td>Fornecedores externos, terceirização, contratos, integração e dependências de suprimento.</td></tr>
-        <tr><td><strong>4. Fluxos de Valor e Processos</strong></td><td>Atividades coordenadas, workflows, processos operacionais e eliminação de desperdícios.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🧭 Os 7 Princípios Orientadores do ITIL 4</div>
-  <div class="grid g2">
-    <div class="card bta"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">1</span><strong>Foco no valor</strong> — Tudo deve vincular-se ao valor entregue ao cliente/usuário.</p></div>
-    <div class="card btb"><p><span class="num" style="background:rgba(34,211,238,.15);color:var(--a2)">2</span><strong>Começar de onde você está</strong> — Aproveite o que já existe antes de recriar do zero.</p></div>
-    <div class="card btg"><p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">3</span><strong>Progresso iterativo com feedback</strong> — Divida em passos menores; aprenda com cada iteração.</p></div>
-    <div class="card bty"><p><span class="num" style="background:rgba(251,191,36,.15);color:var(--a5)">4</span><strong>Colaborar e promover visibilidade</strong> — Elimine silos; compartilhe informações com transparência.</p></div>
-    <div class="card btr"><p><span class="num" style="background:rgba(248,113,113,.15);color:var(--a6)">5</span><strong>Pensar e trabalhar holisticamente</strong> — Considere a organização como um sistema integrado.</p></div>
-    <div class="card btv"><p><span class="num" style="background:rgba(167,139,250,.15);color:var(--a7)">6</span><strong>Mantê-lo simples e prático</strong> — Use o mínimo de passos para atingir o objetivo.</p></div>
-    <div class="card bta"><p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">7</span><strong>Otimizar e automatizar</strong> — Simplifique primeiro; só depois aplique automação.</p></div>
-  </div>
-
-  <div class="sub">🎓 Service Design — Governança de TI Preventiva</div>
-  <div class="hl hlg"><strong>Definição:</strong> Service Design é a fase responsável por planejar e projetar serviços de TI de forma completa e sustentável, <em>antes</em> de serem implantados em produção. Transforma a estratégia de negócio em um projeto técnico e operacional detalhado do serviço.</div>
-  <div class="grid g2">
-    <div class="card btg">
-      <h3 style="color:var(--a4);margin-bottom:.4rem">Por que importa para a Governança?</h3>
-      <p>• <strong>Reduz riscos</strong> antes da implantação</p>
-      <p>• <strong>Evita retrabalho</strong> — corrigir em projeto é mais barato que em produção</p>
-      <p>• <strong>Promove padronização</strong> e qualidade técnica</p>
-      <p>• <strong>Facilita compliance</strong> — controles incorporados desde a concepção</p>
+      <div class="ch"><span class="ci">🧪</span><div><h3>Solvente Universal</h3></div></div>
+      <p>Dissolve compostos iônicos e moléculas polares (<strong>hidrofílicas</strong>) formando <em>camadas de solvatação</em>. Moléculas apolares (<strong>hidrofóbicas</strong>) não interagem com a água.</p>
     </div>
     <div class="card bta">
-      <h3 style="color:var(--a1);margin-bottom:.4rem">Elementos Projetados (SDP)</h3>
-      <p>• Arquitetura de sistemas e aplicações</p>
-      <p>• Infraestrutura (hardware, rede, storage)</p>
-      <p>• Processos operacionais e papéis</p>
-      <p>• Políticas de segurança da informação</p>
-      <p>• Planos de continuidade e Disaster Recovery</p>
-      <p>• KPIs e acordos de nível de serviço (SLAs)</p>
-    </div>
-  </div>
-  <div class="quote">Exemplo prático: Implantação de AVA (Blackboard) em uma instituição de ensino → SLA de 99,5% de disponibilidade · Arquitetura cloud vs. on-premises · Backup de notas e fóruns · Perfis de acesso (aluno/professor/coordenador) · Controles LGPD.</div>
-</section>
-
-<!-- ABA 3: PMBOK -->
-<section id="a3" class="sec">
-  <div class="sh"><div class="si" style="background:rgba(167,139,250,.1);color:var(--a7)">📊</div><div><h2>PMBoK &amp; Gestão de Projetos</h2><p>Projeto vs. Processo · Grupos de Processos · Áreas de Conhecimento · Stakeholders · Planejamento</p></div></div>
-
-  <div class="quote">Um projeto é um esforço temporário empreendido para criar um produto, serviço ou resultado exclusivo. — PMBoK/PMI</div>
-
-  <div class="sub">🔑 Projeto vs. Processo — Diferença Crucial para Prova</div>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Critério</th><th>Projeto</th><th>Processo (Operação de Rotina)</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Duração</strong></td><td>Determinado — início e fim definidos</td><td>Indeterminado — contínuo / cíclico</td></tr>
-        <tr><td><strong>Resultado</strong></td><td>Exclusivo / Único</td><td>Padrão / Padronizado</td></tr>
-        <tr><td><strong>Natureza</strong></td><td>Inédito / Não repetitivo</td><td>Repetitivo / Operacional</td></tr>
-        <tr><td><strong>Exemplo em TI</strong></td><td>Implantação de novo sistema ERP</td><td>Suporte diário e manutenção do ERP</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🧩 3 Características de um Projeto</div>
-  <div class="grid g3">
-    <div class="card bta"><h3 style="color:var(--a1);margin-bottom:.3rem">⏱️ Temporário</h3><p>Possui início e fim claramente definidos. Não é trabalho contínuo.</p></div>
-    <div class="card btv"><h3 style="color:var(--a7);margin-bottom:.3rem">💎 Único (Exclusivo)</h3><p>Gera resultado inédito, diferente de qualquer produto anterior.</p></div>
-    <div class="card btg"><h3 style="color:var(--a4);margin-bottom:.3rem">📈 Elaboração Progressiva</h3><p>Desenvolve-se em etapas graduais, detalhando-se conforme o conhecimento avança.</p></div>
-  </div>
-
-  <div class="sub">📋 PMI e o Guia PMBoK</div>
-  <div class="hl hlv"><strong>PMI (Project Management Institute)</strong> fundado em 1969. O PMBOK foi autorizado em 1981. <strong>⚠️ O PMBOK NÃO É UMA METODOLOGIA PRONTA!</strong> É um guia de boas práticas que deve ser adaptado (<em>tailoring</em>) à cultura e dimensão de cada empresa.</div>
-  <div class="hl hlg"><strong>Evolução:</strong> 1ª Edição (1996) → 7ª Edição (2021) — migrou de visão processual para abordagem flexível baseada em princípios e domínios de desempenho. As 10 Áreas de Conhecimento da 6ª Ed. continuam sendo referência fundamental.</div>
-
-  <div class="sub">📚 10 Áreas de Conhecimento do PMBoK</div>
-  <div class="grid g2">
-    <div class="card">
-      <p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">1</span><strong>Integração</strong> — Une, coordena e compatibiliza todas as demais áreas (peça central).</p>
-      <p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">2</span><strong>Escopo</strong> — Define o que faz e o que <em>não</em> faz parte do projeto.</p>
-      <p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">3</span><strong>Cronograma (Tempo)</strong> — Sequenciamento, estimativas e cumprimento de prazos.</p>
-      <p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">4</span><strong>Custo</strong> — Orçamento, estimativas financeiras e controle de gastos.</p>
-      <p><span class="num" style="background:rgba(6,182,212,.15);color:var(--a1)">5</span><strong>Qualidade</strong> — Conformidade com requisitos técnicos e expectativas do cliente.</p>
-    </div>
-    <div class="card">
-      <p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">6</span><strong>Recursos</strong> — Equipe, materiais, equipamentos e infraestrutura.</p>
-      <p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">7</span><strong>Comunicações</strong> — Distribuição e controle do fluxo de informações.</p>
-      <p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">8</span><strong>Riscos</strong> — Identificação, análise e planos de resposta.</p>
-      <p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">9</span><strong>Aquisições</strong> — Compras, contratos e fornecedores externos.</p>
-      <p><span class="num" style="background:rgba(52,211,153,.15);color:var(--a4)">10</span><strong>Stakeholders</strong> — Identificação e gestão ativa das partes interessadas.</p>
-    </div>
-  </div>
-
-  <div class="sub">🔄 5 Grupos de Processos e Artefatos-Chave</div>
-  <div class="card">
-    <div class="tl">
-      <div class="ti"><div class="dot"></div><h4>1. Iniciação → TAP (Termo de Abertura do Projeto)</h4><p>Define objetivos, nomeia o gerente de projeto, análise de viabilidade, restrições e premissas. <strong>Project Charter.</strong></p></div>
-      <div class="ti"><div class="dot"></div><h4>2. Planejamento → EAP / WBS + Plano de Gerenciamento</h4><p>Detalha escopo, cronograma, custos e riscos. <strong>WBS (Work Breakdown Structure)</strong> — decompõe o escopo em entregas gerenciáveis.</p></div>
-      <div class="ti"><div class="dot"></div><h4>3. Execução → Entregas (Deliverables)</h4><p>Mobilização da equipe, execução técnica, compras e produção dos entregáveis.</p></div>
-      <div class="ti"><div class="dot"></div><h4>4. Monitoramento e Controle → Relatórios de Desempenho</h4><p>Acompanhamento de status, verificação de desvios e controle de mudanças (replanejamento).</p></div>
-      <div class="ti"><div class="dot"></div><h4>5. Encerramento → TEP (Termo de Encerramento)</h4><p>Aceite formal, arquivamento técnico, auditoria financeira e <strong>lições aprendidas</strong>.</p></div>
-    </div>
-  </div>
-
-  <div class="sub">⚖️ Tríplice Restrição &amp; Losango do Esforço</div>
-  <div class="grid g2">
-    <div class="card btv">
-      <h3 style="color:var(--a7);margin-bottom:.5rem">Tríplice Restrição Clássica</h3>
-      <p>⏱️ <strong>Tempo</strong> — prazos e caminho crítico</p>
-      <p>💰 <strong>Custo</strong> — mão de obra, materiais, equipamentos, reservas</p>
-      <p>📦 <strong>Escopo</strong> — todo e apenas o trabalho acordado</p>
-      <div class="hl hlv" style="margin-top:.6rem;padding:.6rem .8rem"><strong>Regra:</strong> Alterar uma variável inevitavelmente tensiona as outras duas.</div>
+      <div class="ch"><span class="ci">🌡️</span><div><h3>Alto Calor Específico</h3></div></div>
+      <p>Absorve ou perde grande quantidade de calor com mínima variação térmica devido às pontes de H. Garante a <strong>homeotermia</strong> (estabilidade térmica celular).</p>
     </div>
     <div class="card bty">
-      <h3 style="color:var(--a5);margin-bottom:.5rem">Losango do Esforço (4 Dimensões)</h3>
-      <p>📋 <strong>Requisitos</strong> — o que deve ser entregue</p>
-      <p>⏱️ <strong>Tempo</strong> — prazos e cronograma</p>
-      <p>💰 <strong>Custo</strong> — investimento financeiro</p>
-      <p>✅ <strong>Qualidade</strong> — padrões de aceitação</p>
+      <div class="ch"><span class="ci">💨</span><div><h3>Alto Calor de Vaporização</h3></div></div>
+      <p>Exige muita energia para passar do estado líquido ao gasoso. Essencial para o resfriamento corporal via <strong>sudorese / transpiração</strong>.</p>
+    </div>
+    <div class="card btc">
+      <div class="ch"><span class="ci">🤝</span><div><h3>Coesão e Adesão</h3></div></div>
+      <p><strong>Coesão:</strong> atração entre moléculas de água (gera <em>tensão superficial</em>).<br><strong>Adesão:</strong> atração entre a água e outras superfícies polares. Juntas promovem a <strong>capilaridade</strong>.</p>
+    </div>
+    <div class="card btv">
+      <div class="ch"><span class="ci">⚙️</span><div><h3>Reagente Químico</h3></div></div>
+      <p>Participa ativamente de reações metabólicas: <strong>Hidrólise</strong> (quebra de ligações com adição de H₂O) e <strong>Condensação / Síntese por desidratação</strong> (formação de polímeros liberando H₂O).</p>
+    </div>
+    <div class="card btr">
+      <div class="ch"><span class="ci">🛡️</span><div><h3>Lubrificação e Proteção</h3></div></div>
+      <p>Compõe o líquido sinovial (articulações), líquido cefalorraquidiano (SNC), humor aquoso e líquido amniótico.</p>
     </div>
   </div>
 
-  <div class="sub">👥 Stakeholders e Papéis no Projeto</div>
+  <div class="sub">⚡ Sais Minerais e Íons Essenciais</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Podem estar <strong>imobilizados</strong> (insolúveis, formando estruturas esqueléticas como hidroxiapatita — Ca₃(PO₄)₂) ou <strong>dissociados na forma iônica</strong> (eletrólitos intra e extracelulares).</p>
+
   <div class="tw">
     <table>
-      <thead><tr><th>Papel</th><th>Participação</th><th>Responsabilidade Principal</th></tr></thead>
+      <thead>
+        <tr><th>Íon / Mineral</th><th>Predominância</th><th>Funções Biológicas Principais</th></tr>
+      </thead>
       <tbody>
-        <tr><td><strong>Patrocinador (Sponsor)</strong></td><td>Periódica</td><td>Membro mais graduado; fornece recursos; aprova o projeto; defende relevância corporativa.</td></tr>
-        <tr><td><strong>Gerente de Projetos (GP)</strong></td><td>Contínua</td><td>Lidera, motiva e organiza a equipe; monitora prazos, custos e entregas; comunica com stakeholders.</td></tr>
-        <tr><td><strong>Cliente / Usuário</strong></td><td>Esporádica</td><td>Define critérios de aceitação; impõe requisitos de negócio; recebe a entrega final.</td></tr>
-        <tr><td><strong>Membro-Chave (Líder Técnico)</strong></td><td>Ativa</td><td>Apoia o GP com expertise técnica; avalia viabilidade; garante prazo e custo.</td></tr>
-        <tr><td><strong>Fornecedores</strong></td><td>Contratual</td><td>Fornece bens e serviços especializados sob contrato.</td></tr>
+        <tr><td><strong>Sódio (Na⁺)</strong></td><td>Extracelular (LEC)</td><td>Principal cátion extracelular; equilíbrio osmótico; despolarização no impulso nervoso; co-transporte de glicose/aminoácidos.</td></tr>
+        <tr><td><strong>Potássio (K⁺)</strong></td><td>Intracelular (LIC)</td><td>Principal cátion intracelular; potencial de repouso da membrana; repolarização neuronal; síntese proteica e contração muscular.</td></tr>
+        <tr><td><strong>Cálcio (Ca²⁺)</strong></td><td>Extracelular / REL</td><td>Formação de ossos e dentes; <strong>contração muscular</strong> (interação actina-miosina); cascata de <strong>coagulação sanguínea</strong>; exocitose de neurotransmissores; segundo mensageiro celular.</td></tr>
+        <tr><td><strong>Magnésio (Mg²⁺)</strong></td><td>Intracelular</td><td>Cofator enzimático essencial (quinases, DNA polimerase); estabiliza a estrutura do <strong>ATP</strong> e dos ribossomos; átomo central da clorofila.</td></tr>
+        <tr><td><strong>Ferro (Fe²⁺ / Fe³⁺)</strong></td><td>Intracelular / Sangue</td><td>Grupo Heme da <strong>hemoglobina</strong> e <strong>mioglobina</strong> (transporte/estoque de O₂); citocromos da cadeia respiratória mitocondrial.</td></tr>
+        <tr><td><strong>Fosfato (PO₄³⁻ / HPO₄²⁻)</strong></td><td>Intracelular / Ossos</td><td>Estrutura de ácidos nucleicos (DNA/RNA), fosfolipídios de membrana e moléculas energéticas (ATP, GTP); tampão intracelular.</td></tr>
+        <tr><td><strong>Cloreto (Cl⁻)</strong></td><td>Extracelular (LEC)</td><td>Principal ânion extracelular; balanço hídrico e elétrico; produção de ácido clorídrico (HCl) no suco gástrico.</td></tr>
+        <tr><td><strong>Iodo (I⁻)</strong></td><td>Tireoide</td><td>Síntese dos hormônios tireoidianos (<strong>T3 — tri-iodotironina</strong> e <strong>T4 — tiroxina</strong>), reguladores da taxa metabólica basal.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="sub">🛠️ Ferramentas e Técnicas Fundamentais</div>
+  <div class="sub">⚖️ pH, Equilíbrio Ácido-Base e Sistemas Tampão</div>
   <div class="grid g2">
-    <div class="card bta"><div class="ch"><span class="ci">🏗️</span><div><h3>EAP / WBS</h3></div></div><p>Diagrama hierárquico que decompõe o escopo total em entregas menores e gerenciáveis.</p></div>
-    <div class="card btv"><div class="ch"><span class="ci">📋</span><div><h3>Matriz RACI</h3></div></div><p><strong>R</strong>esponsável (executa) · <strong>A</strong>provador (responde) · <strong>C</strong>onsultado (subsidia) · <strong>I</strong>nformado (notificado).</p></div>
-    <div class="card btg"><div class="ch"><span class="ci">📅</span><div><h3>Gráfico de Gantt</h3></div></div><p>Representação gráfica em barra cronológica para planejar e controlar o cronograma.</p></div>
-    <div class="card bty"><div class="ch"><span class="ci">📌</span><div><h3>Kanban</h3></div></div><p>Gestão visual de fluxo (To Do / Doing / Done) — amplamente usado em métodos ágeis.</p></div>
+    <div class="card bta">
+      <h3>Escala de pH (Potencial Hidrogeniônico)</h3>
+      <p>Mede a concentração de íons H⁺ livres em solução: <strong>pH = −log₁₀[H⁺]</strong>.</p>
+      <ul>
+        <li><strong>pH &lt; 7,0 (Ácido):</strong> Alta concentração de [H⁺] (ex: suco gástrico pH ~1,5 a 2,0; lisossomo pH ~5,0).</li>
+        <li><strong>pH = 7,0 (Neutro):</strong> [H⁺] = [OH⁻] (ex: água pura; citosol ~7,2).</li>
+        <li><strong>pH &gt; 7,0 (Básico / Alcalino):</strong> Baixa [H⁺] (ex: suco pancreático pH ~8,0).</li>
+      </ul>
+      <div class="hl hlg" style="margin-top:.6rem;padding:.6rem .8rem">
+        <strong>pH Sanguíneo Humano:</strong> Estreitamente regulado entre <strong>7,35 e 7,45</strong>.<br>
+        • &lt; 7,35 → <strong>Acidose</strong> (depressão do SNC, coma)<br>
+        • &gt; 7,45 → <strong>Alcalose</strong> (hiperexcitabilidade neuromuscular, tetania)
+      </div>
+    </div>
+    <div class="card btv">
+      <h3>Sistemas Tampão (Buffers)</h3>
+      <p>Pares conjugados ácido fraco / base conjugada que resistem a variações bruscas de pH para evitar a <strong>desnaturação proteica</strong>.</p>
+      <p style="margin-top:.45rem"><strong>Principal Tampão Extracelular (Bicarbonato):</strong></p>
+      <div class="hl hlv" style="text-align:center;font-weight:700;padding:.6rem">
+        CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻
+      </div>
+      <ul>
+        <li>Catalisado pela enzima <strong>Anidrase Carbônica</strong>.</li>
+        <li><strong>Regulação Pulmonar (Rápida):</strong> Hiperventilação elimina CO₂ (eleva pH); hipoventilação retém CO₂ (reduz pH).</li>
+        <li><strong>Regulação Renal (Lenta/Definitiva):</strong> Excreção de H⁺ e reabsorção/síntese de HCO₃⁻.</li>
+        <li><strong>Tampões Intracelulares:</strong> Tampão Fosfato (H₂PO₄⁻ / HPO₄²⁻) e Proteínas (resíduos de Histidina / Hemoglobina).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 2: ORGANIZAÇÃO CELULAR E ORGANELAS ==================== -->
+<section id="t2" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">🔬</div>
+    <div>
+      <h2>2. Organização Celular e Relação Estrutura–Função das Organelas</h2>
+      <p>Procariontes vs. Eucariontes · Compartimentalização celular · Sistema de endomembranas e organelas energéticas</p>
+    </div>
+  </div>
+
+  <div class="sub">🦠 Procariontes vs. Eucariontes</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Característica</th><th>Célula Procariótica (Bactérias / Archaea)</th><th>Célula Eucariótica (Animais, Vegetais, Fungos, Protistas)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Núcleo / Carioteca</strong></td><td>Ausente — DNA disperso no <strong>nucleoide</strong></td><td>Presente — Núcleo verdadeiro delimitado por dupla membrana com poros</td></tr>
+        <tr><td><strong>Material Genético</strong></td><td>DNA circular único, desprovido de histonas (em bactérias); presença de <strong>plasmídeos</strong></td><td>Múltiplos cromossomos lineares associados a proteínas <strong>histonas</strong> (cromatina)</td></tr>
+        <tr><td><strong>Organelas Membranosas</strong></td><td>Ausentes (sem mitocôndrias, RE, Golgi, lisossomos)</td><td>Presentes (alta compartimentalização metabólica)</td></tr>
+        <tr><td><strong>Ribossomos</strong></td><td>Menores — coeficiente <strong>70S</strong> (subunidades 50S + 30S)</td><td>Maiores no citosol/RER — <strong>80S</strong> (60S + 40S); 70S dentro de mitocôndrias/cloroplastos</td></tr>
+        <tr><td><strong>Citoesqueleto / Divisão</strong></td><td>Homólogos primitivos (FtsZ, MreB); divisão por <strong>fissão binária</strong></td><td>Citoesqueleto complexo; divisão por <strong>Mitose e Meiose</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">🏭 Relação Estrutura–Função das Organelas Citoplasmáticas</div>
+  <div class="hl hlg">
+    <strong>Princípio da Compartimentalização:</strong> As membranas internas criam microambientes especializados com pH e enzimas próprios, permitindo que reações incompatíveis (ex: síntese e degradação) ocorram simultaneamente na célula com máxima eficiência.
+  </div>
+
+  <div class="grid g2">
+    <div class="card bta">
+      <div class="ch"><span class="ci">🧠</span><div><h3>Núcleo e Nucléolo</h3></div></div>
+      <p><strong>Estrutura:</strong> Envoltório nuclear duplo (contínuo ao RER), lâmina nuclear fibrosa, poros nucleares e cromatina (<strong>Eucromatina</strong> = frouxa/ativa; <strong>Heterocromatina</strong> = condensada/inativa).</p>
+      <p><strong>Função:</strong> Armazenamento do genoma, replicação do DNA e transcrição de RNA. O <strong>Nucléolo</strong> sintetiza rRNA e monta as subunidades ribossomais.</p>
+    </div>
+    <div class="card btb">
+      <div class="ch"><span class="ci">📿</span><div><h3>Ribossomos (Não membranosa)</h3></div></div>
+      <p><strong>Estrutura:</strong> Duas subunidades (rRNA + proteínas).</p>
+      <p><strong>Função:</strong> Síntese proteica (Tradução).<br>
+      • <strong>Ribossomos Livres (polissomos):</strong> proteínas para o citosol, núcleo, mitocôndrias e peroxissomos.<br>
+      • <strong>Adesos ao RER:</strong> proteínas de exportação (secreção), lisossomais e integrais de membrana.</p>
+    </div>
+    <div class="card btc">
+      <div class="ch"><span class="ci">🏭</span><div><h3>Retículo Endoplasmático Rugoso (RER)</h3></div></div>
+      <p><strong>Estrutura:</strong> Rede de cisternas achatadas com ribossomos aderidos pela proteína <em>riboforina</em>.</p>
+      <p><strong>Função:</strong> Síntese de proteínas de exportação/membrana, dobramento inicial (chaperonas), formação de pontes dissulfeto e <strong>N-glicosilação inicial</strong>. Muito desenvolvido em células secretoras (ex: ácinos pancreáticos, plasmócitos).</p>
+    </div>
+    <div class="card bty">
+      <div class="ch"><span class="ci">🧪</span><div><h3>Retículo Endoplasmático Liso (REL)</h3></div></div>
+      <p><strong>Estrutura:</strong> Rede de túbulos anastomosados sem ribossomos.</p>
+      <p><strong>Função:</strong>
+      • <strong>Síntese de lipídios</strong> (fosfolipídios, colesterol, hormônios esteroides — testosterona, estrogênio, cortisol).<br>
+      • <strong>Destoxificação</strong> de drogas e álcool no fígado (enzimas Citocromo P450).<br>
+      • <strong>Armazenamento de Ca²⁺</strong> (no músculo chama-se <em>Retículo Sarcoplasmático</em>).<br>
+      • Glicogenólise hepática (glicose-6-fosfatase).</p>
+    </div>
+    <div class="card btv">
+      <div class="ch"><span class="ci">📦</span><div><h3>Complexo de Golgi (Aparelho Golgiense)</h3></div></div>
+      <p><strong>Estrutura:</strong> Pilhas de cisternas achatadas polarizadas (<em>dictiossomos</em>):<br>
+      • <strong>Face Cis (entrada):</strong> voltada para o RE, recebe vesículas de transição.<br>
+      • <strong>Face Trans (saída):</strong> voltada para a membrana plasmática, brota vesículas secretoras e lisossomos.</p>
+      <p><strong>Função:</strong> Modificação pós-traducional (O-glicosilação, sulfatação, fosforilação), <strong>endereçamento de proteínas</strong> (ex: adição de <em>manose-6-fosfato</em> para enzimas lisossomais), síntese de polissacarídeos, formação do <strong>acrossomo</strong> dos espermatozoides e da lamela média vegetal.</p>
+    </div>
+    <div class="card btr">
+      <div class="ch"><span class="ci">♻️</span><div><h3>Lisossomos</h3></div></div>
+      <p><strong>Estrutura:</strong> Vesículas esféricas com ~40 tipos de <strong>hidrolases ácidas</strong> (nucleases, proteases, lipases, glicosidases). Bomba de H⁺ mantém o <strong>pH interno ~5,0</strong>.</p>
+      <p><strong>Função:</strong> Digestão intracelular:<br>
+      • <strong>Heterofagia:</strong> digestão de partículas externas capturadas por fagocitose ou pinocitose.<br>
+      • <strong>Autofagia:</strong> reciclagem de organelas senescentes ou danificadas.<br>
+      • <strong>Autólise:</strong> rompimento da membrana lisossomal digerindo a célula (ex: regressão da cauda do girino; doença ocupacional <em>silicose</em>).</p>
+    </div>
+    <div class="card btb">
+      <div class="ch"><span class="ci">🛡️</span><div><h3>Peroxissomos</h3></div></div>
+      <p><strong>Estrutura:</strong> Vesículas oxidativas contendo enzimas <strong>oxidases</strong> e <strong>catalase</strong>.</p>
+      <p><strong>Função:</strong>
+      • <strong>β-oxidação de ácidos graxos de cadeia muito longa</strong>.<br>
+      • Neutralização de radicais livres / espécies reativas de oxigênio (EROS): as oxidases geram peróxido de hidrogênio (H₂O₂, tóxico), que é imediatamente decomposto pela <strong>catalase</strong> em <strong>2 H₂O + O₂</strong>.<br>
+      • Síntese de plasmalogênios (bainha de mielina) e ácidos biliares.</p>
+    </div>
+    <div class="card bta">
+      <div class="ch"><span class="ci">⚡</span><div><h3>Mitocôndrias</h3></div></div>
+      <p><strong>Estrutura:</strong> Dupla membrana. Membrana externa lisa (porinas permeáveis); membrana interna altamente pregueada em <strong>cristas mitocondriais</strong> (impermeável a íons, rica em cardiolipina e complexos da cadeia respiratória); <strong>Matriz mitocondrial</strong> com DNA circular próprio, ribossomos 70S e enzimas do Ciclo de Krebs.</p>
+      <p><strong>Função:</strong> Respiração celular aeróbica (Descarboxilação do piruvato, Ciclo de Krebs, β-oxidação e Fosforilação Oxidativa), regulação da <strong>apoptose</strong> (liberação do Citocromo C) e termogênese.</p>
+    </div>
+  </div>
+
+  <div class="hl hly">
+    <strong>Teoria Endossimbiótica (Lynn Margulis):</strong> Mitocôndrias e cloroplastos originaram-se de procariontes aeróbios e fotossintetizantes ancestralmente fagocitados por uma célula eucariótica primitiva. <strong>Evidências:</strong> Dupla membrana, DNA circular próprio sem histonas, ribossomos 70S e autoduplicação por fissão binária.
+  </div>
+</section>
+
+<!-- ==================== ABA 3: MEMBRANA PLASMÁTICA E TRANSPORTE ==================== -->
+<section id="t3" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(59,130,246,.12);color:var(--a4)">🧱</div>
+    <div>
+      <h2>3. Membrana Plasmática e Transporte através da Membrana</h2>
+      <p>Modelo do Mosaico Fluido · Composição bioquímica · Transporte passivo, ativo e vesicular</p>
+    </div>
+  </div>
+
+  <div class="sub">🌊 Estrutura: Modelo do Mosaico Fluido (Singer &amp; Nicolson, 1972)</div>
+  <div class="grid g3">
+    <div class="card btc">
+      <h3>1. Bicamada Fosfolipídica</h3>
+      <p>Moléculas <strong>anfipáticas</strong>: cabeça polar hidrofílica (fosfato + glicerol + colina) voltada para os meios aquosos e duas caudas apolares hidrofóbicas (ácidos graxos) voltadas para o interior.</p>
+      <p><strong>Colesterol (em animais):</strong> Modulador de fluidez — evita a cristalização em baixas temperaturas e reduz a fluidez excessiva em altas temperaturas.</p>
+    </div>
+    <div class="card bta">
+      <h3>2. Proteínas de Membrana</h3>
+      <p>• <strong>Integrais (Transmembrana):</strong> Atravessam a bicamada (α-hélices hidrofóbicas). Atuam como canais iônicos, carreadores (permeases), bombas e receptores.<br>
+      • <strong>Periféricas:</strong> Associadas à superfície interna ou externa por interações fracas; ligadas ao citoesqueleto ou matriz extracelular.</p>
+    </div>
+    <div class="card btv">
+      <h3>3. Glicocálice (Glicocálix)</h3>
+      <p>Camada externa de carboidratos ligados a proteínas (<strong>glicoproteínas</strong>) e lipídios (<strong>glicolipídios</strong>) na face extracelular.</p>
+      <p><strong>Funções:</strong> Reconhecimento celular (antígenos ABO, MHC), proteção mecânica/química, adesão celular e inibição por contato.</p>
+    </div>
+  </div>
+
+  <div class="sub">🚪 Mecanismos de Transporte através da Membrana</div>
+  <div class="hl hlb">
+    <strong>Permeabilidade Seletiva:</strong> Passam livremente pela bicamada lipídica gases apolares (O₂, CO₂, N₂), hormônios esteroides e pequenas moléculas polares sem carga (H₂O em pequena escala, ureia, etanol). Íons (Na⁺, K⁺, Ca²⁺, Cl⁻) e moléculas polares grandes (glicose, aminoácidos) exigem proteínas transportadoras.
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Tipo de Transporte</th><th>Gasto de Energia (ATP)</th><th>Sentido do Gradiente</th><th>Proteína Mediadora</th><th>Exemplos Clássicos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Difusão Simples</strong></td><td>Não (Passivo)</td><td>A favor (↓ gradiente)</td><td>Nenhuma (direto pela bicamada)</td><td>Trocas gasosas (O₂ e CO₂ nos alvéolos), entrada de hormônios esteroides.</td></tr>
+        <tr><td><strong>Difusão Facilitada</strong></td><td>Não (Passivo)</td><td>A favor (↓ gradiente)</td><td>Canais iônicos ou Permeases (saturação)</td><td>Entrada de glicose via <strong>GLUTs</strong> (GLUT-4 dependente de insulina); canais de Na⁺/K⁺.</td></tr>
+        <tr><td><strong>Osmose</strong></td><td>Não (Passivo)</td><td>Solvente vai do meio <strong>Hipotônico → Hipertônico</strong></td><td>Bicamada ou <strong>Aquaporinas</strong></td><td>Hemácia em meio hipotônico sofre <em>hemólise</em>; em meio hipertônico sofre <em>crenação</em>.</td></tr>
+        <tr><td><strong>Ativo Primário</strong></td><td>Sim (Hidrólise direta de ATP)</td><td>Contra (↑ gradiente)</td><td>Bombas (ATPases)</td><td><strong>Bomba de Na⁺/K⁺ ATPase</strong> (3 Na⁺ para fora / 2 K⁺ para dentro); Bomba de Ca²⁺; Bomba de H⁺.</td></tr>
+        <tr><td><strong>Ativo Secundário (Co-transporte)</strong></td><td>Sim (Indireto — usa gradiente do Na⁺)</td><td>Um a favor (Na⁺) e outro contra (glicose/H⁺)</td><td>Simporte ou Antiporte</td><td><strong>Simporte Na⁺/Glicose (SGLT-1)</strong> no epitélio intestinal e túbulos renais; Trocador Na⁺/Ca²⁺.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g2" style="margin-top:1rem">
+    <div class="card bty">
+      <div class="ch"><span class="ci">⚡</span><div><h3>Importância da Bomba de Na⁺/K⁺ ATPase</h3></div></div>
+      <ul>
+        <li>Bombeia <strong>3 Na⁺ para o meio extracelular</strong> e <strong>2 K⁺ para o meio intracelular</strong> a cada ATP hidrolisado.</li>
+        <li>É <strong>eletrogênica</strong>: mantém o interior da célula eletricamente negativo em relação ao exterior (Potencial de Repouso ~ −70 mV).</li>
+        <li>Controla o volume celular (evita lise osmótica) e fornece a energia potencial para o transporte ativo secundário.</li>
+      </ul>
+    </div>
+    <div class="card btr">
+      <div class="ch"><span class="ci">🫧</span><div><h3>Transporte emBloco (Vesicular — Gasta ATP)</h3></div></div>
+      <ul>
+        <li><strong>Fagocitose:</strong> Englobamento de partículas sólidas grandes via emissão de <em>pseudópodes</em> (formação do fagossomo). Ex: macrófagos e neutrófilos.</li>
+        <li><strong>Pinocitose:</strong> Englobamento de líquidos e solutos dissolvidos por invaginação da membrana.</li>
+        <li><strong>Endocitose mediada por receptor:</strong> Captura específica revestida por <em>clatrina</em> (ex: endocitose de colesterol <strong>LDL</strong>).</li>
+        <li><strong>Exocitose:</strong> Fusão de vesículas intracelulares com a membrana plasmática para secreção constitutiva ou regulada (ex: insulina, neurotransmissores).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 4: CITOESQUELETO ==================== -->
+<section id="t4" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(168,85,247,.12);color:var(--a7)">🕸️</div>
+    <div>
+      <h2>4. Citoesqueleto e Movimentos Celulares</h2>
+      <p>Microfilamentos de actina · Filamentos intermediários · Microtúbulos · Proteínas motoras</p>
+    </div>
+  </div>
+
+  <div class="hl hlv">
+    <strong>O que é o Citoesqueleto?</strong> Rede dinâmica tridimensional de filamentos proteicos citoplasmáticos responsável pela manutenção da arquitetura celular, resistência mecânica, transporte intracelular de vesículas/organelas, locomoção celular e divisão (fuso mitótico e citocinese).
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Diâmetro</th><th>Subunidade Proteica</th><th>Proteínas Motoras</th><th>Funções Principais e Estruturas Formadas</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Microfilamentos (Filamentos de Actina)</strong></td>
+          <td>~7 nm (Mais finos)</td>
+          <td>Actina G (globular) → polimeriza em Actina F (filamentosa); usa ATP</td>
+          <td><strong>Miosina</strong></td>
+          <td>Sustentação de <strong>microvilosidades</strong> (borda em escova intestinal); contração muscular (sarcômero); emissão de pseudópodes/lamelipódios (movimento ameboide); formação do <strong>anel contrátil</strong> na citocinese animal; ciclose.</td>
+        </tr>
+        <tr>
+          <td><strong>Filamentos Intermediários</strong></td>
+          <td>~10 nm (Intermediários)</td>
+          <td>Proteínas fibrosas diversas (Queratina, Vimentina, Desmina, Lâminas)</td>
+          <td><em>Nenhuma</em> (apolares e altamente estáveis)</td>
+          <td><strong>Resistência à tração mecânica</strong>; ancoragem de desmossomos e hemidesmossomos; formação da <strong>lâmina nuclear</strong> (sustenta a carioteca). Não sofrem remodelação rápida.</td>
+        </tr>
+        <tr>
+          <td><strong>Microtúbulos</strong></td>
+          <td>~25 nm (Mais espessos / ocos)</td>
+          <td>Dímeros de <strong>α-tubulina e β-tubulina</strong> (13 protofilamentos); usa GTP</td>
+          <td><strong>Cinesina</strong> (vai para extremidade + / periferia) e <strong>Dineína</strong> (vai para extremidade − / centro)</td>
+          <td>Originam-se no <strong>Centrossomo (MTOC)</strong> contendo um par de centríolos (arranjo 9×3). Formam as fibras do <strong>fuso mitótico</strong> (segregação cromossômica), <strong>cílios e flagelos</strong> (axonema 9+2 com dineína) e funcionam como "trilhos" para transporte de vesículas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g3" style="margin-top:1rem">
+    <div class="card bta">
+      <h3>🔬 Centríolos (Arranjo 9+0)</h3>
+      <p>9 trincas de microtúbulos periféricos sem par central. Localizados no centrossomo, organizam o fuso acromático e originam os corpúsculos basais de cílios e flagelos.</p>
+    </div>
+    <div class="card btb">
+      <h3>🏊 Cílios e Flagelos (Arranjo 9+2)</h3>
+      <p>Axonema com 9 pares periféricos + 1 par central de microtúbulos. O batimento ocorre pelo deslizamento ativo mediado pela proteína motora <strong>dineína ciliar</strong> (gasta ATP).</p>
+    </div>
+    <div class="card btr">
+      <h3>💊 Fármacos que atuam no Citoesqueleto</h3>
+      <p>• <strong>Colchicina / Vincristina:</strong> Despolimerizam microtúbulos (interrompem a mitose na metáfase).<br>
+      • <strong>Taxol (Paclitaxel):</strong> Estabiliza microtúbulos impedindo sua desmontagem (antitumoral).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 5: AMINOÁCIDOS E PROTEÍNAS ==================== -->
+<section id="t5" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">🥩</div>
+    <div>
+      <h2>5. Aminoácidos e Proteínas</h2>
+      <p>Estrutura dos aminoácidos · Ligação peptídica · Níveis estruturais · Enzimas e cinética enzimática</p>
+    </div>
+  </div>
+
+  <div class="sub">🧱 Estrutura Geral dos Aminoácidos</div>
+  <div class="grid g2">
+    <div class="card btr">
+      <h3>Carbono Alfa (Cα) Assimétrico</h3>
+      <p>Todo α-aminoácido possui um carbono central ligado a 4 grupamentos:</p>
+      <ul>
+        <li><strong>Grupo Amina (–NH₂)</strong> (básico → recebe H⁺ formando –NH₃⁺)</li>
+        <li><strong>Grupo Carboxila (–COOH)</strong> (ácido → doa H⁺ formando –COO⁻)</li>
+        <li><strong>Átomo de Hidrogênio (–H)</strong></li>
+        <li><strong>Cadeia Lateral ou Radical (–R):</strong> Define a identidade e propriedades químicas dos 20 aminoácidos padrão.</li>
+      </ul>
+      <p style="margin-top:.4rem"><strong>Caráter Anfótero (Zwitterion):</strong> Em pH fisiológico (~7,4), os aminoácidos possuem carga positiva e negativa simultaneamente, atuando como tampões.</p>
+    </div>
+    <div class="card bty">
+      <h3>Classificação pelo Radical (–R) e Nutrição</h3>
+      <ul>
+        <li><strong>Apolares (Hidrofóbicos):</strong> Glicina (único aquiral, R=H), Alanina, Valina, Leucina, Isoleucina, Metionina, Prolina, Fenilalanina, Triptofano.</li>
+        <li><strong>Polares Não Carregados:</strong> Serina, Treonina, Cisteína (forma <em>pontes dissulfeto –S–S–</em>), Tirosina, Asparagina, Glutamina.</li>
+        <li><strong>Carregados Negativamente (Ácidos):</strong> Aspartato, Glutamato.</li>
+        <li><strong>Carregados Positivamente (Básicos):</strong> Lisina, Arginina, Histidina.</li>
+      </ul>
+      <div class="hl hly" style="margin-top:.5rem;padding:.55rem .8rem">
+        <strong>Naturais (Não essenciais):</strong> Sintetizados pelo organismo humano (11).<br>
+        <strong>Essenciais:</strong> Devem ser obtidos na dieta (9): <em>Val, Leu, Ile, Lys, Met, Phe, Thr, Trp, His</em>.
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">🔗 Ligação Peptídica e Níveis de Organização Estrutural</div>
+  <div class="hl hlr">
+    <strong>Ligação Peptídica (Amida):</strong> Reação de condensação (desidratação) entre o grupo <strong>α-carboxila (–COOH)</strong> de um aminoácido e o grupo <strong>α-amina (–NH₂)</strong> do próximo, liberando <strong>1 molécula de H₂O</strong>. É uma ligação covalente planar e rígida (caráter parcial de dupla ligação).
+  </div>
+
+  <div class="tl">
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>1. Estrutura Primária</h4>
+      <p>Sequência linear geneticamente determinada de aminoácidos unidos por <strong>ligações peptídicas</strong> (da extremidade N-terminal para a C-terminal). Dita todas as estruturas superiores. <em>Não é rompida na desnaturação</em> (apenas por hidrólise enzimática/ácida).</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>2. Estrutura Secundária</h4>
+      <p>Arranjo espacial regular local do esqueleto polipeptídico estabilizado por <strong>pontes de hidrogênio</strong> entre os grupos C=O e N–H da cadeia principal (sem participação dos radicais R). Padrões clássicos: <strong>α-hélice</strong> (helicoidal) e <strong>Folha-β pregueada</strong> (paralela ou antiparalela).</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>3. Estrutura Terciária</h4>
+      <p>Dobramento tridimensional global de uma única cadeia polipeptídica, conferindo função biológica (conformação nativa). Estabilizada por interações entre os <strong>radicais –R</strong>: interações hidrofóbicas, pontes de hidrogênio, interações iônicas (pontes salinas) e <strong>pontes dissulfeto covalentes (–S–S– entre cisteínas)</strong>. Auxiliada por <em>proteínas chaperonas</em>.</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>4. Estrutura Quaternária</h4>
+      <p>Associação de <strong>duas ou mais cadeias polipeptídicas (subunidades)</strong> idênticas ou diferentes. Ex: <strong>Hemoglobina</strong> (tetrâmero α₂β₂ com 4 grupos heme) e Colágeno (tripla hélice).</p>
+    </div>
+  </div>
+
+  <div class="sub">⚙️ Desnaturação Proteica e Enzimas (Biocatalisadores)</div>
+  <div class="grid g2">
+    <div class="card btr">
+      <h3>🔥 Desnaturação Proteica</h3>
+      <p>Perda da estrutura tridimensional (quaternária, terciária e secundária) com consequente <strong>perda da função biológica</strong>, mantendo intacta a <strong>estrutura primária</strong> (ligações peptídicas não se rompem).</p>
+      <p><strong>Agentes desnaturantes:</strong> Temperatura elevada, alterações extremas de pH (alteram cargas dos radicais R), solventes orgânicos, ureia e detergentes.</p>
+    </div>
+    <div class="card bta">
+      <h3>⚡ Enzimas e Catálise Biológica</h3>
+      <p>Proteínas catalisadoras (exceto ribozimas de RNA) que aceleram a velocidade das reações químicas ao <strong>diminuir a Energia de Ativação</strong>, sem alterar o equilíbrio químico (ΔG) e sem serem consumidas.</p>
+      <ul>
+        <li><strong>Sítio Ativo:</strong> Bolsão tridimensional complementar ao substrato.</li>
+        <li><strong>Modelos:</strong> <em>Chave-Fechadura</em> (rígido, Fischer) e <em>Encaixe Induzido</em> (flexível/conformacional, Koshland).</li>
+        <li><strong>Holoenzima = Apoenzima</strong> (parte proteica) + <strong>Cofator</strong> (íon inorgânico: Mg²⁺, Zn²⁺) ou <strong>Coenzima</strong> (orgânica derivada de vitaminas: NAD⁺, FAD, Coenzima A).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 6: LIPÍDIOS E CARBOIDRATOS ==================== -->
+<section id="t6" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">🥑</div>
+    <div>
+      <h2>6. Lipídios e Carboidratos</h2>
+      <p>Classes de lipídios · Ácidos graxos · Monossacarídeos, dissacarídeos e polissacarídeos estruturais e de reserva</p>
+    </div>
+  </div>
+
+  <div class="sub">🥑 Lipídios: Estrutura, Classes e Funções</div>
+  <div class="hl hly">
+    <strong>Característica Definidora:</strong> Biomoléculas orgânicas insolúveis ou pouco solúveis em água (hidrofóbicas/apolares) e solúveis em solventes orgânicos (éter, clorofórmio, benzeno). Não formam polímeros verdadeiros.
+  </div>
+
+  <div class="grid g2">
+    <div class="card bty">
+      <h3>1. Ácidos Graxos e Triacilgliceróis (Triglicerídeos)</h3>
+      <p><strong>Ácidos Graxos:</strong> Ácidos carboxílicos de cadeia longa hidrocarbonada.<br>
+      • <strong>Saturados:</strong> Apenas ligações simples (cadeia retilínea, sólidos em temp. ambiente — gorduras animais).<br>
+      • <strong>Insaturados:</strong> Uma ou mais duplas ligações <em>cis</em> (causam dobra na cadeia, líquidos — óleos vegetais; ex: ômega-3 e ômega-6 essenciais).<br>
+      • <strong>Gordura Trans:</strong> Insaturados isomerizados industrialmente (configuração linear aterogênica).</p>
+      <p style="margin-top:.4rem"><strong>Triacilgliceróis:</strong> 1 Glicerol esterificado a 3 Ácidos Graxos. Principal forma de <strong>reserva energética de longa duração</strong> nos adipócitos (fornecem <strong>9 kcal/g</strong>, armazenamento anidro) e isolamento térmico/mecânico.</p>
+    </div>
+    <div class="card bta">
+      <h3>2. Fosfolipídios, Esteroides, Cerídeos e Carotenoides</h3>
+      <ul>
+        <li><strong>Fosfolipídios (Glicerofosfolipídios e Esfingolipídios):</strong> Anfipáticos (2 ácidos graxos + glicerol + fosfato + álcool polar). Base estrutural das membranas celulares e bainha de mielina (esfingomielina).</li>
+        <li><strong>Esteroides:</strong> Núcleo tetracíclico (<em>ciclopentanoperidrofenantreno</em>). Principal representante: <strong>Colesterol</strong> (exclusivo animal), precursor de:
+          <br>→ <strong>Hormônios esteroides</strong> (testosterona, estradiol, progesterona, cortisol, aldosterona);
+          <br>→ <strong>Vitamina D (colecalciferol)</strong> e <strong>Sais Biliares</strong> (emulsificação de gorduras no duodeno).</li>
+        <li><strong>Cerídeos:</strong> Impermeabilização de folhas, frutos e exoesqueleto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">🍞 Carboidratos (Glicídios / Hidratos de Carbono)</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Poli-hidroxialdeídos (aldoses) ou poli-hidroxicetonas (cetoses) de fórmula empírica geral <strong>(CH₂O)ₙ</strong>. Fornecem energia imediata (<strong>4 kcal/g</strong>), reserva energética e suporte estrutural.</p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Classe</th><th>Definição / Ligação</th><th>Principais Representantes e Funções Biológicas</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monossacarídeos (Oses)</strong></td>
+          <td>Açúcares simples (3 a 7 carbonos); não sofrem hidrólise</td>
+          <td>
+            • <strong>Pentoses (5C):</strong> <em>Ribose</em> (RNA, ATP) e <em>Desoxirribose</em> (DNA — sem oxigênio no C2').<br>
+            • <strong>Hexoses (6C — C₆H₁₂O₆):</strong> <em>Glicose</em> (principal combustível celular), <em>Frutose</em> (açúcar das frutas / esperma) e <em>Galactose</em> (laticínios).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Dissacarídeos (Oligossacarídeos)</strong></td>
+          <td>União de 2 monossacarídeos por <strong>Ligação Glicosídica</strong> (libera 1 H₂O)</td>
+          <td>
+            • <strong>Sacarose</strong> = Glicose + Frutose (açúcar da cana; transporte na seiva elaborada vegetal).<br>
+            • <strong>Lactose</strong> = Glicose + Galactose (açúcar do leite; digerida pela enzima <em>lactase</em>).<br>
+            • <strong>Maltose</strong> = Glicose + Glicose (ligação α-1,4; produto da digestão parcial do amido).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polissacarídeos de Reserva</strong></td>
+          <td>Polímeros de α-glicose com ligações α(1→4) e ramificações α(1→6)</td>
+          <td>
+            • <strong>Glicogênio:</strong> Reserva energética <strong>animal e de fungos</strong>. Altamente ramificado (a cada 8–12 resíduos). Armazenado no <strong>fígado</strong> (manutenção da glicemia sanguínea) e nos <strong>músculos esqueléticos</strong> (consumo próprio na contração).<br>
+            • <strong>Amido:</strong> Reserva energética <strong>vegetal</strong> (amilose linear + amilopectina ramificada).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polissacarídeos Estruturais</strong></td>
+          <td>Polímeros lineares resistentes com ligações <strong>β(1→4)</strong></td>
+          <td>
+            • <strong>Celulose:</strong> Parede celular vegetal. Humanos não possuem a enzima <em>celulase</em> para romper ligações β(1→4) (atua como fibra alimentar).<br>
+            • <strong>Quitina:</strong> Polímero de N-acetilglicosamina; compõe a parede celular dos <strong>fungos</strong> e o exoesqueleto dos <strong>artrópodes</strong>.<br>
+            • <strong>Glicosaminoglicanos (GAGs):</strong> Ácido hialurônico, condroitina e heparina na Matriz Extracelular.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== ABA 7: DNA E RNA ==================== -->
+<section id="t7" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">🧬</div>
+    <div>
+      <h2>7. Ácidos Nucleicos: DNA e RNA</h2>
+      <p>Estrutura dos nucleotídeos · Modelo de Watson &amp; Crick · Replicação, Transcrição e Tradução (Dogma Central)</p>
+    </div>
+  </div>
+
+  <div class="sub">🧪 Estrutura do Nucleotídeo (Monômero)</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <h3>1. Grupo Fosfato</h3>
+      <p>Ligado ao carbono 5' da pentose. Confere <strong>caráter ácido e carga negativa</strong> ao DNA e RNA em pH fisiológico.</p>
+    </div>
+    <div class="card btb">
+      <h3>2. Pentose (Açúcar 5C)</h3>
+      <p>• <strong>2'-Desoxirribose no DNA:</strong> possui apenas H no carbono 2' (confere muito maior estabilidade química contra hidrólise).<br>
+      • <strong>Ribose no RNA:</strong> possui grupo –OH reativo no carbono 2'.</p>
+    </div>
+    <div class="card btv">
+      <h3>3. Base Nitrogenada</h3>
+      <p>• <strong>Púricas (2 anéis):</strong> Adenina (A) e Guanina (G).<br>
+      • <strong>Pirimídicas (1 anel):</strong> Citosina (C), Timina (T — <em>exclusiva do DNA</em>) e Uracila (U — <em>exclusiva do RNA</em>).</p>
+    </div>
+  </div>
+
+  <div class="hl hlg">
+    <strong>Ligação Fosfodiéster:</strong> Une o carbono <strong>3'-OH</strong> de um nucleotídeo ao grupo fosfato no carbono <strong>5'</strong> do próximo nucleotídeo. Por isso, toda fita de ácido nucleico possui polaridade e sempre é sintetizada na direção <strong>5' → 3'</strong>.
+  </div>
+
+  <div class="sub">🔄 Comparativo: DNA vs. RNA e Pareamento de Chargaff</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Critério</th><th>DNA (Ácido Desoxirribonucleico)</th><th>RNA (Ácido Ribonucleico)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Pentose</strong></td><td>Desoxirribose</td><td>Ribose</td></tr>
+        <tr><td><strong>Bases Nitrogenadas</strong></td><td>A, G, C e <strong>Timina (T)</strong></td><td>A, G, C e <strong>Uracila (U)</strong></td></tr>
+        <tr><td><strong>Estrutura Padrão</strong></td><td>Dupla-hélice antiparalela (5'→3' e 3'←5')</td><td>Fita simples (pode dobrar-se formando grampos internos)</td></tr>
+        <tr><td><strong>Pareamento (Pontes de H)</strong></td><td><strong>A = T</strong> (2 pontes de H) · <strong>C ≡ G</strong> (3 pontes de H — mais estável ao calor)</td><td>No pareamento temporário: <strong>A = U</strong> (2 pontes) e <strong>C ≡ G</strong> (3 pontes)</td></tr>
+        <tr><td><strong>Tipos e Funções</strong></td><td>Armazenamento perpétuo e transmissão hereditária da informação genética</td><td>• <strong>mRNA (mensageiro):</strong> contém os códons (trincas).<br>• <strong>tRNA (transportador):</strong> possui o anticódon e traz o aminoácido.<br>• <strong>rRNA (ribossomal):</strong> estrutura e atividade catalítica (peptidil transferase) do ribossomo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">⚙️ O Dogma Central da Biologia Molecular</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <div class="ch"><span class="ci">1️⃣</span><div><h3>Replicação (Duplicação)</h3></div></div>
+      <p><strong>DNA → DNA (Fase S da Intérfase)</strong></p>
+      <ul>
+        <li><strong>Semiconservativa:</strong> Cada fita filha conserva uma fita parental como molde.</li>
+        <li><strong>Helicase:</strong> Rompe as pontes de H abrindo a forquilha.</li>
+        <li><strong>Topoisomerase:</strong> Alivia a supertorção.</li>
+        <li><strong>Primase:</strong> Sintetiza o primer de RNA.</li>
+        <li><strong>DNA Polimerase:</strong> Sintetiza apenas 5'→3' (fita líder contínua e fita descontínua com <em>Fragmentos de Okazaki</em> unidos pela <strong>DNA Ligase</strong>).</li>
+      </ul>
+    </div>
+    <div class="card btb">
+      <div class="ch"><span class="ci">2️⃣</span><div><h3>Transcrição</h3></div></div>
+      <p><strong>DNA → RNA (Núcleo)</strong></p>
+      <ul>
+        <li>A enzima <strong>RNA Polimerase</strong> lê a fita molde de DNA (3'→5') e sintetiza o RNA complementar no sentido <strong>5'→3'</strong> sem precisar de primer.</li>
+        <li><strong>Processamento em Eucariontes:</strong> Adição do <em>Cap 5'</em>, <em>Cauda Poli-A 3'</em> e <strong>Splicing</strong> (remoção dos <strong>Íntrons</strong> não codificantes e união dos <strong>Éxons</strong> codificantes pelo spliceossomo).</li>
+      </ul>
+    </div>
+    <div class="card btv">
+      <div class="ch"><span class="ci">3️⃣</span><div><h3>Tradução</h3></div></div>
+      <p><strong>mRNA → Proteína (Ribossomos)</strong></p>
+      <ul>
+        <li><strong>Código Genético:</strong> Universal e <em>degenerado</em> (64 códons para 20 aminoácidos).</li>
+        <li><strong>Códon de Iniciação:</strong> <strong>AUG</strong> (codifica <em>Metionina</em>).</li>
+        <li><strong>Códons de Parada (Stop):</strong> <strong>UAA, UAG, UGA</strong> (reconhecidos por fatores de liberação).</li>
+        <li>Etapas: Iniciação, Alongamento (sítios A, P e E do ribossomo) e Terminação.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 8: METABOLISMO DA GLICOSE ==================== -->
+<section id="t8" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">⚡</div>
+    <div>
+      <h2>8. Metabolismo da Glicose (Carboidratos)</h2>
+      <p>Glicólise · Ciclo de Krebs · Fosforilação Oxidativa · Fermentação · Gliconeogênese e Glicogenólise</p>
+    </div>
+  </div>
+
+  <div class="sub">🔥 Respiração Celular Aeróbica: As 4 Etapas Catabólicas</div>
+  <div class="hl hlg">
+    <strong>Equação Geral:</strong> C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + Energia (<strong>30 a 32 ATPs</strong> segundo a bioenergética moderna; ou 36–38 ATPs no cálculo clássico).
+  </div>
+
+  <div class="tl">
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>1. Glicólise (Via de Embden-Meyerhof) — Local: Citosol (Anaeróbica)</h4>
+      <p>Quebra de <strong>1 Glicose (6C)</strong> em <strong>2 Piruvatos (3C)</strong> através de 10 reações enzimáticas.<br>
+      • <strong>Fase de Investimento:</strong> Gasta 2 ATPs (enzimas reguladoras: <em>Hexoquinase/Glicoquinase</em> e <em>Fosfofrutoquinase-1 / PFK-1</em> — principal ponto de controle alostérico).<br>
+      • <strong>Fase de Pagamento:</strong> Produz 4 ATPs (por fosforilação em nível de substrato) e reduz 2 NAD⁺.<br>
+      • <strong>Saldo Líquido por Glicose:</strong> <span class="tag tag-g">2 ATP</span> <span class="tag tag-c">2 NADH</span> <span class="tag tag-y">2 Piruvatos</span></p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>2. Oxidação do Piruvato (Descarboxilação Oxidativa) — Local: Matriz Mitocondrial</h4>
+      <p>O piruvato entra na mitocôndria e sofre ação do <strong>Complexo Piruvato Desidrogenase</strong>, liberando CO₂ e unindo-se à Coenzima A.<br>
+      • <strong>Saldo (para 2 Piruvatos):</strong> <span class="tag tag-v">2 Acetil-CoA (2C)</span> <span class="tag tag-c">2 NADH</span> <span class="tag tag-r">2 CO₂</span></p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>3. Ciclo de Krebs (Ciclo do Ácido Cítrico) — Local: Matriz Mitocondrial</h4>
+      <p>Via <strong>anfibólica</strong> (catabólica e anabólica). O <strong>Acetil-CoA (2C)</strong> condensa-se com o <strong>Oxaloacetato (4C)</strong> formando <strong>Citrato (6C)</strong>, que sofre oxidações sucessivas regenerando o Oxaloacetato.<br>
+      • <strong>Saldo por 1 Acetil-CoA (1 volta):</strong> 3 NADH + 1 FADH₂ + 1 GTP (ATP) + 2 CO₂.<br>
+      • <strong>Saldo por 1 Glicose (2 voltas):</strong> <span class="tag tag-c">6 NADH</span> <span class="tag tag-y">2 FADH₂</span> <span class="tag tag-g">2 GTP (ATP)</span> <span class="tag tag-r">4 CO₂</span></p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>4. Cadeia Transportadora de Elétrons e Fosforilação Oxidativa — Local: Cristas Mitocondriais</h4>
+      <p>• <strong>Cadeia Respiratória (Complexos I, II, III e IV):</strong> NADH (entrega elétrons no Complexo I → rende ~2,5 ATP) e FADH₂ (entrega no Complexo II → rende ~1,5 ATP) transferem elétrons até o <strong>Oxigênio (O₂), o aceptor final de elétrons</strong>, que se reduz formando H₂O.<br>
+      • <strong>Bombeamento de Prótons:</strong> A passagem de elétrons nos Complexos I, III e IV bombeia <strong>H⁺ da matriz para o espaço intermembranas</strong>, criando um gradiente eletroquímico (força próton-motriz).<br>
+      • <strong>Quimiosmose (ATP Sintase — Complexo V):</strong> O retorno dos íons H⁺ a favor do gradiente através da <strong>ATP Sintase</strong> gira seu rotor catalítico e fosforila ADP + Pi em <strong>ATP</strong> (~26 a 28 ATPs).</p>
+    </div>
+  </div>
+
+  <div class="sub">🔄 Vias Alternativas e Regulação Glicêmica</div>
+  <div class="grid g2">
+    <div class="card btr">
+      <h3>🍺 Destino Anaeróbico: Fermentação (Citosol)</h3>
+      <p>Quando falta O₂ (ou em células sem mitocôndrias, como hemácias), o piruvato é reduzido no citosol para <strong>regenerar o NAD⁺</strong> e manter a glicólise ativa (saldo: apenas 2 ATP/glicose):</p>
+      <ul>
+        <li><strong>Fermentação Lática:</strong> Piruvato → <strong>Lactato</strong> (enzima <em>Lactato Desidrogenase</em>). Ocorre em hemácias e no músculo esquelético em exercício intenso. O lactato vai ao fígado e é reconvertido em glicose pelo <strong>Ciclo de Cori</strong>.</li>
+        <li><strong>Fermentação Alcoólica:</strong> Piruvato → Acetaldeído + CO₂ → <strong>Etanol</strong> (leveduras <em>Saccharomyces cerevisiae</em>).</li>
+      </ul>
+    </div>
+    <div class="card btb">
+      <h3>⚖️ Vias Hepáticas e Regulação Hormonal</h3>
+      <ul>
+        <li><strong>Glicogênese:</strong> Síntese de glicogênio a partir de glicose (ativada pela <strong>Insulina</strong> no estado pós-prandial/alimentado; enzima <em>Glicogênio Sintase</em>).</li>
+        <li><strong>Glicogenólise:</strong> Quebra de glicogênio em glicose (ativada pelo <strong>Glucagon</strong> e <strong>Adrenalina</strong> no jejum/exercício; enzima <em>Glicogênio Fosforilase</em>).</li>
+        <li><strong>Gliconeogênese:</strong> Síntese de glicose no fígado/córtex renal a partir de precursores <em>não glicídicos</em>: <strong>Lactato, Glicerol e Aminoácidos glicogênicos (ex: Alanina)</strong> durante jejum prolongado.</li>
+        <li><strong>Via das Pentoses-Fosfato:</strong> Ocorre no citosol; gera <strong>NADPH</strong> (síntese lipídica e defesa antioxidante via glutationa) e <strong>Ribose-5-fosfato</strong> (síntese de nucleotídeos).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 9: METABOLISMO LIPÍDICO ==================== -->
+<section id="t9" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">🔥</div>
+    <div>
+      <h2>9. Metabolismo Lipídico</h2>
+      <p>Lipólise · Ativação e Transporte por Carnitina · β-Oxidação · Cetogênese · Lipogênese e Lipoproteínas</p>
+    </div>
+  </div>
+
+  <div class="sub">🔥 Catabolismo Lipídico: Da Lipólise à β-Oxidação</div>
+  <div class="tl">
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>1. Lipólise no Tecido Adiposo (Jejum / Exercício)</h4>
+      <p>Estimulada por <strong>Glucagon e Adrenalina</strong> (e inibida pela Insulina). A enzima <strong>Lipase Sensível a Hormônio (LSH)</strong> hidrolisa o Triacilglicerol em:<br>
+      • <strong>Glicerol:</strong> Vai pelo sangue até o fígado para entrar na glicólise ou <strong>gliconeogênese</strong>.<br>
+      • <strong>Ácidos Graxos Livres (AGL):</strong> Viajam no sangue ligados à proteína <strong>Albumina</strong> até os tecidos oxidativos (músculo esquelético, coração, fígado).</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>2. Ativação no Citosol e Lançadeira da Carnitina</h4>
+      <p>• No citosol, o ácido graxo é ativado em <strong>Acil-CoA</strong> pela enzima <em>Acil-CoA Sintetase</em> (gasta o equivalente a <strong>2 ligações de alta energia de ATP</strong>: ATP → AMP + PPi).<br>
+      • Ácidos graxos de cadeia longa (&gt;12C) atravessam a membrana mitocondrial interna através da <strong>Lançadeira da Carnitina</strong>: a enzima <strong>CPT-1 (Carnitina Palmitoil Transferase 1)</strong> é o principal ponto regulatório (inibida pelo <em>Malonil-CoA</em> para impedir que síntese e degradação ocorram ao mesmo tempo).</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>3. β-Oxidação dos Ácidos Graxos (Ciclo de Lynen) — Local: Matriz Mitocondrial</h4>
+      <p>O Acil-CoA sofre ciclos sucessivos de 4 reações (Oxidação por FAD → Hidratação → Oxidação por NAD⁺ → Clivagem tiolítica), encurtando a cadeia em <strong>2 carbonos por volta</strong>.<br>
+      • <strong>Produto de cada ciclo:</strong> <span class="tag tag-v">1 Acetil-CoA (vai ao Ciclo de Krebs)</span> <span class="tag tag-y">1 FADH₂</span> <span class="tag tag-c">1 NADH</span><br>
+      • <strong>Exemplo Clássico — Ácido Palmítico (16 carbonos):</strong> Sofre <strong>7 ciclos</strong> de β-oxidação, gerando <strong>8 Acetil-CoA + 7 FADH₂ + 7 NADH</strong> → saldo líquido final de <strong>106 ATPs</strong> (após descontar os 2 ATPs de ativação).</p>
+    </div>
+  </div>
+
+  <div class="hl hlr">
+    <strong>⚠️ Nota Crucial de Prova:</strong> Os ácidos graxos de número par de carbonos <strong>NÃO podem ser convertidos em glicose</strong> em animais, pois o Acetil-CoA não pode ser transformado de volta em Piruvato (a reação da Piruvato Desidrogenase é irreversível) e seus 2 carbonos são perdidos como CO₂ no Ciclo de Krebs. Além disso, o <strong>cérebro não realiza β-oxidação</strong> porque os ácidos graxos não atravessam eficientemente a barreira hematoencefálica.
+  </div>
+
+  <div class="sub">🧪 Cetogênese, Lipogênese e Lipoproteínas Plasmáticas</div>
+  <div class="grid g3">
+    <div class="card btr">
+      <h3>1. Corpos Cetônicos (Cetogênese)</h3>
+      <p><strong>Local:</strong> Matriz mitocondrial <strong>exclusivamente do Fígado</strong> durante jejum prolongado ou diabetes descompensado.</p>
+      <p>Como o oxaloacetato hepático é desviado para a gliconeogênese, o excesso de Acetil-CoA é convertido em: <strong>Acetoacetato, β-Hidroxibutirato</strong> (fontes vitais de energia para o cérebro e coração no jejum) e <strong>Acetona</strong> (volátil, eliminada no hálito cetônico). Excesso causa <em>cetoacidose</em>.</p>
+    </div>
+    <div class="card bta">
+      <h3>2. Síntese de Ácidos Graxos (Lipogênese)</h3>
+      <p><strong>Local:</strong> <strong>Citosol</strong> (fígado e tecido adiposo) após dieta rica em carboidratos (estimulada pela <strong>Insulina</strong>).</p>
+      <p>O excesso de Acetil-CoA mitocondrial sai para o citosol sob a forma de <strong>Citrato</strong>. A enzima <strong>Acetil-CoA Carboxilase (ACC)</strong> converte Acetil-CoA em <strong>Malonil-CoA</strong>, e o complexo <em>Ácido Graxo Sintase</em> constrói o palmitato usando poder redutor do <strong>NADPH</strong>.</p>
+    </div>
+    <div class="card btb">
+      <h3>3. Lipoproteínas Sanguíneas</h3>
+      <ul>
+        <li><strong>Quilomícrons:</strong> Transportam triglicerídeos da dieta (exógenos) do intestino para os tecidos.</li>
+        <li><strong>VLDL:</strong> Transporta triglicerídeos endógenos sintetizados pelo fígado para os tecidos periféricos.</li>
+        <li><strong>LDL ("Mau colesterol"):</strong> Entrega colesterol do fígado para os tecidos; em excesso oxida-se e forma placas de ateroma.</li>
+        <li><strong>HDL ("Bom colesterol"):</strong> Realiza o <em>transporte reverso de colesterol</em> dos tecidos de volta para o fígado para excreção biliar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 10: METABOLISMO PROTEICO ==================== -->
+<section id="t10" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">♻️</div>
+    <div>
+      <h2>10. Metabolismo Proteico e Nitrogenado</h2>
+      <p>Digestão proteica · Transaminação · Desaminação oxidativa · Ciclo da Ureia · Destino do esqueleto carbônico</p>
+    </div>
+  </div>
+
+  <div class="hl hlr">
+    <strong>Princípio Fundamental:</strong> Ao contrário de carboidratos (glicogênio) e lipídios (triacilgliceróis), <strong>não existe forma de armazenamento exclusivo de proteínas ou aminoácidos no corpo</strong>. O excesso de aminoácidos da dieta ou oriundo do turnover proteico celular tem seu grupo amino removido e seu esqueleto carbônico oxidado ou convertido em glicose/gordura.
+  </div>
+
+  <div class="sub">🍽️ 1. Digestão Proteica e Degradação Intracelular</div>
+  <div class="grid g2">
+    <div class="card btc">
+      <h3>Digestão Gastrointestinal (Zimogênios)</h3>
+      <ul>
+        <li><strong>Estômago:</strong> O HCl desnatura as proteínas e converte o pepsinogênio em <strong>Pepsina</strong> (endopeptidase ativa em pH ~2,0).</li>
+        <li><strong>Intestino Delgado (Pâncreas):</strong> Suco pancreático libera zimogênios ativados no duodeno: <strong>Tripsina, Quimotripsina, Elastase e Carboxipeptidases</strong>.</li>
+        <li><strong>Borda em Escova:</strong> Aminopeptidases e dipeptidases liberam aminoácidos livres absorvidos por co-transporte com Na⁺.</li>
+      </ul>
+    </div>
+    <div class="card btv">
+      <h3>Degradação Intracelular (Turnover)</h3>
+      <ul>
+        <li><strong>Via Ubiquitina-Proteassoma (Citosol/Núcleo):</strong> Proteínas intracelulares defeituosas ou de meia-vida curta são marcadas covalentemente pela proteína <strong>Ubiquitina</strong> (gasta ATP) e degradadas no complexo <strong>Proteassoma 26S</strong>.</li>
+        <li><strong>Via Lisossomal (Catepsinas):</strong> Degrada proteínas extracelulares endocitadas e proteínas de membrana.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">🔄 2. Catabolismo do Grupo Amino: Transaminação → Desaminação → Ciclo da Ureia</div>
+  <div class="tl">
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>Etapa 1: Transaminação (Citosol dos tecidos e Fígado)</h4>
+      <p>As enzimas <strong>Aminotransferases (Transaminases)</strong> — que dependem da coenzima <strong>Piridoxal-Fosfato (PLP, derivada da Vitamina B6)</strong> — transferem o grupo amino (–NH₂) de diversos aminoácidos para o <strong>α-Cetoglutarato</strong>, formando um α-cetoácido e concentrando todo o nitrogênio na forma de <strong>L-Glutamato</strong>.<br>
+      • <strong>TGO (AST — Aspartato Aminotransferase):</strong> Converte Aspartato + α-Cetoglutarato ⇌ Oxaloacetato + Glutamato.<br>
+      • <strong>TGP (ALT — Alanina Aminotransferase):</strong> Converte Alanina + α-Cetoglutarato ⇌ Piruvato + Glutamato (marcador clínico específico de lesão hepática).</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>Etapa 2: Transporte Seguro de Amônia no Sangue (Glutamina e Ciclo de Cahill)</h4>
+      <p>A amônia livre (NH₃ / NH₄⁺) é altamente <strong>neurotóxica</strong> (causa encefalopatia hepática). Para viajar com segurança pelos vasos sanguíneos até o fígado:<br>
+      • <strong>Maioria dos tecidos e cérebro:</strong> A <em>Glutamina Sintetase</em> fixa NH₄⁺ no Glutamato gerando <strong>Glutamina</strong> (neutra e atóxica).<br>
+      • <strong>Músculo Esquelético (Ciclo Glicose-Alanina / Cahill):</strong> O piruvato muscular recebe o grupo amino formando <strong>Alanina</strong>, que vai ao fígado regenerar piruvato (para gliconeogênese) e liberar o nitrogênio.</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>Etapa 3: Desaminação Oxidativa (Matriz Mitocondrial dos Hepatócitos)</h4>
+      <p>No fígado, a enzima <strong>Glutamato Desidrogenase</strong> remove o grupo amino do Glutamato usando NAD⁺ ou NADP⁺, regenerando o <strong>α-Cetoglutarato</strong> e liberando o íon <strong>Amônio livre (NH₄⁺)</strong> diretamente dentro da mitocondria hepática para alimentar o Ciclo da Ureia.</p>
+    </div>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>Etapa 4: Ciclo da Ureia (Ciclo de Krebs-Henseleit) — Local: Fígado (Mitocôndria + Citosol)</h4>
+      <p>Converte 2 átomos de nitrogênio tóxicos (<strong>1 vindo do NH₄⁺ livre</strong> e <strong>1 vindo do Aspartato</strong>) + 1 carbono do HCO₃⁻ em <strong>Ureia — CO(NH₂)₂</strong>, composto atóxico e hidrossolúvel que vai pela corrente sanguínea até os <strong>rins</strong> para excreção urinária.<br>
+      • <strong>Na Mitocôndria:</strong> NH₄⁺ + HCO₃⁻ + 2 ATP → <em>Carbamoil-Fosfato</em> (enzima limitante: <em>CPS-I</em>). Condensa-se com a <strong>Ornitina</strong> formando <strong>Citrulina</strong>, que sai para o citosol.<br>
+      • <strong>No Citosol:</strong> Citrulina + Aspartato (gasta ATP → AMP) → <em>Argininossufinato</em> → <strong>Arginina</strong> + <em>Fumarato</em> (este retorna ao Ciclo de Krebs — "Biciclo de Krebs"). A enzima <strong>Arginase</strong> cliva a Arginina liberando <strong>UREIA</strong> e regenerando a <strong>Ornitina</strong>.</p>
+    </div>
+  </div>
+
+  <div class="sub">⚡ 3. Destino do Esqueleto Carbônico dos Aminoácidos</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <h3>🟢 Aminoácidos Glicogênicos</h3>
+      <p>Seus esqueletos carbônicos são degradados a <strong>Piruvato</strong> ou intermediários do Ciclo de Krebs (<strong>α-Cetoglutarato, Succinil-CoA, Fumarato ou Oxaloacetato</strong>), podendo servir de substrato para a <strong>Gliconeogênese</strong> (síntese de glicose).</p>
+      <p><strong>Exemplos:</strong> Alanina, Glutamato, Glutamina, Aspartato, Serina, Glicina, Valina, Metionina.</p>
+    </div>
+    <div class="card bty">
+      <h3>🟡 Aminoácidos Cetogênicos Exclusivos</h3>
+      <p>Seus esqueletos carbônicos são degradados exclusivamente a <strong>Acetil-CoA</strong> ou <strong>Acetoacetato</strong>. Como Acetil-CoA não gera glicose, só podem formar <strong>corpos cetônicos ou ácidos graxos</strong>.</p>
+      <p><strong>Exemplos (Apenas 2!):</strong> <strong>Leucina (Leu)</strong> e <strong>Lisina (Lys)</strong>.</p>
+    </div>
+    <div class="card btv">
+      <h3>🟣 Aminoácidos Glicocetogênicos (Mistos)</h3>
+      <p>Parte de sua cadeia carbônica gera intermediários glicogênicos (como fumarato, succinil-CoA ou piruvato) e outra parte gera Acetil-CoA/Acetoacetato.</p>
+      <p><strong>Exemplos (5):</strong> <strong>Isoleucina, Fenilalanina, Tirosina, Triptofano e Treonina</strong>.</p>
+    </div>
   </div>
 </section>
 
 </main>
+
 <button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
+
 <script>
-function show(id,btn){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
-const t=document.getElementById('top');window.addEventListener('scroll',()=>t.classList.toggle('show',window.scrollY>400));
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+const t=document.getElementById('top');
+window.addEventListener('scroll',()=>t.classList.toggle('show',window.scrollY>400));
 </script>
 </body>
 </html>
+
