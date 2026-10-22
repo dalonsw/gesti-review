@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Revisão — Biologia Celular e Bioquímica</title>
+<title>Revisão — SUS, Saúde Coletiva e Economia da Saúde</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0b1116;
-  --card:#131d26;
-  --bord:#233544;
-  --a1:#10b981;
-  --a2:#34d399;
-  --a3:#06b6d4;
-  --a4:#3b82f6;
+  --bg:#0a1017;
+  --card:#121c27;
+  --bord:#213244;
+  --a1:#0ea5e9;
+  --a2:#38bdf8;
+  --a3:#10b981;
+  --a4:#34d399;
   --a5:#f59e0b;
   --a6:#f43f5e;
   --a7:#a855f7;
@@ -22,21 +22,21 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.68}
-header{background:linear-gradient(135deg,#101d26,#0b1116);border-bottom:1px solid var(--bord);padding:2.8rem 2rem 2.3rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.15),transparent 65%);pointer-events:none}
-.badge{display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);color:var(--a1);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
-header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#e6edf3 25%,var(--a1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
-header p{color:var(--muted);font-size:.95rem;max-width:680px;margin:0 auto}
+header{background:linear-gradient(135deg,#0f1d2d,#0a1017);border-bottom:1px solid var(--bord);padding:2.8rem 2rem 2.3rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(14,165,233,.16),transparent 65%);pointer-events:none}
+.badge{display:inline-block;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.35);color:var(--a2);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
+header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#e6edf3 25%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
+header p{color:var(--muted);font-size:.95rem;max-width:700px;margin:0 auto}
 .mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:1.3rem}
 .mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.77rem;color:var(--muted)}
 .mpill span{color:var(--text);font-weight:600}
-.print-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,.15);border:1px solid var(--a1);color:var(--a2);padding:.45rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
-.print-btn:hover{background:var(--a1);color:#0b1116}
-.tabs{position:sticky;top:0;z-index:100;background:rgba(11,17,22,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.print-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(14,165,233,.15);border:1px solid var(--a1);color:var(--a2);padding:.45rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.print-btn:hover{background:var(--a1);color:#0a1017}
+.tabs{position:sticky;top:0;z-index:100;background:rgba(10,16,23,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.82rem;font-weight:600;padding:.9rem 1.1rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.83rem;font-weight:600;padding:.9rem 1.15rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
 .tab:hover{color:var(--text)}
-.tab.active{color:var(--a1);border-bottom-color:var(--a1)}
+.tab.active{color:var(--a2);border-bottom-color:var(--a2)}
 main{max-width:1040px;margin:0 auto;padding:2.4rem 1.5rem 5rem}
 .sec{display:none;animation:fi .3s ease}
 .sec.active{display:block}
@@ -58,865 +58,580 @@ main{max-width:1040px;margin:0 auto;padding:2.4rem 1.5rem 5rem}
 .card ul{padding-left:1.15rem}
 .card strong{color:var(--text)}
 .hl{border-radius:10px;padding:.95rem 1.2rem;margin:1rem 0;font-size:.84rem;color:var(--text)}
-.hlg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25)}.hlg strong{color:var(--a2)}
-.hlc{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.25)}.hlc strong{color:var(--a3)}
-.hlb{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.25)}.hlb strong{color:var(--a4)}
+.hlb{background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.25)}.hlb strong{color:var(--a2)}
+.hlg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25)}.hlg strong{color:var(--a4)}
 .hly{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25)}.hly strong{color:var(--a5)}
 .hlr{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25)}.hlr strong{color:var(--a6)}
 .hlv{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25)}.hlv strong{color:var(--a7)}
+.quote{background:linear-gradient(135deg,rgba(14,165,233,.09),rgba(16,185,129,.05));border:1px solid rgba(14,165,233,.25);border-radius:12px;padding:1.15rem 1.45rem;margin:1.1rem 0;font-style:italic;color:var(--text);position:relative;font-size:.88rem}
 .tw{overflow-x:auto;margin:1rem 0;border-radius:10px;border:1px solid var(--bord)}
 table{width:100%;border-collapse:collapse;font-size:.82rem}
-thead th{background:rgba(16,185,129,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
+thead th{background:rgba(14,165,233,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
 tbody td{padding:.55rem .95rem;border-top:1px solid var(--bord);color:var(--muted)}
 tbody td strong{color:var(--text)}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 .tl{position:relative;padding-left:2rem}
-.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a7));border-radius:2px}
+.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a5));border-radius:2px}
 .ti{position:relative;margin-bottom:1.1rem}
 .dot{position:absolute;left:-1.45rem;top:.35rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--a1);border:2px solid var(--bg)}
-.ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a4)}.ti:nth-child(4) .dot{background:var(--a5)}.ti:nth-child(5) .dot{background:var(--a6)}.ti:nth-child(6) .dot{background:var(--a7)}
+.ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a5)}.ti:nth-child(4) .dot{background:var(--a6)}.ti:nth-child(5) .dot{background:var(--a7)}.ti:nth-child(6) .dot{background:var(--a2)}
 .ti h4{font-size:.9rem;font-weight:700;color:var(--text)}
 .ti p{font-size:.82rem;color:var(--muted);margin-top:.2rem}
 .bta{border-top:3px solid var(--a1)!important}
-.btb{border-top:3px solid var(--a3)!important}
-.btc{border-top:3px solid var(--a4)!important}
+.btg{border-top:3px solid var(--a3)!important}
 .bty{border-top:3px solid var(--a5)!important}
 .btr{border-top:3px solid var(--a6)!important}
 .btv{border-top:3px solid var(--a7)!important}
-.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(16,185,129,.15);color:var(--a2)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(14,165,233,.15);color:var(--a2)}
 .tag{display:inline-block;padding:.15rem .55rem;border-radius:6px;font-size:.72rem;font-weight:700;margin-right:.3rem}
-.tag-g{background:rgba(16,185,129,.15);color:var(--a2)}
-.tag-c{background:rgba(6,182,212,.15);color:var(--a3)}
+.tag-b{background:rgba(14,165,233,.15);color:var(--a2)}
+.tag-g{background:rgba(16,185,129,.15);color:var(--a4)}
 .tag-y{background:rgba(245,158,11,.15);color:var(--a5)}
 .tag-r{background:rgba(244,63,94,.15);color:var(--a6)}
 .tag-v{background:rgba(168,85,247,.15);color:var(--a7)}
-#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#0b1116;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(16,185,129,.35);display:none;place-items:center;transition:transform .2s}
+#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#0a1017;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(14,165,233,.35);display:none;place-items:center;transition:transform .2s}
 #top:hover{transform:scale(1.1)}#top.show{display:grid}
 
 @media print{
-  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#047857;--a2:#065f46;--a3:#0369a1;--a4:#1d4ed8;--a5:#b45309;--a6:#be123c;--a7:#6d28d9}
+  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#0369a1;--a2:#0284c7;--a3:#047857;--a4:#065f46;--a5:#b45309;--a6:#be123c;--a7:#6d28d9}
   body{background:#fff;color:#0f172a;font-size:9.5pt}
-  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #047857}
-  header h1{-webkit-text-fill-color:#047857;color:#047857}
+  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #0369a1}
+  header h1{-webkit-text-fill-color:#0369a1;color:#0369a1}
   .tabs,.print-btn,#top{display:none!important}
   .sec{display:block!important;page-break-before:always;margin-bottom:2rem}
   .sec:first-of-type{page-break-before:avoid}
-  .card,.hl,.tw,tr{page-break-inside:avoid}
+  .card,.hl,.tw,tr,.quote{page-break-inside:avoid}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="badge">🧬 Revisão Completa · Biologia Celular &amp; Bioquímica</div>
-  <h1>Biologia Celular, Molecular &amp; Metabolismo</h1>
-  <p>Guia completo e estruturado cobrindo bases químicas da vida, citologia, biomoléculas, transporte de membrana e vias metabólicas.</p>
+  <div class="badge">🏥 Saúde Coletiva &amp; Políticas Públicas</div>
+  <h1>Sistema Único de Saúde (SUS)</h1>
+  <p>Revisão completa: História e Estrutura do SUS, Princípios e Diretrizes, Legislação Estruturante, Controle Social, Financiamento e Economia da Saúde.</p>
   <div class="mpills">
-    <div class="mpill">💧 <span>Água, Íons &amp; pH</span></div>
-    <div class="mpill">🔬 <span>Organelas &amp; Citoesqueleto</span></div>
-    <div class="mpill">🧱 <span>Membrana &amp; Transporte</span></div>
-    <div class="mpill">🧪 <span>Proteínas, Lipídios, Carboidratos &amp; Ác. Nucleicos</span></div>
-    <div class="mpill">⚡ <span>Metabolismo: Glicose, Lipídios &amp; Proteínas</span></div>
+    <div class="mpill">🏥 <span>História &amp; Estrutura do SUS</span></div>
+    <div class="mpill">⚖️ <span>Princípios Doutrinários &amp; Organizativos</span></div>
+    <div class="mpill">📜 <span>Legislação (CF/88, 8.080, 8.142, 7.508)</span></div>
+    <div class="mpill">🗳️ <span>Controle Social (Conselhos &amp; Conferências)</span></div>
+    <div class="mpill">💰 <span>Financiamento (EC 29, LC 141, Blocos)</span></div>
+    <div class="mpill">📈 <span>Economia da Saúde (ACE, ACU, ACB)</span></div>
   </div>
   <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" onclick="show('t1',this)">💧 1. Água, Sais, Íons e pH</button>
-  <button class="tab" onclick="show('t2',this)">🔬 2. Organização Celular &amp; Organelas</button>
-  <button class="tab" onclick="show('t3',this)">🧱 3. Membrana &amp; Transporte</button>
-  <button class="tab" onclick="show('t4',this)">🕸️ 4. Citoesqueleto</button>
-  <button class="tab" onclick="show('t5',this)">🥩 5. Aminoácidos &amp; Proteínas</button>
-  <button class="tab" onclick="show('t6',this)">🥑 6. Lipídios &amp; Carboidratos</button>
-  <button class="tab" onclick="show('t7',this)">🧬 7. DNA &amp; RNA</button>
-  <button class="tab" onclick="show('t8',this)">⚡ 8. Metabolismo da Glicose</button>
-  <button class="tab" onclick="show('t9',this)">🔥 9. Metabolismo Lipídico</button>
-  <button class="tab" onclick="show('t10',this)">♻️ 10. Metabolismo Proteico</button>
+  <button class="tab active" onclick="show('s1',this)">🏥 1. O SUS &amp; História</button>
+  <button class="tab" onclick="show('s2',this)">⚖️ 2. Princípios do SUS</button>
+  <button class="tab" onclick="show('s3',this)">📜 3. Legislação do SUS</button>
+  <button class="tab" onclick="show('s4',this)">🗳️ 4. Controle Social</button>
+  <button class="tab" onclick="show('s5',this)">💰 5. Financiamento da Saúde</button>
+  <button class="tab" onclick="show('s6',this)">📈 6. Economia da Saúde</button>
 </nav>
 
 <main>
 
-<!-- ==================== ABA 1: ÁGUA, SAIS, ÍONS E PH ==================== -->
-<section id="t1" class="sec active">
+<!-- ==================== ABA 1: O SUS & HISTÓRIA ==================== -->
+<section id="s1" class="sec active">
   <div class="sh">
-    <div class="si" style="background:rgba(6,182,212,.12);color:var(--a3)">💧</div>
+    <div class="si" style="background:rgba(14,165,233,.12);color:var(--a2)">🏥</div>
     <div>
-      <h2>1. Água, Sais Minerais, Íons e pH</h2>
-      <p>Propriedades físico-químicas da água · Eletrólitos biológicos · Equilíbrio ácido-base e sistemas tampão</p>
+      <h2>1. O Sistema Único de Saúde (SUS): Evolução Histórica e Conceito</h2>
+      <p>Dos modelos previdenciários excludentes à Reforma Sanitária e ao direito universal à saúde</p>
     </div>
   </div>
 
-  <div class="sub">🌊 A Molécula de Água (H₂O) e suas Propriedades</div>
-  <div class="hl hlc">
-    <strong>Geometria Angular e Polaridade:</strong> O átomo de oxigênio (altamente eletronegativo) atrai os elétrons compartilhados com os dois hidrogênios, gerando uma carga parcial negativa (<strong>δ⁻</strong> no O) e cargas parciais positivas (<strong>δ⁺</strong> nos H). Isso forma um <strong>dipolo elétrico</strong> capaz de estabelecer até <strong>4 ligações (pontes) de hidrogênio</strong> com moléculas vizinhas.
+  <div class="quote">
+    "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação." — <strong>Art. 196 da Constituição Federal de 1988</strong>
   </div>
 
-  <div class="grid g3">
-    <div class="card btb">
-      <div class="ch"><span class="ci">🧪</span><div><h3>Solvente Universal</h3></div></div>
-      <p>Dissolve compostos iônicos e moléculas polares (<strong>hidrofílicas</strong>) formando <em>camadas de solvatação</em>. Moléculas apolares (<strong>hidrofóbicas</strong>) não interagem com a água.</p>
+  <div class="sub">⏳ Linha do Tempo: A Construção Histórica da Saúde Pública no Brasil</div>
+  <div class="tl">
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>1. Sanitarismo Campanhista (Início do Séc. XX — Oswaldo Cruz / Carlos Chagas)</h4>
+      <p>Foco no controle de epidemias (febre amarela, varíola, peste bubônica) que ameaçavam a agroexportação cafeeira e os portos. Modelo vertical, autoritário/policialesco (ex: <em>Revolta da Vacina, 1904</em>). Assistência médica individual restrita à filantropia (Santas Casas) e pagamento privado.</p>
     </div>
-    <div class="card bta">
-      <div class="ch"><span class="ci">🌡️</span><div><h3>Alto Calor Específico</h3></div></div>
-      <p>Absorve ou perde grande quantidade de calor com mínima variação térmica devido às pontes de H. Garante a <strong>homeotermia</strong> (estabilidade térmica celular).</p>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>2. Nascimento da Previdência Social: Lei Eloy Chaves (1923) — CAPs e IAPs</h4>
+      <p>• <strong>1923 (CAPs — Caixas de Aposentadorias e Pensões):</strong> Organizadas por <em>empresas</em> (ferroviários, marítimos), financiadas de forma bipartite (empregadores + empregados, sem o Estado).<br>
+      • <strong>Anos 1930 — Era Vargas (IAPs — Institutos de Aposentadorias e Pensões):</strong> Organizados por <em>categorias profissionais</em> (IAPI, IAPC, IAPTEC), financiamento tripartite. <strong>Cidadania regulada:</strong> só tinha direito à assistência médica quem tinha carteira assinada.</p>
     </div>
-    <div class="card bty">
-      <div class="ch"><span class="ci">💨</span><div><h3>Alto Calor de Vaporização</h3></div></div>
-      <p>Exige muita energia para passar do estado líquido ao gasoso. Essencial para o resfriamento corporal via <strong>sudorese / transpiração</strong>.</p>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>3. Ditadura Militar: INPS (1966) e INAMPS (1977)</h4>
+      <p>• <strong>INPS (1966):</strong> Unificou todos os IAPs. Modelo <strong>hospitalocêntrico, curativista, médico-centrado e privatista</strong> (compra de leitos e serviços da rede privada).<br>
+      • <strong>INAMPS (1977):</strong> Instituto Nacional de Assistência Médica da Previdência Social. Manteve a dicotomia: o <em>Ministério da Saúde</em> fazia campanhas coletivas (subfinanciado), enquanto o <em>INAMPS</em> prestava assistência individual apenas aos trabalhadores formais contribuintes (os "indigentes" sem carteira assinada dependiam de caridade).</p>
     </div>
-    <div class="card btc">
-      <div class="ch"><span class="ci">🤝</span><div><h3>Coesão e Adesão</h3></div></div>
-      <p><strong>Coesão:</strong> atração entre moléculas de água (gera <em>tensão superficial</em>).<br><strong>Adesão:</strong> atração entre a água e outras superfícies polares. Juntas promovem a <strong>capilaridade</strong>.</p>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>4. Movimento da Reforma Sanitária (Anos 1970/1980) e 8ª Conferência Nacional de Saúde (1986)</h4>
+      <p>Movimento civil, acadêmico (CEBES, ABRASCO, Sergio Arouca) e profissional que defendia a redemocratização e o <strong>conceito ampliado de saúde</strong>.<br>
+      • <strong>8ª CNS (1986):</strong> Marco histórico! Primeira conferência com ampla participação popular (+4.000 participantes). Seu relatório final definiu os 3 pilares que criariam o SUS na Constituição: (1) Saúde como direito de cidadania e dever do Estado; (2) Reformulação do Sistema Nacional de Saúde; (3) Financiamento setorial próprio.</p>
     </div>
-    <div class="card btv">
-      <div class="ch"><span class="ci">⚙️</span><div><h3>Reagente Químico</h3></div></div>
-      <p>Participa ativamente de reações metabólicas: <strong>Hidrólise</strong> (quebra de ligações com adição de H₂O) e <strong>Condensação / Síntese por desidratação</strong> (formação de polímeros liberando H₂O).</p>
-    </div>
-    <div class="card btr">
-      <div class="ch"><span class="ci">🛡️</span><div><h3>Lubrificação e Proteção</h3></div></div>
-      <p>Compõe o líquido sinovial (articulações), líquido cefalorraquidiano (SNC), humor aquoso e líquido amniótico.</p>
-    </div>
-  </div>
-
-  <div class="sub">⚡ Sais Minerais e Íons Essenciais</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Podem estar <strong>imobilizados</strong> (insolúveis, formando estruturas esqueléticas como hidroxiapatita — Ca₃(PO₄)₂) ou <strong>dissociados na forma iônica</strong> (eletrólitos intra e extracelulares).</p>
-
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Íon / Mineral</th><th>Predominância</th><th>Funções Biológicas Principais</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Sódio (Na⁺)</strong></td><td>Extracelular (LEC)</td><td>Principal cátion extracelular; equilíbrio osmótico; despolarização no impulso nervoso; co-transporte de glicose/aminoácidos.</td></tr>
-        <tr><td><strong>Potássio (K⁺)</strong></td><td>Intracelular (LIC)</td><td>Principal cátion intracelular; potencial de repouso da membrana; repolarização neuronal; síntese proteica e contração muscular.</td></tr>
-        <tr><td><strong>Cálcio (Ca²⁺)</strong></td><td>Extracelular / REL</td><td>Formação de ossos e dentes; <strong>contração muscular</strong> (interação actina-miosina); cascata de <strong>coagulação sanguínea</strong>; exocitose de neurotransmissores; segundo mensageiro celular.</td></tr>
-        <tr><td><strong>Magnésio (Mg²⁺)</strong></td><td>Intracelular</td><td>Cofator enzimático essencial (quinases, DNA polimerase); estabiliza a estrutura do <strong>ATP</strong> e dos ribossomos; átomo central da clorofila.</td></tr>
-        <tr><td><strong>Ferro (Fe²⁺ / Fe³⁺)</strong></td><td>Intracelular / Sangue</td><td>Grupo Heme da <strong>hemoglobina</strong> e <strong>mioglobina</strong> (transporte/estoque de O₂); citocromos da cadeia respiratória mitocondrial.</td></tr>
-        <tr><td><strong>Fosfato (PO₄³⁻ / HPO₄²⁻)</strong></td><td>Intracelular / Ossos</td><td>Estrutura de ácidos nucleicos (DNA/RNA), fosfolipídios de membrana e moléculas energéticas (ATP, GTP); tampão intracelular.</td></tr>
-        <tr><td><strong>Cloreto (Cl⁻)</strong></td><td>Extracelular (LEC)</td><td>Principal ânion extracelular; balanço hídrico e elétrico; produção de ácido clorídrico (HCl) no suco gástrico.</td></tr>
-        <tr><td><strong>Iodo (I⁻)</strong></td><td>Tireoide</td><td>Síntese dos hormônios tireoidianos (<strong>T3 — tri-iodotironina</strong> e <strong>T4 — tiroxina</strong>), reguladores da taxa metabólica basal.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">⚖️ pH, Equilíbrio Ácido-Base e Sistemas Tampão</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <h3>Escala de pH (Potencial Hidrogeniônico)</h3>
-      <p>Mede a concentração de íons H⁺ livres em solução: <strong>pH = −log₁₀[H⁺]</strong>.</p>
-      <ul>
-        <li><strong>pH &lt; 7,0 (Ácido):</strong> Alta concentração de [H⁺] (ex: suco gástrico pH ~1,5 a 2,0; lisossomo pH ~5,0).</li>
-        <li><strong>pH = 7,0 (Neutro):</strong> [H⁺] = [OH⁻] (ex: água pura; citosol ~7,2).</li>
-        <li><strong>pH &gt; 7,0 (Básico / Alcalino):</strong> Baixa [H⁺] (ex: suco pancreático pH ~8,0).</li>
-      </ul>
-      <div class="hl hlg" style="margin-top:.6rem;padding:.6rem .8rem">
-        <strong>pH Sanguíneo Humano:</strong> Estreitamente regulado entre <strong>7,35 e 7,45</strong>.<br>
-        • &lt; 7,35 → <strong>Acidose</strong> (depressão do SNC, coma)<br>
-        • &gt; 7,45 → <strong>Alcalose</strong> (hiperexcitabilidade neuromuscular, tetania)
-      </div>
-    </div>
-    <div class="card btv">
-      <h3>Sistemas Tampão (Buffers)</h3>
-      <p>Pares conjugados ácido fraco / base conjugada que resistem a variações bruscas de pH para evitar a <strong>desnaturação proteica</strong>.</p>
-      <p style="margin-top:.45rem"><strong>Principal Tampão Extracelular (Bicarbonato):</strong></p>
-      <div class="hl hlv" style="text-align:center;font-weight:700;padding:.6rem">
-        CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻
-      </div>
-      <ul>
-        <li>Catalisado pela enzima <strong>Anidrase Carbônica</strong>.</li>
-        <li><strong>Regulação Pulmonar (Rápida):</strong> Hiperventilação elimina CO₂ (eleva pH); hipoventilação retém CO₂ (reduz pH).</li>
-        <li><strong>Regulação Renal (Lenta/Definitiva):</strong> Excreção de H⁺ e reabsorção/síntese de HCO₃⁻.</li>
-        <li><strong>Tampões Intracelulares:</strong> Tampão Fosfato (H₂PO₄⁻ / HPO₄²⁻) e Proteínas (resíduos de Histidina / Hemoglobina).</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 2: ORGANIZAÇÃO CELULAR E ORGANELAS ==================== -->
-<section id="t2" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">🔬</div>
-    <div>
-      <h2>2. Organização Celular e Relação Estrutura–Função das Organelas</h2>
-      <p>Procariontes vs. Eucariontes · Compartimentalização celular · Sistema de endomembranas e organelas energéticas</p>
+    <div class="ti">
+      <div class="dot"></div>
+      <h4>5. SUDS (1987) → Constituição Federal de 1988 → Leis Orgânicas da Saúde (1990)</h4>
+      <p>• <strong>SUDS (Sistema Unificado e Descentralizado de Saúde, 1987):</strong> Ponte de transição entre o INAMPS e o SUS (iniciou a estadualização e universalização).<br>
+      • <strong>CF/1988 (Arts. 196 a 200):</strong> Cria institucionalmente o <strong>SUS</strong> dentro da <strong>Seguridade Social</strong> (Saúde + Previdência + Assistência Social).<br>
+      • <strong>Leis 8.080/90 e 8.142/90:</strong> Regulamentam o funcionamento, a gestão, o financiamento e o controle social do SUS.</p>
     </div>
   </div>
 
-  <div class="sub">🦠 Procariontes vs. Eucariontes</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Característica</th><th>Célula Procariótica (Bactérias / Archaea)</th><th>Célula Eucariótica (Animais, Vegetais, Fungos, Protistas)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Núcleo / Carioteca</strong></td><td>Ausente — DNA disperso no <strong>nucleoide</strong></td><td>Presente — Núcleo verdadeiro delimitado por dupla membrana com poros</td></tr>
-        <tr><td><strong>Material Genético</strong></td><td>DNA circular único, desprovido de histonas (em bactérias); presença de <strong>plasmídeos</strong></td><td>Múltiplos cromossomos lineares associados a proteínas <strong>histonas</strong> (cromatina)</td></tr>
-        <tr><td><strong>Organelas Membranosas</strong></td><td>Ausentes (sem mitocôndrias, RE, Golgi, lisossomos)</td><td>Presentes (alta compartimentalização metabólica)</td></tr>
-        <tr><td><strong>Ribossomos</strong></td><td>Menores — coeficiente <strong>70S</strong> (subunidades 50S + 30S)</td><td>Maiores no citosol/RER — <strong>80S</strong> (60S + 40S); 70S dentro de mitocôndrias/cloroplastos</td></tr>
-        <tr><td><strong>Citoesqueleto / Divisão</strong></td><td>Homólogos primitivos (FtsZ, MreB); divisão por <strong>fissão binária</strong></td><td>Citoesqueleto complexo; divisão por <strong>Mitose e Meiose</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🏭 Relação Estrutura–Função das Organelas Citoplasmáticas</div>
+  <div class="sub">🔍 Conceito Ampliado de Saúde e Determinantes Sociais (Art. 3º da Lei 8.080/90)</div>
   <div class="hl hlg">
-    <strong>Princípio da Compartimentalização:</strong> As membranas internas criam microambientes especializados com pH e enzimas próprios, permitindo que reações incompatíveis (ex: síntese e degradação) ocorram simultaneamente na célula com máxima eficiência.
+    <strong>Superação do Modelo Biomédico:</strong> A saúde deixa de ser vista apenas como "ausência de doença" e passa a ser compreendida como resultante das condições de vida: <strong>alimentação, moradia, saneamento básico, meio ambiente, trabalho, renda, educação, atividade física, transporte, lazer e acesso aos bens e serviços essenciais</strong>.
   </div>
 
-  <div class="grid g2">
+  <div class="grid g3">
     <div class="card bta">
-      <div class="ch"><span class="ci">🧠</span><div><h3>Núcleo e Nucléolo</h3></div></div>
-      <p><strong>Estrutura:</strong> Envoltório nuclear duplo (contínuo ao RER), lâmina nuclear fibrosa, poros nucleares e cromatina (<strong>Eucromatina</strong> = frouxa/ativa; <strong>Heterocromatina</strong> = condensada/inativa).</p>
-      <p><strong>Função:</strong> Armazenamento do genoma, replicação do DNA e transcrição de RNA. O <strong>Nucléolo</strong> sintetiza rRNA e monta as subunidades ribossomais.</p>
+      <h3>🏥 Rede de Atenção à Saúde (RAS)</h3>
+      <p>Arranjos organizativos poliárquicos (sem hierarquia de importância, mas com diferentes densidades tecnológicas) coordenados pela <strong>Atenção Primária à Saúde (APS / ESF)</strong>.</p>
     </div>
-    <div class="card btb">
-      <div class="ch"><span class="ci">📿</span><div><h3>Ribossomos (Não membranosa)</h3></div></div>
-      <p><strong>Estrutura:</strong> Duas subunidades (rRNA + proteínas).</p>
-      <p><strong>Função:</strong> Síntese proteica (Tradução).<br>
-      • <strong>Ribossomos Livres (polissomos):</strong> proteínas para o citosol, núcleo, mitocôndrias e peroxissomos.<br>
-      • <strong>Adesos ao RER:</strong> proteínas de exportação (secreção), lisossomais e integrais de membrana.</p>
-    </div>
-    <div class="card btc">
-      <div class="ch"><span class="ci">🏭</span><div><h3>Retículo Endoplasmático Rugoso (RER)</h3></div></div>
-      <p><strong>Estrutura:</strong> Rede de cisternas achatadas com ribossomos aderidos pela proteína <em>riboforina</em>.</p>
-      <p><strong>Função:</strong> Síntese de proteínas de exportação/membrana, dobramento inicial (chaperonas), formação de pontes dissulfeto e <strong>N-glicosilação inicial</strong>. Muito desenvolvido em células secretoras (ex: ácinos pancreáticos, plasmócitos).</p>
+    <div class="card btg">
+      <h3>🛡️ Vigilâncias em Saúde</h3>
+      <p>Integra a <strong>Vigilância Epidemiológica</strong> (doenças/agravos), <strong>Vigilância Sanitária</strong> (bens, produtos e serviços), <strong>Vigilância Ambiental</strong> e <strong>Saúde do Trabalhador</strong>.</p>
     </div>
     <div class="card bty">
-      <div class="ch"><span class="ci">🧪</span><div><h3>Retículo Endoplasmático Liso (REL)</h3></div></div>
-      <p><strong>Estrutura:</strong> Rede de túbulos anastomosados sem ribossomos.</p>
-      <p><strong>Função:</strong>
-      • <strong>Síntese de lipídios</strong> (fosfolipídios, colesterol, hormônios esteroides — testosterona, estrogênio, cortisol).<br>
-      • <strong>Destoxificação</strong> de drogas e álcool no fígado (enzimas Citocromo P450).<br>
-      • <strong>Armazenamento de Ca²⁺</strong> (no músculo chama-se <em>Retículo Sarcoplasmático</em>).<br>
-      • Glicogenólise hepática (glicose-6-fosfatase).</p>
+      <h3>🤝 Participação Complementar Privada</h3>
+      <p>Quando a capacidade instalada pública for insuficiente, o SUS pode recorrer à iniciativa privada via contrato/convênio, tendo <strong>preferência as entidades filantrópicas e sem fins lucrativos</strong> (Art. 199, §1º CF/88).</p>
     </div>
-    <div class="card btv">
-      <div class="ch"><span class="ci">📦</span><div><h3>Complexo de Golgi (Aparelho Golgiense)</h3></div></div>
-      <p><strong>Estrutura:</strong> Pilhas de cisternas achatadas polarizadas (<em>dictiossomos</em>):<br>
-      • <strong>Face Cis (entrada):</strong> voltada para o RE, recebe vesículas de transição.<br>
-      • <strong>Face Trans (saída):</strong> voltada para a membrana plasmática, brota vesículas secretoras e lisossomos.</p>
-      <p><strong>Função:</strong> Modificação pós-traducional (O-glicosilação, sulfatação, fosforilação), <strong>endereçamento de proteínas</strong> (ex: adição de <em>manose-6-fosfato</em> para enzimas lisossomais), síntese de polissacarídeos, formação do <strong>acrossomo</strong> dos espermatozoides e da lamela média vegetal.</p>
-    </div>
-    <div class="card btr">
-      <div class="ch"><span class="ci">♻️</span><div><h3>Lisossomos</h3></div></div>
-      <p><strong>Estrutura:</strong> Vesículas esféricas com ~40 tipos de <strong>hidrolases ácidas</strong> (nucleases, proteases, lipases, glicosidases). Bomba de H⁺ mantém o <strong>pH interno ~5,0</strong>.</p>
-      <p><strong>Função:</strong> Digestão intracelular:<br>
-      • <strong>Heterofagia:</strong> digestão de partículas externas capturadas por fagocitose ou pinocitose.<br>
-      • <strong>Autofagia:</strong> reciclagem de organelas senescentes ou danificadas.<br>
-      • <strong>Autólise:</strong> rompimento da membrana lisossomal digerindo a célula (ex: regressão da cauda do girino; doença ocupacional <em>silicose</em>).</p>
-    </div>
-    <div class="card btb">
-      <div class="ch"><span class="ci">🛡️</span><div><h3>Peroxissomos</h3></div></div>
-      <p><strong>Estrutura:</strong> Vesículas oxidativas contendo enzimas <strong>oxidases</strong> e <strong>catalase</strong>.</p>
-      <p><strong>Função:</strong>
-      • <strong>β-oxidação de ácidos graxos de cadeia muito longa</strong>.<br>
-      • Neutralização de radicais livres / espécies reativas de oxigênio (EROS): as oxidases geram peróxido de hidrogênio (H₂O₂, tóxico), que é imediatamente decomposto pela <strong>catalase</strong> em <strong>2 H₂O + O₂</strong>.<br>
-      • Síntese de plasmalogênios (bainha de mielina) e ácidos biliares.</p>
-    </div>
-    <div class="card bta">
-      <div class="ch"><span class="ci">⚡</span><div><h3>Mitocôndrias</h3></div></div>
-      <p><strong>Estrutura:</strong> Dupla membrana. Membrana externa lisa (porinas permeáveis); membrana interna altamente pregueada em <strong>cristas mitocondriais</strong> (impermeável a íons, rica em cardiolipina e complexos da cadeia respiratória); <strong>Matriz mitocondrial</strong> com DNA circular próprio, ribossomos 70S e enzimas do Ciclo de Krebs.</p>
-      <p><strong>Função:</strong> Respiração celular aeróbica (Descarboxilação do piruvato, Ciclo de Krebs, β-oxidação e Fosforilação Oxidativa), regulação da <strong>apoptose</strong> (liberação do Citocromo C) e termogênese.</p>
-    </div>
-  </div>
-
-  <div class="hl hly">
-    <strong>Teoria Endossimbiótica (Lynn Margulis):</strong> Mitocôndrias e cloroplastos originaram-se de procariontes aeróbios e fotossintetizantes ancestralmente fagocitados por uma célula eucariótica primitiva. <strong>Evidências:</strong> Dupla membrana, DNA circular próprio sem histonas, ribossomos 70S e autoduplicação por fissão binária.
   </div>
 </section>
 
-<!-- ==================== ABA 3: MEMBRANA PLASMÁTICA E TRANSPORTE ==================== -->
-<section id="t3" class="sec">
+<!-- ==================== ABA 2: PRINCÍPIOS DO SUS ==================== -->
+<section id="s2" class="sec">
   <div class="sh">
-    <div class="si" style="background:rgba(59,130,246,.12);color:var(--a4)">🧱</div>
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">⚖️</div>
     <div>
-      <h2>3. Membrana Plasmática e Transporte através da Membrana</h2>
-      <p>Modelo do Mosaico Fluido · Composição bioquímica · Transporte passivo, ativo e vesicular</p>
+      <h2>2. Princípios e Diretrizes do SUS</h2>
+      <p>Princípios Doutrinários (Ético-Políticos) vs. Princípios Organizativos (Operacionais)</p>
     </div>
   </div>
 
-  <div class="sub">🌊 Estrutura: Modelo do Mosaico Fluido (Singer &amp; Nicolson, 1972)</div>
+  <div class="hl hlb">
+    <strong>💡 Dica de Ouro para Provas:</strong> Os princípios do SUS dividem-se em dois grandes grupos:
+    <br>• <strong>Doutrinários (Éticos / Filosóficos):</strong> Respondem <em>"Quais valores guiam o SUS?"</em> — Universalidade, Integralidade e Equidade.
+    <br>• <strong>Organizativos (Operacionais / Diretrizes):</strong> Respondem <em>"Como o SUS se organiza na prática?"</em> — Descentralização, Regionalização, Hierarquização e Participação Social.
+  </div>
+
+  <div class="sub">🌟 1. Princípios Doutrinários (Ético-Políticos)</div>
   <div class="grid g3">
-    <div class="card btc">
-      <h3>1. Bicamada Fosfolipídica</h3>
-      <p>Moléculas <strong>anfipáticas</strong>: cabeça polar hidrofílica (fosfato + glicerol + colina) voltada para os meios aquosos e duas caudas apolares hidrofóbicas (ácidos graxos) voltadas para o interior.</p>
-      <p><strong>Colesterol (em animais):</strong> Modulador de fluidez — evita a cristalização em baixas temperaturas e reduz a fluidez excessiva em altas temperaturas.</p>
-    </div>
     <div class="card bta">
-      <h3>2. Proteínas de Membrana</h3>
-      <p>• <strong>Integrais (Transmembrana):</strong> Atravessam a bicamada (α-hélices hidrofóbicas). Atuam como canais iônicos, carreadores (permeases), bombas e receptores.<br>
-      • <strong>Periféricas:</strong> Associadas à superfície interna ou externa por interações fracas; ligadas ao citoesqueleto ou matriz extracelular.</p>
+      <div class="ch"><span class="ci">🌍</span><div><h3>Universalidade</h3></div></div>
+      <p><strong>"Saúde é direito de todos."</strong></p>
+      <p>Garante o acesso às ações e serviços de saúde em todos os níveis de assistência a <strong>qualquer pessoa em território nacional</strong>, sem qualquer discriminação ou exigência de contribuição financeira prévia (supera a lógica previdenciária do antigo INAMPS).</p>
+    </div>
+    <div class="card btg">
+      <div class="ch"><span class="ci">🧩</span><div><h3>Integralidade</h3></div></div>
+      <p><strong>"Olhar o indivíduo como um todo biopsicossocial."</strong></p>
+      <p>Conjunto articulado e contínuo das ações e serviços <strong>preventivos e curativos, individuais e coletivos</strong>, exigidos para cada caso em <strong>todos os níveis de complexidade</strong> do sistema. Proíbe dicotomizar prevenção e assistência (Art. 7º, II da Lei 8.080/90).</p>
     </div>
     <div class="card btv">
-      <h3>3. Glicocálice (Glicocálix)</h3>
-      <p>Camada externa de carboidratos ligados a proteínas (<strong>glicoproteínas</strong>) e lipídios (<strong>glicolipídios</strong>) na face extracelular.</p>
-      <p><strong>Funções:</strong> Reconhecimento celular (antígenos ABO, MHC), proteção mecânica/química, adesão celular e inibição por contato.</p>
+      <div class="ch"><span class="ci">⚖️</span><div><h3>Equidade</h3></div></div>
+      <p><strong>"Tratar desigualmente os desiguais na medida de suas desigualdades."</strong></p>
+      <p>Justiça social distributiva: oferecer <strong>mais a quem mais precisa</strong> para reduzir iniquidades em saúde (vulnerabilidade social, triagem por classificação de risco/Protocolo de Manchester).<br>
+      <em>⚠️ Atenção:</em> Na letra literal da Lei 8.080/90 aparece o termo <strong>"Igualdade da assistência"</strong>; o conceito de Equidade veio da doutrina da Reforma Sanitária.</p>
     </div>
   </div>
 
-  <div class="sub">🚪 Mecanismos de Transporte através da Membrana</div>
-  <div class="hl hlb">
-    <strong>Permeabilidade Seletiva:</strong> Passam livremente pela bicamada lipídica gases apolares (O₂, CO₂, N₂), hormônios esteroides e pequenas moléculas polares sem carga (H₂O em pequena escala, ureia, etanol). Íons (Na⁺, K⁺, Ca²⁺, Cl⁻) e moléculas polares grandes (glicose, aminoácidos) exigem proteínas transportadoras.
+  <div class="sub">⚙️ 2. Princípios Organizativos (Diretrizes Constitucionais — Art. 198 CF/88)</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <div class="ch"><span class="ci">🏛️</span><div><h3>Descentralização com Direção Única</h3></div></div>
+      <p>Redistribuição de poder, responsabilidades e recursos entre as três esferas de governo (<strong>ênfase na municipalização</strong>). Em cada esfera há um <strong>Comando Único</strong>:</p>
+      <ul>
+        <li><strong>União:</strong> Ministério da Saúde (MS)</li>
+        <li><strong>Estados / DF:</strong> Secretaria Estadual de Saúde (SES)</li>
+        <li><strong>Municípios:</strong> Secretaria Municipal de Saúde (SMS)</li>
+      </ul>
+    </div>
+    <div class="card btg">
+      <div class="ch"><span class="ci">🗺️</span><div><h3>Regionalização e Hierarquização</h3></div></div>
+      <ul>
+        <li><strong>Regionalização:</strong> Organização territorial dos serviços em <em>Regiões de Saúde</em> (recortes geográficos de municípios limítrofes que compartilham redes para garantir escala e integralidade).</li>
+        <li><strong>Hierarquização:</strong> Ordenamento do fluxo assistencial por níveis de densidade tecnológica: <strong>Atenção Primária (porta de entrada preferencial) → Secundária (especialidades/UPAs) → Terciária (alta complexidade hospitalar)</strong>, com sistema de referência e contrarreferência.</li>
+      </ul>
+    </div>
+    <div class="card bty">
+      <div class="ch"><span class="ci">🗣️</span><div><h3>Participação da Comunidade (Controle Social)</h3></div></div>
+      <p>Garantia constitucional de que a população participe ativamente da formulação de estratégias, do controle e da fiscalização da execução da política de saúde por meio dos <strong>Conselhos de Saúde</strong> e das <strong>Conferências de Saúde</strong>.</p>
+    </div>
+    <div class="card btr">
+      <div class="ch"><span class="ci">📋</span><div><h3>Outros Princípios Expressos no Art. 7º da Lei 8.080/90</h3></div></div>
+      <ul>
+        <li><strong>Preservação da autonomia</strong> das pessoas na defesa de sua integridade física e moral.</li>
+        <li><strong>Direito à informação</strong> às pessoas assistidas sobre sua saúde.</li>
+        <li><strong>Utilização da epidemiologia</strong> para estabelecer prioridades, alocar recursos e orientar programas.</li>
+        <li><strong>Resolubilidade:</strong> capacidade de resolver problemas em todos os níveis de assistência.</li>
+        <li><strong>Conjugação de recursos</strong> financeiros, tecnológicos, materiais e humanos da União, Estados, DF e Municípios.</li>
+        <li><strong>Proteção às mulheres, vítimas de violência doméstica</strong> e atendimento especializado (incluído pela Lei 13.427/2017).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 3: LEGISLAÇÃO DO SUS ==================== -->
+<section id="s3" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">📜</div>
+    <div>
+      <h2>3. Legislação Estruturante do SUS</h2>
+      <p>Constituição Federal (Arts. 196–200) · Lei 8.080/1990 · Lei 8.142/1990 · Decreto 7.508/2011 · Normas Operacionais</p>
+    </div>
   </div>
 
+  <div class="sub">📘 1. Constituição Federal de 1988 (Artigos 196 a 200)</div>
   <div class="tw">
     <table>
       <thead>
-        <tr><th>Tipo de Transporte</th><th>Gasto de Energia (ATP)</th><th>Sentido do Gradiente</th><th>Proteína Mediadora</th><th>Exemplos Clássicos</th></tr>
+        <tr><th>Artigo</th><th>Tema Central</th><th>Pontos Mais Cobrados em Provas</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Difusão Simples</strong></td><td>Não (Passivo)</td><td>A favor (↓ gradiente)</td><td>Nenhuma (direto pela bicamada)</td><td>Trocas gasosas (O₂ e CO₂ nos alvéolos), entrada de hormônios esteroides.</td></tr>
-        <tr><td><strong>Difusão Facilitada</strong></td><td>Não (Passivo)</td><td>A favor (↓ gradiente)</td><td>Canais iônicos ou Permeases (saturação)</td><td>Entrada de glicose via <strong>GLUTs</strong> (GLUT-4 dependente de insulina); canais de Na⁺/K⁺.</td></tr>
-        <tr><td><strong>Osmose</strong></td><td>Não (Passivo)</td><td>Solvente vai do meio <strong>Hipotônico → Hipertônico</strong></td><td>Bicamada ou <strong>Aquaporinas</strong></td><td>Hemácia em meio hipotônico sofre <em>hemólise</em>; em meio hipertônico sofre <em>crenação</em>.</td></tr>
-        <tr><td><strong>Ativo Primário</strong></td><td>Sim (Hidrólise direta de ATP)</td><td>Contra (↑ gradiente)</td><td>Bombas (ATPases)</td><td><strong>Bomba de Na⁺/K⁺ ATPase</strong> (3 Na⁺ para fora / 2 K⁺ para dentro); Bomba de Ca²⁺; Bomba de H⁺.</td></tr>
-        <tr><td><strong>Ativo Secundário (Co-transporte)</strong></td><td>Sim (Indireto — usa gradiente do Na⁺)</td><td>Um a favor (Na⁺) e outro contra (glicose/H⁺)</td><td>Simporte ou Antiporte</td><td><strong>Simporte Na⁺/Glicose (SGLT-1)</strong> no epitélio intestinal e túbulos renais; Trocador Na⁺/Ca²⁺.</td></tr>
+        <tr><td><strong>Art. 196</strong></td><td>Direito à Saúde e Dever do Estado</td><td>Acesso universal e igualitário às ações e serviços para <strong>promoção, proteção e recuperação</strong>.</td></tr>
+        <tr><td><strong>Art. 197</strong></td><td>Relevância Pública</td><td>As ações de saúde são de relevância pública, cabendo ao Poder Público dispor sobre sua <strong>regulamentação, fiscalização e controle</strong> (execução direta ou por terceiros/privados).</td></tr>
+        <tr><td><strong>Art. 198</strong></td><td>Diretrizes, Financiamento e Agentes (ACS/ACE)</td><td>Rede regionalizada e hierarquizada; 3 diretrizes (Descentralização, Atendimento integral com prioridade para atividades preventivas, Participação da comunidade); percentuais mínimos de financiamento e regime dos <strong>Agentes Comunitários de Saúde (ACS) e de Combate às Endemias (ACE)</strong> (piso salarial de 2 salários mínimos — EC 120/2022).</td></tr>
+        <tr><td><strong>Art. 199</strong></td><td>Assistência à Saúde pela Iniciativa Privada</td><td>A assistência à saúde é <strong>livre à iniciativa privada</strong>.<br>• §1º Participação complementar no SUS (preferência para filantrópicas/sem fins lucrativos).<br>• §2º <strong>É VEDADA</strong> a destinação de recursos públicos para auxílios ou subvenções às instituições privadas <em>com fins lucrativos</em>.<br>• §3º <strong>É VEDADA</strong> a participação direta ou indireta de empresas ou capitais estrangeiros na assistência à saúde no País, salvo nos casos previstos em lei (exceções abertas pela Lei 13.097/2015).<br>• §4º Proibição de todo tipo de comercialização de órgãos, tecidos e sangue humano.</td></tr>
+        <tr><td><strong>Art. 200</strong></td><td>Competências Constitucionais do SUS</td><td>Controlar e fiscalizar alimentos, bebidas, águas, medicamentos e imunobiológicos; executar vigilância sanitária, epidemiológica e <strong>saúde do trabalhador</strong>; ordenar a <strong>formação de recursos humanos</strong> na área de saúde; participar da política e execução das ações de <strong>saneamento básico</strong>; incrementar o desenvolvimento científico/tecnológico; fiscalizar produtos psicoativos, tóxicos e radioativos; colaborar na proteção do <strong>meio ambiente</strong>, nele compreendido o do trabalho.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="grid g2" style="margin-top:1rem">
-    <div class="card bty">
-      <div class="ch"><span class="ci">⚡</span><div><h3>Importância da Bomba de Na⁺/K⁺ ATPase</h3></div></div>
+  <div class="sub">📕 2. Lei nº 8.080/1990 (Lei Orgânica da Saúde — LOS)</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>Campo de Atuação do SUS (Art. 6º)</h3>
       <ul>
-        <li>Bombeia <strong>3 Na⁺ para o meio extracelular</strong> e <strong>2 K⁺ para o meio intracelular</strong> a cada ATP hidrolisado.</li>
-        <li>É <strong>eletrogênica</strong>: mantém o interior da célula eletricamente negativo em relação ao exterior (Potencial de Repouso ~ −70 mV).</li>
-        <li>Controla o volume celular (evita lise osmótica) e fornece a energia potencial para o transporte ativo secundário.</li>
+        <li>Execução de ações de: <strong>Vigilância Sanitária, Vigilância Epidemiológica, Saúde do Trabalhador</strong> e de <strong>Assistência Terapêutica Integral, inclusive farmacêutica</strong>.</li>
+        <li>Formulação da política de medicamentos, equipamentos, imunobiológicos e sangue/hemoderivados.</li>
+        <li>Vigilância nutricional e orientação alimentar; proteção do meio ambiente e saneamento básico; controle de zoonoses e produtos tóxicos/radioativos.</li>
       </ul>
     </div>
-    <div class="card btr">
-      <div class="ch"><span class="ci">🫧</span><div><h3>Transporte emBloco (Vesicular — Gasta ATP)</h3></div></div>
+    <div class="card btg">
+      <h3>Comissões Intergestores (Art. 14-A e 14-B)</h3>
+      <p>Foros permanentes de <strong>negociação e pactuação consensual</strong> entre gestores quanto aos aspectos operacionais, financeiros e administrativos (<em>não têm participação popular, são apenas gestores!</em>):</p>
       <ul>
-        <li><strong>Fagocitose:</strong> Englobamento de partículas sólidas grandes via emissão de <em>pseudópodes</em> (formação do fagossomo). Ex: macrófagos e neutrófilos.</li>
-        <li><strong>Pinocitose:</strong> Englobamento de líquidos e solutos dissolvidos por invaginação da membrana.</li>
-        <li><strong>Endocitose mediada por receptor:</strong> Captura específica revestida por <em>clatrina</em> (ex: endocitose de colesterol <strong>LDL</strong>).</li>
-        <li><strong>Exocitose:</strong> Fusão de vesículas intracelulares com a membrana plasmática para secreção constitutiva ou regulada (ex: insulina, neurotransmissores).</li>
+        <li><strong>CIT (Comissão Intergestores Tripartite):</strong> Âmbito Nacional (MS + CONASS + CONASEMS).</li>
+        <li><strong>CIB (Comissão Intergestores Bipartite):</strong> Âmbito Estadual (SES + COSEMS).</li>
+        <li><strong>CIR (Comissão Intergestores Regional):</strong> Âmbito da Região de Saúde (SES + todos os Secretários Municipais da região).</li>
+      </ul>
+    </div>
+    <div class="card bty">
+      <h3>Subsistema de Atenção à Saúde Indígena (Art. 19-A a 19-H)</h3>
+      <p>Incluído pela Lei 9.836/1999 (Lei Arouca). Organizado em <strong>DSEIs (Distritos Sanitários Especiais Indígenas)</strong>. É <strong>financiado cabendo exclusivamente à União</strong> (Estados e Municípios podem atuar de forma complementar), respeitando a realidade local e as práticas tradicionais indígenas.</p>
+    </div>
+    <div class="card btv">
+      <h3>Outros Subsistemas e Atualizações da Lei 8.080/90</h3>
+      <ul>
+        <li><strong>Atendimento e Internação Domiciliar (Art. 19-I):</strong> Por indicação médica, com concordância do paciente e da família.</li>
+        <li><strong>Acompanhante no Parto (Art. 19-J):</strong> Direito a 1 acompanhante de livre escolha da parturiente no pré-natal, trabalho de parto, parto e pós-parto imediato.</li>
+        <li><strong>Incorporação Tecnológica (CONITEC — Art. 19-Q):</strong> Prazo de 180 dias (prorrogável por +90 dias) baseado em evidências científicas e avaliação econômica.</li>
+        <li><strong>Telessaúde (Art. 26-A a 26-H — Lei 14.510/2022):</strong> Regulamenta a assistência remota em saúde com autonomia profissional e consentimento livre e esclarecido do paciente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">📗 3. Lei nº 8.142/1990 (Participação Social e Transferências Intergovernamentais)</div>
+  <div class="hl hlg">
+    <strong>Por que a Lei 8.142/90 foi criada?</strong> Porque o Presidente Fernando Collor vetou os artigos da Lei 8.080/90 que tratavam da participação popular e das transferências financeiras diretas (fundo a fundo). A pressão social levou à promulgação da Lei 8.142 três meses depois, regulamentando:
+    <br>1️⃣ As duas instâncias colegiadas de Controle Social: <strong>Conferências de Saúde</strong> e <strong>Conselhos de Saúde</strong>;
+    <br>2️⃣ As condições para transferência regular e automática de recursos financeiros do FNS para Estados e Municípios.
+  </div>
+
+  <div class="sub">📙 4. Decreto nº 7.508/2011 (Regulamentação da Lei 8.080/90)</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <h3>🗺️ Região de Saúde</h3>
+      <p>Espaço geográfico contínuo constituído por agrupamentos de <strong>municípios limítrofes</strong>. Para ser instituída pelo Estado (em articulação com os municípios na CIB), deve conter, <strong>no mínimo, 5 ações e serviços</strong>:</p>
+      <p><span class="tag tag-b">1. Atenção Primária</span> <span class="tag tag-b">2. Urgência e Emergência</span> <span class="tag tag-b">3. Atenção Psicossocial</span> <span class="tag tag-b">4. Atenção Ambulatorial Especializada e Hospitalar</span> <span class="tag tag-b">5. Vigilância em Saúde</span></p>
+    </div>
+    <div class="card btg">
+      <h3>🚪 Portas de Entrada da RAS</h3>
+      <p>Serviços de atendimento inicial à saúde do usuário no SUS (Art. 9º). São <strong>apenas 4 portas de entrada</strong>:</p>
+      <ol style="padding-left:1.1rem;font-size:.82rem;color:var(--muted)">
+        <li><strong>Atenção Primária</strong> (principal ordenadora do acesso)</li>
+        <li><strong>Urgência e Emergência</strong> (UPAs, SAMU, Prontos-Socorros)</li>
+        <li><strong>Atenção Psicossocial</strong> (CAPS)</li>
+        <li><strong>Especiais de Acesso Aberto</strong> (ex: CEREST, CTA/IST)</li>
+      </ol>
+    </div>
+    <div class="card bty">
+      <h3>📑 COAP, RENASES e RENAME</h3>
+      <ul>
+        <li><strong>COAP (Contrato Organizativo da Ação Pública da Saúde):</strong> Acordo de colaboração multilateral firmado entre União, Estado e Municípios de uma Região de Saúde definindo metas, responsabilidades e financiamento.</li>
+        <li><strong>RENASES:</strong> Relação Nacional de Ações e Serviços de Saúde (atualizada a cada 2 anos).</li>
+        <li><strong>RENAME:</strong> Relação Nacional de Medicamentos Essenciais (atualizada a cada 2 anos).</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ==================== ABA 4: CITOESQUELETO ==================== -->
-<section id="t4" class="sec">
+<!-- ==================== ABA 4: CONTROLE SOCIAL ==================== -->
+<section id="s4" class="sec">
   <div class="sh">
-    <div class="si" style="background:rgba(168,85,247,.12);color:var(--a7)">🕸️</div>
+    <div class="si" style="background:rgba(168,85,247,.12);color:var(--a7)">🗳️</div>
     <div>
-      <h2>4. Citoesqueleto e Movimentos Celulares</h2>
-      <p>Microfilamentos de actina · Filamentos intermediários · Microtúbulos · Proteínas motoras</p>
+      <h2>4. Controle Social no SUS (Lei nº 8.142/1990 e Resolução CNS nº 453/2012)</h2>
+      <p>Instâncias colegiadas · Composição paritária · Conselhos de Saúde vs. Conferências de Saúde</p>
     </div>
   </div>
 
   <div class="hl hlv">
-    <strong>O que é o Citoesqueleto?</strong> Rede dinâmica tridimensional de filamentos proteicos citoplasmáticos responsável pela manutenção da arquitetura celular, resistência mecânica, transporte intracelular de vesículas/organelas, locomoção celular e divisão (fuso mitótico e citocinese).
+    <strong>O que é Controle Social no SUS?</strong> Ao contrário da sociologia clássica (onde o Estado controla a sociedade), na Saúde Coletiva brasileira <strong>Controle Social significa o controle da sociedade civil organizada sobre as ações, políticas e gastos do Estado</strong>, garantindo a democratização da gestão pública.
   </div>
 
+  <div class="sub">🏛️ Comparativo Direto: Conselhos de Saúde vs. Conferências de Saúde</div>
   <div class="tw">
     <table>
       <thead>
-        <tr><th>Componente</th><th>Diâmetro</th><th>Subunidade Proteica</th><th>Proteínas Motoras</th><th>Funções Principais e Estruturas Formadas</th></tr>
+        <tr><th>Característica</th><th>Conselhos de Saúde (Municipal, Estadual, Nacional)</th><th>Conferências de Saúde (Municipal, Estadual, Nacional)</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>Microfilamentos (Filamentos de Actina)</strong></td>
-          <td>~7 nm (Mais finos)</td>
-          <td>Actina G (globular) → polimeriza em Actina F (filamentosa); usa ATP</td>
-          <td><strong>Miosina</strong></td>
-          <td>Sustentação de <strong>microvilosidades</strong> (borda em escova intestinal); contração muscular (sarcômero); emissão de pseudópodes/lamelipódios (movimento ameboide); formação do <strong>anel contrátil</strong> na citocinese animal; ciclose.</td>
-        </tr>
-        <tr>
-          <td><strong>Filamentos Intermediários</strong></td>
-          <td>~10 nm (Intermediários)</td>
-          <td>Proteínas fibrosas diversas (Queratina, Vimentina, Desmina, Lâminas)</td>
-          <td><em>Nenhuma</em> (apolares e altamente estáveis)</td>
-          <td><strong>Resistência à tração mecânica</strong>; ancoragem de desmossomos e hemidesmossomos; formação da <strong>lâmina nuclear</strong> (sustenta a carioteca). Não sofrem remodelação rápida.</td>
-        </tr>
-        <tr>
-          <td><strong>Microtúbulos</strong></td>
-          <td>~25 nm (Mais espessos / ocos)</td>
-          <td>Dímeros de <strong>α-tubulina e β-tubulina</strong> (13 protofilamentos); usa GTP</td>
-          <td><strong>Cinesina</strong> (vai para extremidade + / periferia) e <strong>Dineína</strong> (vai para extremidade − / centro)</td>
-          <td>Originam-se no <strong>Centrossomo (MTOC)</strong> contendo um par de centríolos (arranjo 9×3). Formam as fibras do <strong>fuso mitótico</strong> (segregação cromossômica), <strong>cílios e flagelos</strong> (axonema 9+2 com dineína) e funcionam como "trilhos" para transporte de vesículas.</td>
-        </tr>
+        <tr><td><strong>Natureza e Caráter</strong></td><td>Órgão colegiado de caráter <strong>Permanente e Deliberativo</strong></td><td>Instância colegiada de caráter <strong>Consultivo / Propositivo e Periódico</strong></td></tr>
+        <tr><td><strong>Periodicidade de Reunião</strong></td><td>Reuniões plenárias ordinárias <strong>no mínimo 1 vez por mês</strong> (e extraordinárias quando necessário)</td><td>Realizadas ordinariamente a cada <strong>4 anos</strong></td></tr>
+        <tr><td><strong>Quem Convoca?</strong></td><td>Presidência do próprio Conselho ou maioria de seus membros</td><td>Convocada pelo <strong>Poder Executivo</strong> ou, extraordinariamente, por esta ou pelo <strong>Conselho de Saúde</strong></td></tr>
+        <tr><td><strong>Função Principal</strong></td><td>Atua na <strong>formulação de estratégias e no controle da execução da política de saúde</strong> na instância correspondente, <strong>inclusive nos aspectos econômicos e financeiros</strong> (aprova o Plano de Saúde e o Relatório Anual de Gestão — RAG)</td><td><strong>Avaliar a situação de saúde e propor as diretrizes</strong> para a formulação da política de saúde nos níveis correspondentes</td></tr>
+        <tr><td><strong>Homologação das Decisões</strong></td><td>As decisões do Conselho (Resoluções) devem ser <strong>homologadas pelo chefe do poder legalmente constituído</strong> em cada esfera de governo em até 30 dias</td><td>Elabora o Relatório Final que orienta os Planos de Saúde plurianuais</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="grid g3" style="margin-top:1rem">
+  <div class="sub">🥧 A Regra da Paridade nos Conselhos e Conferências (Resolução CNS nº 453/2012)</div>
+  <div class="hl hlg">
+    <strong>A representação dos USUÁRIOS é sempre PARITÁRIA (50%) em relação ao conjunto dos demais segmentos (50%)!</strong> Isso garante que os cidadãos que utilizam o sistema tenham metade dos votos nas deliberações.
+  </div>
+
+  <div class="grid g3">
+    <div class="card btg">
+      <div class="ch"><span class="ci">👥</span><div><h3>50% — Usuários do SUS</h3></div></div>
+      <p>Representantes de entidades e movimentos sociais de usuários do SUS (associações de moradores, sindicatos de trabalhadores rurais/urbanos, associações de portadores de patologias/deficiências, movimentos indígenas, negros, LGBTQIAPN+, mulheres, aposentados).</p>
+    </div>
     <div class="card bta">
-      <h3>🔬 Centríolos (Arranjo 9+0)</h3>
-      <p>9 trincas de microtúbulos periféricos sem par central. Localizados no centrossomo, organizam o fuso acromático e originam os corpúsculos basais de cílios e flagelos.</p>
-    </div>
-    <div class="card btb">
-      <h3>🏊 Cílios e Flagelos (Arranjo 9+2)</h3>
-      <p>Axonema com 9 pares periféricos + 1 par central de microtúbulos. O batimento ocorre pelo deslizamento ativo mediado pela proteína motora <strong>dineína ciliar</strong> (gasta ATP).</p>
-    </div>
-    <div class="card btr">
-      <h3>💊 Fármacos que atuam no Citoesqueleto</h3>
-      <p>• <strong>Colchicina / Vincristina:</strong> Despolimerizam microtúbulos (interrompem a mitose na metáfase).<br>
-      • <strong>Taxol (Paclitaxel):</strong> Estabiliza microtúbulos impedindo sua desmontagem (antitumoral).</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 5: AMINOÁCIDOS E PROTEÍNAS ==================== -->
-<section id="t5" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">🥩</div>
-    <div>
-      <h2>5. Aminoácidos e Proteínas</h2>
-      <p>Estrutura dos aminoácidos · Ligação peptídica · Níveis estruturais · Enzimas e cinética enzimática</p>
-    </div>
-  </div>
-
-  <div class="sub">🧱 Estrutura Geral dos Aminoácidos</div>
-  <div class="grid g2">
-    <div class="card btr">
-      <h3>Carbono Alfa (Cα) Assimétrico</h3>
-      <p>Todo α-aminoácido possui um carbono central ligado a 4 grupamentos:</p>
-      <ul>
-        <li><strong>Grupo Amina (–NH₂)</strong> (básico → recebe H⁺ formando –NH₃⁺)</li>
-        <li><strong>Grupo Carboxila (–COOH)</strong> (ácido → doa H⁺ formando –COO⁻)</li>
-        <li><strong>Átomo de Hidrogênio (–H)</strong></li>
-        <li><strong>Cadeia Lateral ou Radical (–R):</strong> Define a identidade e propriedades químicas dos 20 aminoácidos padrão.</li>
-      </ul>
-      <p style="margin-top:.4rem"><strong>Caráter Anfótero (Zwitterion):</strong> Em pH fisiológico (~7,4), os aminoácidos possuem carga positiva e negativa simultaneamente, atuando como tampões.</p>
+      <div class="ch"><span class="ci">🩺</span><div><h3>25% — Trabalhadores da Saúde</h3></div></div>
+      <p>Representantes das entidades de profissionais e trabalhadores da área da saúde (sindicatos, conselhos profissionais, associações científicas e comunitárias da área da saúde). <em>Quem ocupa cargo de gestão/confiança não pode representar os trabalhadores!</em></p>
     </div>
     <div class="card bty">
-      <h3>Classificação pelo Radical (–R) e Nutrição</h3>
-      <ul>
-        <li><strong>Apolares (Hidrofóbicos):</strong> Glicina (único aquiral, R=H), Alanina, Valina, Leucina, Isoleucina, Metionina, Prolina, Fenilalanina, Triptofano.</li>
-        <li><strong>Polares Não Carregados:</strong> Serina, Treonina, Cisteína (forma <em>pontes dissulfeto –S–S–</em>), Tirosina, Asparagina, Glutamina.</li>
-        <li><strong>Carregados Negativamente (Ácidos):</strong> Aspartato, Glutamato.</li>
-        <li><strong>Carregados Positivamente (Básicos):</strong> Lisina, Arginina, Histidina.</li>
-      </ul>
-      <div class="hl hly" style="margin-top:.5rem;padding:.55rem .8rem">
-        <strong>Naturais (Não essenciais):</strong> Sintetizados pelo organismo humano (11).<br>
-        <strong>Essenciais:</strong> Devem ser obtidos na dieta (9): <em>Val, Leu, Ile, Lys, Met, Phe, Thr, Trp, His</em>.
-      </div>
+      <div class="ch"><span class="ci">🏢</span><div><h3>25% — Governo + Prestadores</h3></div></div>
+      <p>Dividido entre representantes do <strong>Governo (Gestores do SUS)</strong> e <strong>Prestadores de Serviços de Saúde</strong> (públicos, filantrópicos e privados conveniados ao SUS).</p>
     </div>
   </div>
 
-  <div class="sub">🔗 Ligação Peptídica e Níveis de Organização Estrutural</div>
-  <div class="hl hlr">
-    <strong>Ligação Peptídica (Amida):</strong> Reação de condensação (desidratação) entre o grupo <strong>α-carboxila (–COOH)</strong> de um aminoácido e o grupo <strong>α-amina (–NH₂)</strong> do próximo, liberando <strong>1 molécula de H₂O</strong>. É uma ligação covalente planar e rígida (caráter parcial de dupla ligação).
-  </div>
-
-  <div class="tl">
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>1. Estrutura Primária</h4>
-      <p>Sequência linear geneticamente determinada de aminoácidos unidos por <strong>ligações peptídicas</strong> (da extremidade N-terminal para a C-terminal). Dita todas as estruturas superiores. <em>Não é rompida na desnaturação</em> (apenas por hidrólise enzimática/ácida).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>2. Estrutura Secundária</h4>
-      <p>Arranjo espacial regular local do esqueleto polipeptídico estabilizado por <strong>pontes de hidrogênio</strong> entre os grupos C=O e N–H da cadeia principal (sem participação dos radicais R). Padrões clássicos: <strong>α-hélice</strong> (helicoidal) e <strong>Folha-β pregueada</strong> (paralela ou antiparalela).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>3. Estrutura Terciária</h4>
-      <p>Dobramento tridimensional global de uma única cadeia polipeptídica, conferindo função biológica (conformação nativa). Estabilizada por interações entre os <strong>radicais –R</strong>: interações hidrofóbicas, pontes de hidrogênio, interações iônicas (pontes salinas) e <strong>pontes dissulfeto covalentes (–S–S– entre cisteínas)</strong>. Auxiliada por <em>proteínas chaperonas</em>.</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>4. Estrutura Quaternária</h4>
-      <p>Associação de <strong>duas ou mais cadeias polipeptídicas (subunidades)</strong> idênticas ou diferentes. Ex: <strong>Hemoglobina</strong> (tetrâmero α₂β₂ com 4 grupos heme) e Colágeno (tripla hélice).</p>
-    </div>
-  </div>
-
-  <div class="sub">⚙️ Desnaturação Proteica e Enzimas (Biocatalisadores)</div>
+  <div class="sub">📢 Outros Mecanismos de Participação Social no SUS</div>
   <div class="grid g2">
-    <div class="card btr">
-      <h3>🔥 Desnaturação Proteica</h3>
-      <p>Perda da estrutura tridimensional (quaternária, terciária e secundária) com consequente <strong>perda da função biológica</strong>, mantendo intacta a <strong>estrutura primária</strong> (ligações peptídicas não se rompem).</p>
-      <p><strong>Agentes desnaturantes:</strong> Temperatura elevada, alterações extremas de pH (alteram cargas dos radicais R), solventes orgânicos, ureia e detergentes.</p>
+    <div class="card btv">
+      <h3>📞 Ouvidorias do SUS</h3>
+      <p>Canal democrático direto e individual/coletivo entre o cidadão e a gestão para acolher <strong>reclamações, denúncias, sugestões, elogios e solicitações de informação</strong>, subsidiando a melhoria da qualidade dos serviços.</p>
     </div>
-    <div class="card bta">
-      <h3>⚡ Enzimas e Catálise Biológica</h3>
-      <p>Proteínas catalisadoras (exceto ribozimas de RNA) que aceleram a velocidade das reações químicas ao <strong>diminuir a Energia de Ativação</strong>, sem alterar o equilíbrio químico (ΔG) e sem serem consumidas.</p>
-      <ul>
-        <li><strong>Sítio Ativo:</strong> Bolsão tridimensional complementar ao substrato.</li>
-        <li><strong>Modelos:</strong> <em>Chave-Fechadura</em> (rígido, Fischer) e <em>Encaixe Induzido</em> (flexível/conformacional, Koshland).</li>
-        <li><strong>Holoenzima = Apoenzima</strong> (parte proteica) + <strong>Cofator</strong> (íon inorgânico: Mg²⁺, Zn²⁺) ou <strong>Coenzima</strong> (orgânica derivada de vitaminas: NAD⁺, FAD, Coenzima A).</li>
-      </ul>
+    <div class="card btr">
+      <h3>⚖️ Audiências e Consultas Públicas</h3>
+      <p>Mecanismos de transparência obrigatórios (ex: prestação quadrimestral de contas pelo gestor de saúde em audiência pública na Casa Legislativa — LC 141/2012; consultas públicas da CONITEC para incorporação de medicamentos).</p>
     </div>
   </div>
 </section>
 
-<!-- ==================== ABA 6: LIPÍDIOS E CARBOIDRATOS ==================== -->
-<section id="t6" class="sec">
+<!-- ==================== ABA 5: FINANCIAMENTO DA SAÚDE ==================== -->
+<section id="s5" class="sec">
   <div class="sh">
-    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">🥑</div>
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">💰</div>
     <div>
-      <h2>6. Lipídios e Carboidratos</h2>
-      <p>Classes de lipídios · Ácidos graxos · Monossacarídeos, dissacarídeos e polissacarídeos estruturais e de reserva</p>
+      <h2>5. Financiamento da Saúde no Brasil</h2>
+      <p>Orçamento da Seguridade Social · Lei 8.142/90 · EC 29/2000 · Lei Complementar nº 141/2012 · Blocos de Financiamento</p>
     </div>
   </div>
 
-  <div class="sub">🥑 Lipídios: Estrutura, Classes e Funções</div>
+  <div class="sub">🏦 1. Fontes Constitucionais e Fundo de Saúde (Art. 198 CF/88)</div>
+  <div class="hl hlg">
+    <strong>Financiamento Tripartite e Solidário:</strong> O SUS é financiado com recursos do <strong>Orçamento da Seguridade Social</strong>, da <strong>União</strong>, dos <strong>Estados</strong>, do <strong>Distrito Federal</strong> e dos <strong>Municípios</strong>, além de outras fontes (impostos gerais e contribuições sociais como CSLL, COFINS, PIS/PASEP e DPVAT). Em cada esfera, os recursos são depositados em conta única chamada <strong>Fundo de Saúde</strong> (FNS, FES, FMS) e fiscalizados pelo respectivo Conselho de Saúde.
+  </div>
+
+  <div class="sub">📊 2. Piso Constitucional de Gastos em Ações e Serviços Públicos de Saúde (ASPS)</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Regulamentado pela <strong>Emenda Constitucional nº 29/2000</strong> e pela <strong>Lei Complementar nº 141/2012</strong> (e atualizado pelas ECs 86/2015, 95/2016 e Novo Arcabouço Fiscal LC 200/2023):</p>
+
+  <div class="grid g3">
+    <div class="card bta">
+      <div class="ch"><span class="ci">🏘️</span><div><h3>Municípios: Mínimo de 15%</h3></div></div>
+      <p>Devem aplicar anualmente, no mínimo, <strong>15% da arrecadação de impostos municipais</strong> (IPTU, ISS, ITBI) somada às transferências constitucionais recebidas (FPM, cota-parte do ICMS, IPVA, ITR).</p>
+    </div>
+    <div class="card btg">
+      <div class="ch"><span class="ci">🗺️</span><div><h3>Estados: Mínimo de 12%</h3></div></div>
+      <p>Devem aplicar anualmente, no mínimo, <strong>12% da arrecadação de impostos estaduais</strong> (ICMS, IPVA, ITCMD) somada às transferências constitucionais recebidas (FPE, IPI-Exportação), deduzidas as parcelas transferidas aos municípios.</p>
+      <p style="margin-top:.3rem"><em>*O Distrito Federal aplica 12% ou 15% conforme a origem estadual ou municipal da receita tributária.</em></p>
+    </div>
+    <div class="card bty">
+      <div class="ch"><span class="ci">🇧🇷</span><div><h3>União: Mínimo de 15% da RCL</h3></div></div>
+      <p>Pela regra constitucional retomada em 2023 (EC 86/2015 + LC 200/2023), a União deve aplicar no mínimo <strong>15% da Receita Corrente Líquida (RCL)</strong> do respectivo exercício financeiro em Ações e Serviços Públicos de Saúde.</p>
+    </div>
+  </div>
+
+  <div class="sub">✅❌ 3. O que PODE e o que NÃO PODE ser considerado Gasto em Saúde (ASPS — LC 141/2012)</div>
   <div class="hl hly">
-    <strong>Característica Definidora:</strong> Biomoléculas orgânicas insolúveis ou pouco solúveis em água (hidrofóbicas/apolares) e solúveis em solventes orgânicos (éter, clorofórmio, benzeno). Não formam polímeros verdadeiros.
+    <strong>Diretrizes Gerais (Art. 2º da LC 141/2012):</strong> Para contar no piso mínimo constitucional, a despesa deve: (I) ser destinada a ações de <strong>acesso universal, igualitário e gratuito</strong>; (II) estar em conformidade com os objetivos e metas do <strong>Plano de Saúde</strong>; e (III) ser de responsabilidade específica do setor da saúde (<strong>não podendo se confundir com despesas de outras políticas públicas</strong>).
   </div>
 
   <div class="grid g2">
-    <div class="card bty">
-      <h3>1. Ácidos Graxos e Triacilgliceróis (Triglicerídeos)</h3>
-      <p><strong>Ácidos Graxos:</strong> Ácidos carboxílicos de cadeia longa hidrocarbonada.<br>
-      • <strong>Saturados:</strong> Apenas ligações simples (cadeia retilínea, sólidos em temp. ambiente — gorduras animais).<br>
-      • <strong>Insaturados:</strong> Uma ou mais duplas ligações <em>cis</em> (causam dobra na cadeia, líquidos — óleos vegetais; ex: ômega-3 e ômega-6 essenciais).<br>
-      • <strong>Gordura Trans:</strong> Insaturados isomerizados industrialmente (configuração linear aterogênica).</p>
-      <p style="margin-top:.4rem"><strong>Triacilgliceróis:</strong> 1 Glicerol esterificado a 3 Ácidos Graxos. Principal forma de <strong>reserva energética de longa duração</strong> nos adipócitos (fornecem <strong>9 kcal/g</strong>, armazenamento anidro) e isolamento térmico/mecânico.</p>
-    </div>
-    <div class="card bta">
-      <h3>2. Fosfolipídios, Esteroides, Cerídeos e Carotenoides</h3>
+    <div class="card btg">
+      <h3 style="color:var(--a4);margin-bottom:.5rem">✅ CONTA como Despesa em Saúde (Art. 3º)</h3>
       <ul>
-        <li><strong>Fosfolipídios (Glicerofosfolipídios e Esfingolipídios):</strong> Anfipáticos (2 ácidos graxos + glicerol + fosfato + álcool polar). Base estrutural das membranas celulares e bainha de mielina (esfingomielina).</li>
-        <li><strong>Esteroides:</strong> Núcleo tetracíclico (<em>ciclopentanoperidrofenantreno</em>). Principal representante: <strong>Colesterol</strong> (exclusivo animal), precursor de:
-          <br>→ <strong>Hormônios esteroides</strong> (testosterona, estradiol, progesterona, cortisol, aldosterona);
-          <br>→ <strong>Vitamina D (colecalciferol)</strong> e <strong>Sais Biliares</strong> (emulsificação de gorduras no duodeno).</li>
-        <li><strong>Cerídeos:</strong> Impermeabilização de folhas, frutos e exoesqueleto.</li>
+        <li>Vigilância em saúde (epidemiológica e sanitária) e controle de agravos.</li>
+        <li>Atenção integral e universal à saúde em todos os níveis de complexidade, incluindo assistência terapêutica e recuperação de deficiências nutricionais.</li>
+        <li>Capacitação do pessoal de saúde do SUS e desenvolvimento científico/tecnológico.</li>
+        <li>Produção, aquisição e distribuição de insumos específicos (medicamentos, imunobiológicos, sangue e hemoderivados, equipamentos).</li>
+        <li>Saneamento básico de <strong>domicílios ou de pequenas comunidades</strong> (desde que aprovado pelo Conselho de Saúde) e em <strong>distritos sanitários especiais indígenas (DSEIs)</strong> e comunidades quilombolas.</li>
+        <li>Remuneração de profissionais da saúde <strong>em atividade</strong> e ações de apoio administrativo/gestão do SUS.</li>
       </ul>
     </div>
-  </div>
-
-  <div class="sub">🍞 Carboidratos (Glicídios / Hidratos de Carbono)</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Poli-hidroxialdeídos (aldoses) ou poli-hidroxicetonas (cetoses) de fórmula empírica geral <strong>(CH₂O)ₙ</strong>. Fornecem energia imediata (<strong>4 kcal/g</strong>), reserva energética e suporte estrutural.</p>
-
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Classe</th><th>Definição / Ligação</th><th>Principais Representantes e Funções Biológicas</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Monossacarídeos (Oses)</strong></td>
-          <td>Açúcares simples (3 a 7 carbonos); não sofrem hidrólise</td>
-          <td>
-            • <strong>Pentoses (5C):</strong> <em>Ribose</em> (RNA, ATP) e <em>Desoxirribose</em> (DNA — sem oxigênio no C2').<br>
-            • <strong>Hexoses (6C — C₆H₁₂O₆):</strong> <em>Glicose</em> (principal combustível celular), <em>Frutose</em> (açúcar das frutas / esperma) e <em>Galactose</em> (laticínios).
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Dissacarídeos (Oligossacarídeos)</strong></td>
-          <td>União de 2 monossacarídeos por <strong>Ligação Glicosídica</strong> (libera 1 H₂O)</td>
-          <td>
-            • <strong>Sacarose</strong> = Glicose + Frutose (açúcar da cana; transporte na seiva elaborada vegetal).<br>
-            • <strong>Lactose</strong> = Glicose + Galactose (açúcar do leite; digerida pela enzima <em>lactase</em>).<br>
-            • <strong>Maltose</strong> = Glicose + Glicose (ligação α-1,4; produto da digestão parcial do amido).
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Polissacarídeos de Reserva</strong></td>
-          <td>Polímeros de α-glicose com ligações α(1→4) e ramificações α(1→6)</td>
-          <td>
-            • <strong>Glicogênio:</strong> Reserva energética <strong>animal e de fungos</strong>. Altamente ramificado (a cada 8–12 resíduos). Armazenado no <strong>fígado</strong> (manutenção da glicemia sanguínea) e nos <strong>músculos esqueléticos</strong> (consumo próprio na contração).<br>
-            • <strong>Amido:</strong> Reserva energética <strong>vegetal</strong> (amilose linear + amilopectina ramificada).
-          </td>
-        </tr>
-        <tr>
-          <td><strong>Polissacarídeos Estruturais</strong></td>
-          <td>Polímeros lineares resistentes com ligações <strong>β(1→4)</strong></td>
-          <td>
-            • <strong>Celulose:</strong> Parede celular vegetal. Humanos não possuem a enzima <em>celulase</em> para romper ligações β(1→4) (atua como fibra alimentar).<br>
-            • <strong>Quitina:</strong> Polímero de N-acetilglicosamina; compõe a parede celular dos <strong>fungos</strong> e o exoesqueleto dos <strong>artrópodes</strong>.<br>
-            • <strong>Glicosaminoglicanos (GAGs):</strong> Ácido hialurônico, condroitina e heparina na Matriz Extracelular.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ==================== ABA 7: DNA E RNA ==================== -->
-<section id="t7" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">🧬</div>
-    <div>
-      <h2>7. Ácidos Nucleicos: DNA e RNA</h2>
-      <p>Estrutura dos nucleotídeos · Modelo de Watson &amp; Crick · Replicação, Transcrição e Tradução (Dogma Central)</p>
-    </div>
-  </div>
-
-  <div class="sub">🧪 Estrutura do Nucleotídeo (Monômero)</div>
-  <div class="grid g3">
-    <div class="card bta">
-      <h3>1. Grupo Fosfato</h3>
-      <p>Ligado ao carbono 5' da pentose. Confere <strong>caráter ácido e carga negativa</strong> ao DNA e RNA em pH fisiológico.</p>
-    </div>
-    <div class="card btb">
-      <h3>2. Pentose (Açúcar 5C)</h3>
-      <p>• <strong>2'-Desoxirribose no DNA:</strong> possui apenas H no carbono 2' (confere muito maior estabilidade química contra hidrólise).<br>
-      • <strong>Ribose no RNA:</strong> possui grupo –OH reativo no carbono 2'.</p>
-    </div>
-    <div class="card btv">
-      <h3>3. Base Nitrogenada</h3>
-      <p>• <strong>Púricas (2 anéis):</strong> Adenina (A) e Guanina (G).<br>
-      • <strong>Pirimídicas (1 anel):</strong> Citosina (C), Timina (T — <em>exclusiva do DNA</em>) e Uracila (U — <em>exclusiva do RNA</em>).</p>
-    </div>
-  </div>
-
-  <div class="hl hlg">
-    <strong>Ligação Fosfodiéster:</strong> Une o carbono <strong>3'-OH</strong> de um nucleotídeo ao grupo fosfato no carbono <strong>5'</strong> do próximo nucleotídeo. Por isso, toda fita de ácido nucleico possui polaridade e sempre é sintetizada na direção <strong>5' → 3'</strong>.
-  </div>
-
-  <div class="sub">🔄 Comparativo: DNA vs. RNA e Pareamento de Chargaff</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Critério</th><th>DNA (Ácido Desoxirribonucleico)</th><th>RNA (Ácido Ribonucleico)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Pentose</strong></td><td>Desoxirribose</td><td>Ribose</td></tr>
-        <tr><td><strong>Bases Nitrogenadas</strong></td><td>A, G, C e <strong>Timina (T)</strong></td><td>A, G, C e <strong>Uracila (U)</strong></td></tr>
-        <tr><td><strong>Estrutura Padrão</strong></td><td>Dupla-hélice antiparalela (5'→3' e 3'←5')</td><td>Fita simples (pode dobrar-se formando grampos internos)</td></tr>
-        <tr><td><strong>Pareamento (Pontes de H)</strong></td><td><strong>A = T</strong> (2 pontes de H) · <strong>C ≡ G</strong> (3 pontes de H — mais estável ao calor)</td><td>No pareamento temporário: <strong>A = U</strong> (2 pontes) e <strong>C ≡ G</strong> (3 pontes)</td></tr>
-        <tr><td><strong>Tipos e Funções</strong></td><td>Armazenamento perpétuo e transmissão hereditária da informação genética</td><td>• <strong>mRNA (mensageiro):</strong> contém os códons (trincas).<br>• <strong>tRNA (transportador):</strong> possui o anticódon e traz o aminoácido.<br>• <strong>rRNA (ribossomal):</strong> estrutura e atividade catalítica (peptidil transferase) do ribossomo.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">⚙️ O Dogma Central da Biologia Molecular</div>
-  <div class="grid g3">
-    <div class="card bta">
-      <div class="ch"><span class="ci">1️⃣</span><div><h3>Replicação (Duplicação)</h3></div></div>
-      <p><strong>DNA → DNA (Fase S da Intérfase)</strong></p>
-      <ul>
-        <li><strong>Semiconservativa:</strong> Cada fita filha conserva uma fita parental como molde.</li>
-        <li><strong>Helicase:</strong> Rompe as pontes de H abrindo a forquilha.</li>
-        <li><strong>Topoisomerase:</strong> Alivia a supertorção.</li>
-        <li><strong>Primase:</strong> Sintetiza o primer de RNA.</li>
-        <li><strong>DNA Polimerase:</strong> Sintetiza apenas 5'→3' (fita líder contínua e fita descontínua com <em>Fragmentos de Okazaki</em> unidos pela <strong>DNA Ligase</strong>).</li>
-      </ul>
-    </div>
-    <div class="card btb">
-      <div class="ch"><span class="ci">2️⃣</span><div><h3>Transcrição</h3></div></div>
-      <p><strong>DNA → RNA (Núcleo)</strong></p>
-      <ul>
-        <li>A enzima <strong>RNA Polimerase</strong> lê a fita molde de DNA (3'→5') e sintetiza o RNA complementar no sentido <strong>5'→3'</strong> sem precisar de primer.</li>
-        <li><strong>Processamento em Eucariontes:</strong> Adição do <em>Cap 5'</em>, <em>Cauda Poli-A 3'</em> e <strong>Splicing</strong> (remoção dos <strong>Íntrons</strong> não codificantes e união dos <strong>Éxons</strong> codificantes pelo spliceossomo).</li>
-      </ul>
-    </div>
-    <div class="card btv">
-      <div class="ch"><span class="ci">3️⃣</span><div><h3>Tradução</h3></div></div>
-      <p><strong>mRNA → Proteína (Ribossomos)</strong></p>
-      <ul>
-        <li><strong>Código Genético:</strong> Universal e <em>degenerado</em> (64 códons para 20 aminoácidos).</li>
-        <li><strong>Códon de Iniciação:</strong> <strong>AUG</strong> (codifica <em>Metionina</em>).</li>
-        <li><strong>Códons de Parada (Stop):</strong> <strong>UAA, UAG, UGA</strong> (reconhecidos por fatores de liberação).</li>
-        <li>Etapas: Iniciação, Alongamento (sítios A, P e E do ribossomo) e Terminação.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 8: METABOLISMO DA GLICOSE ==================== -->
-<section id="t8" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a1)">⚡</div>
-    <div>
-      <h2>8. Metabolismo da Glicose (Carboidratos)</h2>
-      <p>Glicólise · Ciclo de Krebs · Fosforilação Oxidativa · Fermentação · Gliconeogênese e Glicogenólise</p>
-    </div>
-  </div>
-
-  <div class="sub">🔥 Respiração Celular Aeróbica: As 4 Etapas Catabólicas</div>
-  <div class="hl hlg">
-    <strong>Equação Geral:</strong> C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + Energia (<strong>30 a 32 ATPs</strong> segundo a bioenergética moderna; ou 36–38 ATPs no cálculo clássico).
-  </div>
-
-  <div class="tl">
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>1. Glicólise (Via de Embden-Meyerhof) — Local: Citosol (Anaeróbica)</h4>
-      <p>Quebra de <strong>1 Glicose (6C)</strong> em <strong>2 Piruvatos (3C)</strong> através de 10 reações enzimáticas.<br>
-      • <strong>Fase de Investimento:</strong> Gasta 2 ATPs (enzimas reguladoras: <em>Hexoquinase/Glicoquinase</em> e <em>Fosfofrutoquinase-1 / PFK-1</em> — principal ponto de controle alostérico).<br>
-      • <strong>Fase de Pagamento:</strong> Produz 4 ATPs (por fosforilação em nível de substrato) e reduz 2 NAD⁺.<br>
-      • <strong>Saldo Líquido por Glicose:</strong> <span class="tag tag-g">2 ATP</span> <span class="tag tag-c">2 NADH</span> <span class="tag tag-y">2 Piruvatos</span></p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>2. Oxidação do Piruvato (Descarboxilação Oxidativa) — Local: Matriz Mitocondrial</h4>
-      <p>O piruvato entra na mitocôndria e sofre ação do <strong>Complexo Piruvato Desidrogenase</strong>, liberando CO₂ e unindo-se à Coenzima A.<br>
-      • <strong>Saldo (para 2 Piruvatos):</strong> <span class="tag tag-v">2 Acetil-CoA (2C)</span> <span class="tag tag-c">2 NADH</span> <span class="tag tag-r">2 CO₂</span></p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>3. Ciclo de Krebs (Ciclo do Ácido Cítrico) — Local: Matriz Mitocondrial</h4>
-      <p>Via <strong>anfibólica</strong> (catabólica e anabólica). O <strong>Acetil-CoA (2C)</strong> condensa-se com o <strong>Oxaloacetato (4C)</strong> formando <strong>Citrato (6C)</strong>, que sofre oxidações sucessivas regenerando o Oxaloacetato.<br>
-      • <strong>Saldo por 1 Acetil-CoA (1 volta):</strong> 3 NADH + 1 FADH₂ + 1 GTP (ATP) + 2 CO₂.<br>
-      • <strong>Saldo por 1 Glicose (2 voltas):</strong> <span class="tag tag-c">6 NADH</span> <span class="tag tag-y">2 FADH₂</span> <span class="tag tag-g">2 GTP (ATP)</span> <span class="tag tag-r">4 CO₂</span></p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>4. Cadeia Transportadora de Elétrons e Fosforilação Oxidativa — Local: Cristas Mitocondriais</h4>
-      <p>• <strong>Cadeia Respiratória (Complexos I, II, III e IV):</strong> NADH (entrega elétrons no Complexo I → rende ~2,5 ATP) e FADH₂ (entrega no Complexo II → rende ~1,5 ATP) transferem elétrons até o <strong>Oxigênio (O₂), o aceptor final de elétrons</strong>, que se reduz formando H₂O.<br>
-      • <strong>Bombeamento de Prótons:</strong> A passagem de elétrons nos Complexos I, III e IV bombeia <strong>H⁺ da matriz para o espaço intermembranas</strong>, criando um gradiente eletroquímico (força próton-motriz).<br>
-      • <strong>Quimiosmose (ATP Sintase — Complexo V):</strong> O retorno dos íons H⁺ a favor do gradiente através da <strong>ATP Sintase</strong> gira seu rotor catalítico e fosforila ADP + Pi em <strong>ATP</strong> (~26 a 28 ATPs).</p>
-    </div>
-  </div>
-
-  <div class="sub">🔄 Vias Alternativas e Regulação Glicêmica</div>
-  <div class="grid g2">
     <div class="card btr">
-      <h3>🍺 Destino Anaeróbico: Fermentação (Citosol)</h3>
-      <p>Quando falta O₂ (ou em células sem mitocôndrias, como hemácias), o piruvato é reduzido no citosol para <strong>regenerar o NAD⁺</strong> e manter a glicólise ativa (saldo: apenas 2 ATP/glicose):</p>
+      <h3 style="color:var(--a6);margin-bottom:.5rem">❌ NÃO CONTA como Despesa em Saúde (Art. 4º — CAI MUITO!)</h3>
       <ul>
-        <li><strong>Fermentação Lática:</strong> Piruvato → <strong>Lactato</strong> (enzima <em>Lactato Desidrogenase</em>). Ocorre em hemácias e no músculo esquelético em exercício intenso. O lactato vai ao fígado e é reconvertido em glicose pelo <strong>Ciclo de Cori</strong>.</li>
-        <li><strong>Fermentação Alcoólica:</strong> Piruvato → Acetaldeído + CO₂ → <strong>Etanol</strong> (leveduras <em>Saccharomyces cerevisiae</em>).</li>
+        <li>Pagamento de <strong>aposentadorias e pensões (inativos)</strong>, inclusive dos servidores da saúde.</li>
+        <li>Pessoal ativo da área de saúde quando em <strong>desvio de função</strong> ou cedido a outros órgãos fora da saúde.</li>
+        <li><strong>Assistência à saúde que NÃO atenda ao princípio de universalidade</strong> (ex: planos de saúde fechados para servidores públicos ou militares).</li>
+        <li><strong>Programas de alimentação e nutrição</strong>, como <strong>merenda escolar</strong>, cesta básica ou vale-alimentação.</li>
+        <li><strong>Saneamento básico geral</strong> (obras urbanas de água/esgoto financiadas por taxas/tarifas ou fundos de desenvolvimento urbano).</li>
+        <li><strong>Limpeza urbana e remoção de resíduos</strong> sólidos (coleta de lixo).</li>
+        <li>Preservação e correção do meio ambiente.</li>
+        <li>Ações de <strong>assistência social</strong> (ex: Bolsa Família, BPC) e obras de infraestrutura urbana (asfalto, iluminação pública).</li>
       </ul>
     </div>
-    <div class="card btb">
-      <h3>⚖️ Vias Hepáticas e Regulação Hormonal</h3>
-      <ul>
-        <li><strong>Glicogênese:</strong> Síntese de glicogênio a partir de glicose (ativada pela <strong>Insulina</strong> no estado pós-prandial/alimentado; enzima <em>Glicogênio Sintase</em>).</li>
-        <li><strong>Glicogenólise:</strong> Quebra de glicogênio em glicose (ativada pelo <strong>Glucagon</strong> e <strong>Adrenalina</strong> no jejum/exercício; enzima <em>Glicogênio Fosforilase</em>).</li>
-        <li><strong>Gliconeogênese:</strong> Síntese de glicose no fígado/córtex renal a partir de precursores <em>não glicídicos</em>: <strong>Lactato, Glicerol e Aminoácidos glicogênicos (ex: Alanina)</strong> durante jejum prolongado.</li>
-        <li><strong>Via das Pentoses-Fosfato:</strong> Ocorre no citosol; gera <strong>NADPH</strong> (síntese lipídica e defesa antioxidante via glutationa) e <strong>Ribose-5-fosfato</strong> (síntese de nucleotídeos).</li>
-      </ul>
+  </div>
+
+  <div class="sub">🔑 4. Os 6 Requisitos para Transferência Fundo a Fundo (Art. 4º da Lei 8.142/90)</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Para que Estados, DF e Municípios recebam repasses federais de forma regular e automática (Fundo a Fundo), precisam comprovar <strong>6 condições obrigatórias</strong>:</p>
+  <div class="grid g3">
+    <div class="card"><p><span class="num">1</span><strong>Fundo de Saúde</strong> instituído e em funcionamento.</p></div>
+    <div class="card"><p><span class="num">2</span><strong>Conselho de Saúde</strong> com composição paritária.</p></div>
+    <div class="card"><p><span class="num">3</span><strong>Plano de Saúde</strong> plurianual aprovado.</p></div>
+    <div class="card"><p><span class="num">4</span><strong>Relatórios de Gestão</strong> (RAG) que permitam controle.</p></div>
+    <div class="card"><p><span class="num">5</span><strong>Contrapartida de recursos</strong> para a saúde no respectivo orçamento.</p></div>
+    <div class="card"><p><span class="num">6</span><strong>Comissão de elaboração do Plano de Carreira, Cargos e Salários (PCCS)</strong>.</p></div>
+  </div>
+
+  <div class="sub">📦 5. Blocos de Financiamento do SUS (Portaria de Consolidação / SUS Legal 2017)</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>1. Bloco de Manutenção das ASPS (Custeio)</h3>
+      <p>Recursos destinados à manutenção diária das ações e serviços existentes (Atenção Primária, Atenção Especializada MAC, Assistência Farmacêutica, Vigilância em Saúde e Gestão do SUS).</p>
+    </div>
+    <div class="card btv">
+      <h3>2. Bloco de Estruturação da Rede de Serviços (Investimento)</h3>
+      <p>Recursos de capital destinados exclusivamente à <strong>construção, ampliação ou reforma</strong> de unidades de saúde (UBS, UPA, Hospitais) e à <strong>aquisição de equipamentos permanentes</strong>.</p>
     </div>
   </div>
 </section>
 
-<!-- ==================== ABA 9: METABOLISMO LIPÍDICO ==================== -->
-<section id="t9" class="sec">
+<!-- ==================== ABA 6: ECONOMIA DA SAÚDE ==================== -->
+<section id="s6" class="sec">
   <div class="sh">
-    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">🔥</div>
+    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">📈</div>
     <div>
-      <h2>9. Metabolismo Lipídico</h2>
-      <p>Lipólise · Ativação e Transporte por Carnitina · β-Oxidação · Cetogênese · Lipogênese e Lipoproteínas</p>
-    </div>
-  </div>
-
-  <div class="sub">🔥 Catabolismo Lipídico: Da Lipólise à β-Oxidação</div>
-  <div class="tl">
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>1. Lipólise no Tecido Adiposo (Jejum / Exercício)</h4>
-      <p>Estimulada por <strong>Glucagon e Adrenalina</strong> (e inibida pela Insulina). A enzima <strong>Lipase Sensível a Hormônio (LSH)</strong> hidrolisa o Triacilglicerol em:<br>
-      • <strong>Glicerol:</strong> Vai pelo sangue até o fígado para entrar na glicólise ou <strong>gliconeogênese</strong>.<br>
-      • <strong>Ácidos Graxos Livres (AGL):</strong> Viajam no sangue ligados à proteína <strong>Albumina</strong> até os tecidos oxidativos (músculo esquelético, coração, fígado).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>2. Ativação no Citosol e Lançadeira da Carnitina</h4>
-      <p>• No citosol, o ácido graxo é ativado em <strong>Acil-CoA</strong> pela enzima <em>Acil-CoA Sintetase</em> (gasta o equivalente a <strong>2 ligações de alta energia de ATP</strong>: ATP → AMP + PPi).<br>
-      • Ácidos graxos de cadeia longa (&gt;12C) atravessam a membrana mitocondrial interna através da <strong>Lançadeira da Carnitina</strong>: a enzima <strong>CPT-1 (Carnitina Palmitoil Transferase 1)</strong> é o principal ponto regulatório (inibida pelo <em>Malonil-CoA</em> para impedir que síntese e degradação ocorram ao mesmo tempo).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>3. β-Oxidação dos Ácidos Graxos (Ciclo de Lynen) — Local: Matriz Mitocondrial</h4>
-      <p>O Acil-CoA sofre ciclos sucessivos de 4 reações (Oxidação por FAD → Hidratação → Oxidação por NAD⁺ → Clivagem tiolítica), encurtando a cadeia em <strong>2 carbonos por volta</strong>.<br>
-      • <strong>Produto de cada ciclo:</strong> <span class="tag tag-v">1 Acetil-CoA (vai ao Ciclo de Krebs)</span> <span class="tag tag-y">1 FADH₂</span> <span class="tag tag-c">1 NADH</span><br>
-      • <strong>Exemplo Clássico — Ácido Palmítico (16 carbonos):</strong> Sofre <strong>7 ciclos</strong> de β-oxidação, gerando <strong>8 Acetil-CoA + 7 FADH₂ + 7 NADH</strong> → saldo líquido final de <strong>106 ATPs</strong> (após descontar os 2 ATPs de ativação).</p>
+      <h2>6. Economia da Saúde e Avaliação Econômica em Saúde</h2>
+      <p>Escassez e Custo de Oportunidade · Falhas de Mercado em Saúde · Eficiência vs. Eficácia vs. Efetividade · Estudos de Avaliação Econômica</p>
     </div>
   </div>
 
   <div class="hl hlr">
-    <strong>⚠️ Nota Crucial de Prova:</strong> Os ácidos graxos de número par de carbonos <strong>NÃO podem ser convertidos em glicose</strong> em animais, pois o Acetil-CoA não pode ser transformado de volta em Piruvato (a reação da Piruvato Desidrogenase é irreversível) e seus 2 carbonos são perdidos como CO₂ no Ciclo de Krebs. Além disso, o <strong>cérebro não realiza β-oxidação</strong> porque os ácidos graxos não atravessam eficientemente a barreira hematoencefálica.
+    <strong>O Problema Fundamental da Economia da Saúde:</strong> Como conciliar <strong>necessidades de saúde infinitas e crescentes</strong> (envelhecimento populacional, transição epidemiológica, novas tecnologias de alto custo, judicialização) com <strong>recursos financeiros e físicos finitos e escassos</strong>? A Economia da Saúde fornece ferramentas racionais para otimizar a alocação de recursos maximizando o bem-estar social.
   </div>
 
-  <div class="sub">🧪 Cetogênese, Lipogênese e Lipoproteínas Plasmáticas</div>
-  <div class="grid g3">
-    <div class="card btr">
-      <h3>1. Corpos Cetônicos (Cetogênese)</h3>
-      <p><strong>Local:</strong> Matriz mitocondrial <strong>exclusivamente do Fígado</strong> durante jejum prolongado ou diabetes descompensado.</p>
-      <p>Como o oxaloacetato hepático é desviado para a gliconeogênese, o excesso de Acetil-CoA é convertido em: <strong>Acetoacetato, β-Hidroxibutirato</strong> (fontes vitais de energia para o cérebro e coração no jejum) e <strong>Acetona</strong> (volátil, eliminada no hálito cetônico). Excesso causa <em>cetoacidose</em>.</p>
-    </div>
-    <div class="card bta">
-      <h3>2. Síntese de Ácidos Graxos (Lipogênese)</h3>
-      <p><strong>Local:</strong> <strong>Citosol</strong> (fígado e tecido adiposo) após dieta rica em carboidratos (estimulada pela <strong>Insulina</strong>).</p>
-      <p>O excesso de Acetil-CoA mitocondrial sai para o citosol sob a forma de <strong>Citrato</strong>. A enzima <strong>Acetil-CoA Carboxilase (ACC)</strong> converte Acetil-CoA em <strong>Malonil-CoA</strong>, e o complexo <em>Ácido Graxo Sintase</em> constrói o palmitato usando poder redutor do <strong>NADPH</strong>.</p>
-    </div>
-    <div class="card btb">
-      <h3>3. Lipoproteínas Sanguíneas</h3>
-      <ul>
-        <li><strong>Quilomícrons:</strong> Transportam triglicerídeos da dieta (exógenos) do intestino para os tecidos.</li>
-        <li><strong>VLDL:</strong> Transporta triglicerídeos endógenos sintetizados pelo fígado para os tecidos periféricos.</li>
-        <li><strong>LDL ("Mau colesterol"):</strong> Entrega colesterol do fígado para os tecidos; em excesso oxida-se e forma placas de ateroma.</li>
-        <li><strong>HDL ("Bom colesterol"):</strong> Realiza o <em>transporte reverso de colesterol</em> dos tecidos de volta para o fígado para excreção biliar.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 10: METABOLISMO PROTEICO ==================== -->
-<section id="t10" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">♻️</div>
-    <div>
-      <h2>10. Metabolismo Proteico e Nitrogenado</h2>
-      <p>Digestão proteica · Transaminação · Desaminação oxidativa · Ciclo da Ureia · Destino do esqueleto carbônico</p>
-    </div>
-  </div>
-
-  <div class="hl hlr">
-    <strong>Princípio Fundamental:</strong> Ao contrário de carboidratos (glicogênio) e lipídios (triacilgliceróis), <strong>não existe forma de armazenamento exclusivo de proteínas ou aminoácidos no corpo</strong>. O excesso de aminoácidos da dieta ou oriundo do turnover proteico celular tem seu grupo amino removido e seu esqueleto carbônico oxidado ou convertido em glicose/gordura.
-  </div>
-
-  <div class="sub">🍽️ 1. Digestão Proteica e Degradação Intracelular</div>
-  <div class="grid g2">
-    <div class="card btc">
-      <h3>Digestão Gastrointestinal (Zimogênios)</h3>
-      <ul>
-        <li><strong>Estômago:</strong> O HCl desnatura as proteínas e converte o pepsinogênio em <strong>Pepsina</strong> (endopeptidase ativa em pH ~2,0).</li>
-        <li><strong>Intestino Delgado (Pâncreas):</strong> Suco pancreático libera zimogênios ativados no duodeno: <strong>Tripsina, Quimotripsina, Elastase e Carboxipeptidases</strong>.</li>
-        <li><strong>Borda em Escova:</strong> Aminopeptidases e dipeptidases liberam aminoácidos livres absorvidos por co-transporte com Na⁺.</li>
-      </ul>
-    </div>
-    <div class="card btv">
-      <h3>Degradação Intracelular (Turnover)</h3>
-      <ul>
-        <li><strong>Via Ubiquitina-Proteassoma (Citosol/Núcleo):</strong> Proteínas intracelulares defeituosas ou de meia-vida curta são marcadas covalentemente pela proteína <strong>Ubiquitina</strong> (gasta ATP) e degradadas no complexo <strong>Proteassoma 26S</strong>.</li>
-        <li><strong>Via Lisossomal (Catepsinas):</strong> Degrada proteínas extracelulares endocitadas e proteínas de membrana.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">🔄 2. Catabolismo do Grupo Amino: Transaminação → Desaminação → Ciclo da Ureia</div>
-  <div class="tl">
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Etapa 1: Transaminação (Citosol dos tecidos e Fígado)</h4>
-      <p>As enzimas <strong>Aminotransferases (Transaminases)</strong> — que dependem da coenzima <strong>Piridoxal-Fosfato (PLP, derivada da Vitamina B6)</strong> — transferem o grupo amino (–NH₂) de diversos aminoácidos para o <strong>α-Cetoglutarato</strong>, formando um α-cetoácido e concentrando todo o nitrogênio na forma de <strong>L-Glutamato</strong>.<br>
-      • <strong>TGO (AST — Aspartato Aminotransferase):</strong> Converte Aspartato + α-Cetoglutarato ⇌ Oxaloacetato + Glutamato.<br>
-      • <strong>TGP (ALT — Alanina Aminotransferase):</strong> Converte Alanina + α-Cetoglutarato ⇌ Piruvato + Glutamato (marcador clínico específico de lesão hepática).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Etapa 2: Transporte Seguro de Amônia no Sangue (Glutamina e Ciclo de Cahill)</h4>
-      <p>A amônia livre (NH₃ / NH₄⁺) é altamente <strong>neurotóxica</strong> (causa encefalopatia hepática). Para viajar com segurança pelos vasos sanguíneos até o fígado:<br>
-      • <strong>Maioria dos tecidos e cérebro:</strong> A <em>Glutamina Sintetase</em> fixa NH₄⁺ no Glutamato gerando <strong>Glutamina</strong> (neutra e atóxica).<br>
-      • <strong>Músculo Esquelético (Ciclo Glicose-Alanina / Cahill):</strong> O piruvato muscular recebe o grupo amino formando <strong>Alanina</strong>, que vai ao fígado regenerar piruvato (para gliconeogênese) e liberar o nitrogênio.</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Etapa 3: Desaminação Oxidativa (Matriz Mitocondrial dos Hepatócitos)</h4>
-      <p>No fígado, a enzima <strong>Glutamato Desidrogenase</strong> remove o grupo amino do Glutamato usando NAD⁺ ou NADP⁺, regenerando o <strong>α-Cetoglutarato</strong> e liberando o íon <strong>Amônio livre (NH₄⁺)</strong> diretamente dentro da mitocondria hepática para alimentar o Ciclo da Ureia.</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Etapa 4: Ciclo da Ureia (Ciclo de Krebs-Henseleit) — Local: Fígado (Mitocôndria + Citosol)</h4>
-      <p>Converte 2 átomos de nitrogênio tóxicos (<strong>1 vindo do NH₄⁺ livre</strong> e <strong>1 vindo do Aspartato</strong>) + 1 carbono do HCO₃⁻ em <strong>Ureia — CO(NH₂)₂</strong>, composto atóxico e hidrossolúvel que vai pela corrente sanguínea até os <strong>rins</strong> para excreção urinária.<br>
-      • <strong>Na Mitocôndria:</strong> NH₄⁺ + HCO₃⁻ + 2 ATP → <em>Carbamoil-Fosfato</em> (enzima limitante: <em>CPS-I</em>). Condensa-se com a <strong>Ornitina</strong> formando <strong>Citrulina</strong>, que sai para o citosol.<br>
-      • <strong>No Citosol:</strong> Citrulina + Aspartato (gasta ATP → AMP) → <em>Argininossufinato</em> → <strong>Arginina</strong> + <em>Fumarato</em> (este retorna ao Ciclo de Krebs — "Biciclo de Krebs"). A enzima <strong>Arginase</strong> cliva a Arginina liberando <strong>UREIA</strong> e regenerando a <strong>Ornitina</strong>.</p>
-    </div>
-  </div>
-
-  <div class="sub">⚡ 3. Destino do Esqueleto Carbônico dos Aminoácidos</div>
+  <div class="sub">🧠 1. Conceitos Fundamentais de Economia Aplicados à Saúde</div>
   <div class="grid g3">
     <div class="card bta">
-      <h3>🟢 Aminoácidos Glicogênicos</h3>
-      <p>Seus esqueletos carbônicos são degradados a <strong>Piruvato</strong> ou intermediários do Ciclo de Krebs (<strong>α-Cetoglutarato, Succinil-CoA, Fumarato ou Oxaloacetato</strong>), podendo servir de substrato para a <strong>Gliconeogênese</strong> (síntese de glicose).</p>
-      <p><strong>Exemplos:</strong> Alanina, Glutamato, Glutamina, Aspartato, Serina, Glicina, Valina, Metionina.</p>
+      <h3>⚖️ Custo de Oportunidade</h3>
+      <p>É o <strong>benefício em saúde perdido (sacrificado)</strong> por não se ter aplicado aquele mesmo recurso na melhor alternativa disponível. Ex: usar R$ 10 milhões em um medicamento sem evidência significa deixar de vacinar ou construir 5 UBS.</p>
+    </div>
+    <div class="card btg">
+      <h3>🎯 Eficácia, Efetividade e Eficiência</h3>
+      <ul>
+        <li><strong>Eficácia:</strong> Funciona em condições <em>ideais / controladas</em> (ensaio clínico randomizado).</li>
+        <li><strong>Efetividade:</strong> Funciona no <em>mundo real / prática clínica cotidiana</em>.</li>
+        <li><strong>Eficiência:</strong> Atingir a máxima efetividade com o <em>menor custo possível</em> (relação custo/resultado).</li>
+      </ul>
     </div>
     <div class="card bty">
-      <h3>🟡 Aminoácidos Cetogênicos Exclusivos</h3>
-      <p>Seus esqueletos carbônicos são degradados exclusivamente a <strong>Acetil-CoA</strong> ou <strong>Acetoacetato</strong>. Como Acetil-CoA não gera glicose, só podem formar <strong>corpos cetônicos ou ácidos graxos</strong>.</p>
-      <p><strong>Exemplos (Apenas 2!):</strong> <strong>Leucina (Leu)</strong> e <strong>Lisina (Lys)</strong>.</p>
+      <h3>🔀 Equidade Horizontal vs. Vertical</h3>
+      <ul>
+        <li><strong>Equidade Horizontal:</strong> Tratamento igual para indivíduos com necessidades iguais.</li>
+        <li><strong>Equidade Vertical:</strong> Tratamento desigual (prioritário) para indivíduos com necessidades diferentes/maiores.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">⚠️ 2. Peculiaridades do Setor Saúde e "Falhas de Mercado" (Kenneth Arrow, 1963)</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">A saúde <strong>não funciona como um mercado competitivo comum</strong> de bens de consumo devido a características únicas que exigem forte intervenção e regulação estatal:</p>
+  <div class="grid g2">
+    <div class="card btr">
+      <h3>1. Assimetria de Informação e Demanda Induzida pela Oferta</h3>
+      <p>• <strong>Assimetria de Informação:</strong> O paciente (consumidor) não detém o conhecimento técnico sobre seu diagnóstico ou tratamento; ele depende do médico (agente) para decidir o que consumir.<br>
+      • <strong>Demanda Induzida pela Oferta (Relação de Agência Imperfeita):</strong> Como o próprio fornecedor do serviço (médico/hospital) define a demanda do paciente, pode haver incentivo econômico para solicitar mais exames ou procedimentos desnecessários (especialmente no modelo de pagamento por procedimento — <em>Fee-for-Service</em>).</p>
     </div>
     <div class="card btv">
-      <h3>🟣 Aminoácidos Glicocetogênicos (Mistos)</h3>
-      <p>Parte de sua cadeia carbônica gera intermediários glicogênicos (como fumarato, succinil-CoA ou piruvato) e outra parte gera Acetil-CoA/Acetoacetato.</p>
-      <p><strong>Exemplos (5):</strong> <strong>Isoleucina, Fenilalanina, Tirosina, Triptofano e Treonina</strong>.</p>
+      <h3>2. Incerteza, Risco Moral, Seleção Adversa e Externalidades</h3>
+      <ul>
+        <li><strong>Incerteza (Imprevisibilidade):</strong> Ninguém sabe quando ficará doente nem quanto custará o tratamento.</li>
+        <li><strong>Risco Moral (Moral Hazard):</strong> Quando o indivíduo tem cobertura total (seguro ou sistema gratuito sem regulação), tende a consumir mais serviços de saúde ou cuidar menos da prevenção.</li>
+        <li><strong>Seleção Adversa:</strong> Indivíduos com maior risco de adoecer procuram mais os planos de saúde, enquanto as operadoras tentam selecionar apenas jovens saudáveis ("<em>cream skimming</em>").</li>
+        <li><strong>Externalidades Positivas:</strong> O consumo de um serviço por um indivíduo beneficia toda a coletividade (ex: <strong>vacinação / imunidade de rebanho</strong> e saneamento básico).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">📊 3. Métodos de Avaliação Econômica Completa em Saúde (CONITEC / ATS)</div>
+  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Todo método de avaliação econômica completa compara <strong>duas ou mais alternativas tecnológicas</strong> analisando simultaneamente os <strong>Custos (em unidades monetárias, R$)</strong> e os <strong>Desfechos/Consequências em Saúde</strong>. O que diferencia os 4 métodos é <strong>como o desfecho é medido</strong>:</p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Método de Análise</th><th>Medida de Custo</th><th>Como Mede o Desfecho (Consequência)</th><th>Quando Utilizar / Exemplo Prático</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Custo-Minimização (ACM)</strong></td>
+          <td>Unidades monetárias (R$)</td>
+          <td><strong>Desfechos idênticos / equivalentes</strong> (eficácia comprovadamente igual)</td>
+          <td>Comparar um medicamento de referência com seu <strong>genérico bioequivalente</strong>: escolhe-se simplesmente a opção mais barata.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Custo-Efetividade (ACE)</strong></td>
+          <td>Unidades monetárias (R$)</td>
+          <td><strong>Unidades clínicas naturais</strong> (unidimensionais): mmHg de pressão arterial reduzidos, casos de dengue evitados, <strong>anos de vida ganhos (AVG)</strong></td>
+          <td>Comparar dois anti-hipertensivos na redução de AVC. Calcula-se a <strong>RCEI (Razão de Custo-Efetividade Incremental)</strong>: $\Delta \text{Custo} / \Delta \text{Efetividade}$.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Custo-Utilidade (ACU)</strong></td>
+          <td>Unidades monetárias (R$)</td>
+          <td>Combina <strong>Quantidade + Qualidade de vida</strong> percebida: <strong>QALY (AVAQ — Anos de Vida Ajustados pela Qualidade)</strong> ou DALY (Anos de Vida Ajustados por Incapacidade)</td>
+          <td><strong>Padrão-ouro da CONITEC!</strong> Essencial para doenças crônicas ou oncológicas (onde o tratamento não apenas prolonga a sobrevida, mas impacta a qualidade de vida). No Brasil, o limiar de custo-efetividade da CONITEC é de <strong>1 a 3 PIB per capita por QALY ganho</strong> (~R$ 40 mil a R$ 120 mil/QALY).</td>
+        </tr>
+        <tr>
+          <td><strong>4. Custo-Benefício (ACB)</strong></td>
+          <td>Unidades monetárias (R$)</td>
+          <td><strong>Unidades monetárias (R$)</strong> — transforma vidas salvas ou dias sem doença em dinheiro</td>
+          <td>Permite comparar investimentos entre setores diferentes (ex: investir em uma campanha de vacinação vs. construir uma rodovia). É se o Benefício Líquido (B − C) &gt; 0. Pouco usado na clínica por questões éticas de precificar a vida humana.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">💸 4. Classificação dos Custos em Saúde</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <h3>🏥 Custos Diretos</h3>
+      <p>Gastos diretamente ligados à intervenção:<br>
+      • <strong>Diretos Médicos:</strong> medicamentos, diárias de UTI, honorários médicos, exames.<br>
+      • <strong>Diretos Não Médicos:</strong> transporte do paciente (TFD), alimentação hospitalar, adaptação da residência.</p>
+    </div>
+    <div class="card bty">
+      <h3>📉 Custos Indiretos</h3>
+      <p>Perda de produtividade econômica do paciente ou de seus familiares cuidadores para a sociedade:<br>
+      • <strong>Absenteísmo</strong> (faltas ao trabalho)<br>
+      • <strong>Presenteísmo</strong> (baixa produtividade)<br>
+      • Aposentadoria precoce ou morte prematura.</p>
+    </div>
+    <div class="card btv">
+      <h3>💔 Custos Intangíveis</h3>
+      <p>Custos subjetivos de difícil mensuração monetária, como a <strong>dor física, o sofrimento psicológico, a ansiedade, o estigma social</strong> e a perda de lazer causados pela doença ou pelo tratamento.</p>
     </div>
   </div>
 </section>
