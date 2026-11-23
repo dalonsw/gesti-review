@@ -3,636 +3,654 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Revisão — SUS, Saúde Coletiva e Economia da Saúde</title>
+<title>Revisão Completa — UX/UI & Engenharia de Interfaces</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a1017;
-  --card:#121c27;
-  --bord:#213244;
-  --a1:#0ea5e9;
-  --a2:#38bdf8;
-  --a3:#10b981;
-  --a4:#34d399;
+  --bg:#0b0f17;
+  --card:#131b26;
+  --bord:#223042;
+  --a1:#6366f1;
+  --a2:#818cf8;
+  --a3:#06b6d4;
+  --a4:#10b981;
   --a5:#f59e0b;
   --a6:#f43f5e;
-  --a7:#a855f7;
+  --a7:#ec4899;
   --text:#e6edf3;
-  --muted:#8b9eb0
+  --muted:#8ea1b4;
+  --code-bg:#090d14;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.68}
-header{background:linear-gradient(135deg,#0f1d2d,#0a1017);border-bottom:1px solid var(--bord);padding:2.8rem 2rem 2.3rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(14,165,233,.16),transparent 65%);pointer-events:none}
-.badge{display:inline-block;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.35);color:var(--a2);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
-header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#e6edf3 25%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
-header p{color:var(--muted);font-size:.95rem;max-width:700px;margin:0 auto}
-.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:1.3rem}
-.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.77rem;color:var(--muted)}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+header{background:linear-gradient(135deg,#131828,#0b0f17);border-bottom:1px solid var(--bord);padding:3rem 2rem 2.4rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.18),transparent 70%);pointer-events:none}
+.badge{display:inline-block;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.35);color:var(--a2);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.32rem .95rem;border-radius:999px;margin-bottom:1rem}
+header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#f8fafc 30%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
+header p{color:var(--muted);font-size:.95rem;max-width:720px;margin:0 auto}
+.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.3rem}
+.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.78rem;color:var(--muted)}
 .mpill span{color:var(--text);font-weight:600}
-.print-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(14,165,233,.15);border:1px solid var(--a1);color:var(--a2);padding:.45rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
-.print-btn:hover{background:var(--a1);color:#0a1017}
-.tabs{position:sticky;top:0;z-index:100;background:rgba(10,16,23,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.print-btn{margin-top:1.3rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(99,102,241,.14);border:1px solid var(--a1);color:var(--a2);padding:.48rem 1.15rem;border-radius:8px;font-size:.83rem;font-weight:600;cursor:pointer;transition:all .2s}
+.print-btn:hover{background:var(--a1);color:#fff}
+.tabs{position:sticky;top:0;z-index:100;background:rgba(11,15,23,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.83rem;font-weight:600;padding:.9rem 1.15rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.83rem;font-weight:600;padding:.9rem 1.2rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--a2);border-bottom-color:var(--a2)}
-main{max-width:1040px;margin:0 auto;padding:2.4rem 1.5rem 5rem}
+main{max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
 .sec{display:none;animation:fi .3s ease}
 .sec.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.sh{display:flex;align-items:center;gap:.85rem;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:1px solid var(--bord)}
-.si{width:2.7rem;height:2.7rem;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
-.sh h2{font-size:1.4rem;font-weight:800}
-.sh p{font-size:.84rem;color:var(--muted);margin-top:.15rem}
-.sub{font-size:1.05rem;font-weight:700;margin:1.8rem 0 .85rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.sh{display:flex;align-items:center;gap:.9rem;margin-bottom:2rem;padding-bottom:1.1rem;border-bottom:1px solid var(--bord)}
+.si{width:2.8rem;height:2.8rem;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;flex-shrink:0}
+.sh h2{font-size:1.45rem;font-weight:800}
+.sh p{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+.sub{font-size:1.06rem;font-weight:700;margin:1.9rem 0 .9rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
 .grid{display:grid;gap:1rem}
-.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem 1.35rem;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--a1);transform:translateY(-2px)}
-.ch{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.55rem}
-.ci{font-size:1.25rem;flex-shrink:0;margin-top:.05rem}
-.card h3{font-size:.93rem;font-weight:700;color:var(--text)}
-.card p,.card li{font-size:.83rem;color:var(--muted);margin-bottom:.32rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.25rem 1.4rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--a2);transform:translateY(-2px)}
+.ch{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.6rem}
+.ci{font-size:1.3rem;flex-shrink:0;margin-top:.05rem}
+.card h3{font-size:.95rem;font-weight:700;color:var(--text)}
+.card p,.card li{font-size:.84rem;color:var(--muted);margin-bottom:.32rem}
 .card ul{padding-left:1.15rem}
 .card strong{color:var(--text)}
-.hl{border-radius:10px;padding:.95rem 1.2rem;margin:1rem 0;font-size:.84rem;color:var(--text)}
-.hlb{background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.25)}.hlb strong{color:var(--a2)}
-.hlg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25)}.hlg strong{color:var(--a4)}
-.hly{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25)}.hly strong{color:var(--a5)}
-.hlr{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25)}.hlr strong{color:var(--a6)}
-.hlv{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25)}.hlv strong{color:var(--a7)}
-.quote{background:linear-gradient(135deg,rgba(14,165,233,.09),rgba(16,185,129,.05));border:1px solid rgba(14,165,233,.25);border-radius:12px;padding:1.15rem 1.45rem;margin:1.1rem 0;font-style:italic;color:var(--text);position:relative;font-size:.88rem}
+.hl{border-radius:10px;padding:.95rem 1.25rem;margin:1rem 0;font-size:.85rem;color:var(--text)}
+.hlv{background:rgba(99,102,241,.09);border:1px solid rgba(99,102,241,.28)}.hlv strong{color:var(--a2)}
+.hlc{background:rgba(6,182,212,.09);border:1px solid rgba(6,182,212,.28)}.hlc strong{color:var(--a3)}
+.hlg{background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.28)}.hlg strong{color:var(--a4)}
+.hly{background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.28)}.hly strong{color:var(--a5)}
+.hlr{background:rgba(244,63,94,.09);border:1px solid rgba(244,63,94,.28)}.hlr strong{color:var(--a6)}
+.quote{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(6,182,212,.05));border:1px solid rgba(99,102,241,.25);border-radius:12px;padding:1.15rem 1.45rem;margin:1.1rem 0;font-style:italic;color:var(--text);font-size:.88rem}
 .tw{overflow-x:auto;margin:1rem 0;border-radius:10px;border:1px solid var(--bord)}
-table{width:100%;border-collapse:collapse;font-size:.82rem}
-thead th{background:rgba(14,165,233,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
-tbody td{padding:.55rem .95rem;border-top:1px solid var(--bord);color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+thead th{background:rgba(99,102,241,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
+tbody td{padding:.6rem .95rem;border-top:1px solid var(--bord);color:var(--muted)}
 tbody td strong{color:var(--text)}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 .tl{position:relative;padding-left:2rem}
-.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a5));border-radius:2px}
-.ti{position:relative;margin-bottom:1.1rem}
+.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a4));border-radius:2px}
+.ti{position:relative;margin-bottom:1.15rem}
 .dot{position:absolute;left:-1.45rem;top:.35rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--a1);border:2px solid var(--bg)}
-.ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a5)}.ti:nth-child(4) .dot{background:var(--a6)}.ti:nth-child(5) .dot{background:var(--a7)}.ti:nth-child(6) .dot{background:var(--a2)}
-.ti h4{font-size:.9rem;font-weight:700;color:var(--text)}
-.ti p{font-size:.82rem;color:var(--muted);margin-top:.2rem}
+.ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a4)}.ti:nth-child(4) .dot{background:var(--a5)}.ti:nth-child(5) .dot{background:var(--a6)}
+.ti h4{font-size:.92rem;font-weight:700;color:var(--text)}
+.ti p{font-size:.83rem;color:var(--muted);margin-top:.2rem}
 .bta{border-top:3px solid var(--a1)!important}
-.btg{border-top:3px solid var(--a3)!important}
+.btb{border-top:3px solid var(--a3)!important}
+.btg{border-top:3px solid var(--a4)!important}
 .bty{border-top:3px solid var(--a5)!important}
 .btr{border-top:3px solid var(--a6)!important}
-.btv{border-top:3px solid var(--a7)!important}
-.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(14,165,233,.15);color:var(--a2)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(99,102,241,.16);color:var(--a2)}
 .tag{display:inline-block;padding:.15rem .55rem;border-radius:6px;font-size:.72rem;font-weight:700;margin-right:.3rem}
-.tag-b{background:rgba(14,165,233,.15);color:var(--a2)}
-.tag-g{background:rgba(16,185,129,.15);color:var(--a4)}
-.tag-y{background:rgba(245,158,11,.15);color:var(--a5)}
-.tag-r{background:rgba(244,63,94,.15);color:var(--a6)}
-.tag-v{background:rgba(168,85,247,.15);color:var(--a7)}
-#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#0a1017;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(14,165,233,.35);display:none;place-items:center;transition:transform .2s}
+.tag-v{background:rgba(99,102,241,.16);color:var(--a2)}
+.tag-c{background:rgba(6,182,212,.16);color:var(--a3)}
+.tag-g{background:rgba(16,185,129,.16);color:var(--a4)}
+.tag-y{background:rgba(245,158,11,.16);color:var(--a5)}
+.tag-r{background:rgba(244,63,94,.16);color:var(--a6)}
+pre{background:var(--code-bg);border:1px solid var(--bord);border-radius:9px;padding:1rem 1.2rem;overflow-x:auto;font-family:'Consolas','Fira Code',monospace;font-size:.82rem;color:#cbd5e1;margin:.8rem 0;line-height:1.5}
+code{font-family:'Consolas','Fira Code',monospace;background:rgba(99,102,241,.12);color:var(--a2);padding:.15rem .4rem;border-radius:4px;font-size:.84rem}
+#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#fff;border:none;border-radius:999px;width:2.8rem;height:2.8rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(99,102,241,.38);display:none;place-items:center;transition:transform .2s}
 #top:hover{transform:scale(1.1)}#top.show{display:grid}
 
 @media print{
-  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#0369a1;--a2:#0284c7;--a3:#047857;--a4:#065f46;--a5:#b45309;--a6:#be123c;--a7:#6d28d9}
+  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#4338ca;--a2:#4f46e5;--a3:#0891b2;--a4:#059669;--a5:#d97706;--a6:#e11d48;--code-bg:#f1f5f9}
   body{background:#fff;color:#0f172a;font-size:9.5pt}
-  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #0369a1}
-  header h1{-webkit-text-fill-color:#0369a1;color:#0369a1}
+  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #4f46e5}
+  header h1{-webkit-text-fill-color:#4f46e5;color:#4f46e5}
   .tabs,.print-btn,#top{display:none!important}
   .sec{display:block!important;page-break-before:always;margin-bottom:2rem}
   .sec:first-of-type{page-break-before:avoid}
-  .card,.hl,.tw,tr,.quote{page-break-inside:avoid}
+  .card,.hl,.tw,tr,.quote,pre{page-break-inside:avoid}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="badge">🏥 Saúde Coletiva &amp; Políticas Públicas</div>
-  <h1>Sistema Único de Saúde (SUS)</h1>
-  <p>Revisão completa: História e Estrutura do SUS, Princípios e Diretrizes, Legislação Estruturante, Controle Social, Financiamento e Economia da Saúde.</p>
+  <div class="badge">🎨 UX Design &amp; Prototipação de Interfaces · UNEX</div>
+  <h1>Engenharia de Interfaces &amp; Design System</h1>
+  <p>Resumo aprofundado dos slides de UX 5, 6 e 7 · Prof. Msc. Wallas Froes de Oliveira · Da modelagem estrutural à reatividade em Flutter, ergonomia e testes.</p>
   <div class="mpills">
-    <div class="mpill">🏥 <span>História &amp; Estrutura do SUS</span></div>
-    <div class="mpill">⚖️ <span>Princípios Doutrinários &amp; Organizativos</span></div>
-    <div class="mpill">📜 <span>Legislação (CF/88, 8.080, 8.142, 7.508)</span></div>
-    <div class="mpill">🗳️ <span>Controle Social (Conselhos &amp; Conferências)</span></div>
-    <div class="mpill">💰 <span>Financiamento (EC 29, LC 141, Blocos)</span></div>
-    <div class="mpill">📈 <span>Economia da Saúde (ACE, ACU, ACB)</span></div>
+    <div class="mpill">📑 <span>3 Apostilas · 50 Slides Analisados</span></div>
+    <div class="mpill">🏗️ <span>UX 5: Engenharia de Interfaces &amp; Web Apps</span></div>
+    <div class="mpill">📐 <span>UX 6: Leis de UI/UX &amp; Reatividade Flutter</span></div>
+    <div class="mpill">🚀 <span>UX 7: Design System, Handoff &amp; Homologação</span></div>
   </div>
   <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" onclick="show('s1',this)">🏥 1. O SUS &amp; História</button>
-  <button class="tab" onclick="show('s2',this)">⚖️ 2. Princípios do SUS</button>
-  <button class="tab" onclick="show('s3',this)">📜 3. Legislação do SUS</button>
-  <button class="tab" onclick="show('s4',this)">🗳️ 4. Controle Social</button>
-  <button class="tab" onclick="show('s5',this)">💰 5. Financiamento da Saúde</button>
-  <button class="tab" onclick="show('s6',this)">📈 6. Economia da Saúde</button>
+  <button class="tab active" onclick="show('t1',this)">🏗️ 1. Engenharia de Interfaces (UX 5)</button>
+  <button class="tab" onclick="show('t2',this)">📐 2. Leis de UI/UX &amp; Flutter (UX 6)</button>
+  <button class="tab" onclick="show('t3',this)">🚀 3. Design System &amp; Handoff (UX 7)</button>
+  <button class="tab" onclick="show('t4',this)">📊 4. Síntese Comparativa &amp; Guia Rápido</button>
 </nav>
 
 <main>
 
-<!-- ==================== ABA 1: O SUS & HISTÓRIA ==================== -->
-<section id="s1" class="sec active">
+<!-- ==================== ABA 1: UX 5 - ENGENHARIA DE INTERFACES ==================== -->
+<section id="t1" class="sec active">
   <div class="sh">
-    <div class="si" style="background:rgba(14,165,233,.12);color:var(--a2)">🏥</div>
+    <div class="si" style="background:rgba(99,102,241,.12);color:var(--a2)">🏗️</div>
     <div>
-      <h2>1. O Sistema Único de Saúde (SUS): Evolução Histórica e Conceito</h2>
-      <p>Dos modelos previdenciários excludentes à Reforma Sanitária e ao direito universal à saúde</p>
+      <h2>1. Engenharia de Interfaces: Da Modelagem Estrutural à Arquitetura</h2>
+      <p>Slides UX 5 · Thin Client vs. Thick Client · Espectro de Prototipagem · IA Generativa · Topologias Desktop &amp; Login</p>
     </div>
   </div>
 
   <div class="quote">
-    "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação." — <strong>Art. 196 da Constituição Federal de 1988</strong>
+    "Todo sistema web é apenas um website no navegador? Consumo passivo vs. Execução contínua de software: onde o design encontra a engenharia de software?" — <strong>Prof. Wallas Froes</strong>
   </div>
 
-  <div class="sub">⏳ Linha do Tempo: A Construção Histórica da Saúde Pública no Brasil</div>
+  <div class="sub">🌐 Website Tradicional (Thin Client) vs. Web App (Thick Client)</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Critério</th><th>Website Tradicional (Thin Client)</th><th>Web App / Sistema Web (Thick Client)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Propósito Central</strong></td><td>Consumo passivo e leitura informativa de conteúdo.</td><td>Execução contínua de tarefas complexas e rotinas de negócio.</td></tr>
+        <tr><td><strong>Arquitetura Técnica</strong></td><td>Coleção de páginas estáticas ou renderizadas no servidor (SSR clássico) interligadas por hiperlinks.</td><td>Aplicação rica operando no navegador via <strong>Single Page Application (SPA / CSR)</strong>.</td></tr>
+        <tr><td><strong>Modelo de Interação</strong></td><td>Baixa complexidade transacional; forte dependência de recarregamento de tela (<em>page refresh</em>).</td><td>Operações completas de <strong>CRUD</strong>, validações dinâmicas no cliente e gerenciamento de <strong>estado em tempo real</strong>.</td></tr>
+        <tr><td><strong>Casos Práticos</strong></td><td>Portais de notícias, blogs, sites institucionais.</td><td>Gmail, Trello, Google Docs, Figma, painéis bancários.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">🏛️ Os Pilares Fundamentais do Web App Moderno</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>Pilar 1: Interatividade e Ergonomia Ativa</h3>
+      <ul>
+        <li><strong>Resposta Imediata:</strong> Feedback instantâneo sem necessidade de recarregar a página inteira, garantindo fluidez e alta disponibilidade na UX.</li>
+        <li><strong>Processamento no Cliente:</strong> Regras de negócio e pré-validações executadas diretamente no front-end.</li>
+        <li><strong>Ergonomia Ativa:</strong> Componentes complexos, interações drag-and-drop e filtros contextuais sem latência de rede.</li>
+      </ul>
+    </div>
+    <div class="card btb">
+      <h3>Pilar 2: Serviços, Sessão e Persistência</h3>
+      <ul>
+        <li><strong>Arquitetura Cliente-Servidor:</strong> Front-end totalmente desacoplado consumindo APIs estruturadas (REST ou GraphQL).</li>
+        <li><strong>Gestão de Sessão:</strong> Controle rigoroso de autenticação, tokens de segurança (JWT) e níveis de permissão.</li>
+        <li><strong>Persistência de Estado:</strong> Retenção de dados temporários e cache na memória local (LocalStorage / IndexedDB / Memory Cache).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">📁 Case Study: Fábricas Documentais (iLovePDF &amp; Sejda)</div>
+  <div class="hl hlc">
+    <strong>Arquitetura Web Além do Catálogo:</strong> Ferramentas modernas de processamento documental operam como verdadeiras fábricas integradas no browser.
+    <br>• <strong>Execução Client-Side:</strong> Renderização, fusão de PDFs e reconhecimento óptico de caracteres (OCR) são processados via <strong>WebAssembly (WASM) e JavaScript</strong> diretamente na máquina do usuário, reduzindo custos de servidor e latência.
+    <br>• <strong>Estado &amp; Controle:</strong> Gestão eficiente de cotas de uso, limites de arquivo e histórico em tempo real.
+  </div>
+
+  <div class="sub">📈 O Espectro de Prototipagem: Por Que Não Pular Etapas?</div>
   <div class="tl">
     <div class="ti">
       <div class="dot"></div>
-      <h4>1. Sanitarismo Campanhista (Início do Séc. XX — Oswaldo Cruz / Carlos Chagas)</h4>
-      <p>Foco no controle de epidemias (febre amarela, varíola, peste bubônica) que ameaçavam a agroexportação cafeeira e os portos. Modelo vertical, autoritário/policialesco (ex: <em>Revolta da Vacina, 1904</em>). Assistência médica individual restrita à filantropia (Santas Casas) e pagamento privado.</p>
+      <h4>Estágio 01: Baixa Fidelidade (Low-Fi / Sketches)</h4>
+      <p><strong>Objetivo:</strong> Explorar rotas de navegação, fluxos alternativos e arquitetura com agilidade.<br>
+      <strong>Regra de Ouro:</strong> <em>"Erre rápido, erre barato antes de escrever código."</em><br>
+      <strong>Características:</strong> Traços livres, ausência de réguas e desapego visual total.<br>
+      <strong>Ferramentas:</strong> Papel e caneta, Excalidraw, tldraw.</p>
     </div>
     <div class="ti">
       <div class="dot"></div>
-      <h4>2. Nascimento da Previdência Social: Lei Eloy Chaves (1923) — CAPs e IAPs</h4>
-      <p>• <strong>1923 (CAPs — Caixas de Aposentadorias e Pensões):</strong> Organizadas por <em>empresas</em> (ferroviários, marítimos), financiadas de forma bipartite (empregadores + empregados, sem o Estado).<br>
-      • <strong>Anos 1930 — Era Vargas (IAPs — Institutos de Aposentadorias e Pensões):</strong> Organizados por <em>categorias profissionais</em> (IAPI, IAPC, IAPTEC), financiamento tripartite. <strong>Cidadania regulada:</strong> só tinha direito à assistência médica quem tinha carteira assinada.</p>
+      <h4>Estágio 02: Média Fidelidade (Mid-Fi / Wireframe Estrutural)</h4>
+      <p><strong>Objetivo:</strong> Estabelecer a <strong>Arquitetura da Informação</strong> e a <strong>hierarquia visual</strong> com precisão lógica.<br>
+      <strong>Wireframe Neutro (P&amp;B):</strong> Desenhado estritamente em escala de cinza.<br>
+      <strong>Princípio Filosófico:</strong> <em>"Se a tela não funciona em preto e branco, cores bonitas só vão camuflar falhas graves de usabilidade."</em><br>
+      <strong>Ferramentas:</strong> Balsamiq Mockups (estética de rascunho forçando foco no fluxo), Whimsical (blocos padronizados magnéticos), Axure RP (lógica condicional e tabelas complexas).</p>
     </div>
     <div class="ti">
       <div class="dot"></div>
-      <h4>3. Ditadura Militar: INPS (1966) e INAMPS (1977)</h4>
-      <p>• <strong>INPS (1966):</strong> Unificou todos os IAPs. Modelo <strong>hospitalocêntrico, curativista, médico-centrado e privatista</strong> (compra de leitos e serviços da rede privada).<br>
-      • <strong>INAMPS (1977):</strong> Instituto Nacional de Assistência Médica da Previdência Social. Manteve a dicotomia: o <em>Ministério da Saúde</em> fazia campanhas coletivas (subfinanciado), enquanto o <em>INAMPS</em> prestava assistência individual apenas aos trabalhadores formais contribuintes (os "indigentes" sem carteira assinada dependiam de caridade).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>4. Movimento da Reforma Sanitária (Anos 1970/1980) e 8ª Conferência Nacional de Saúde (1986)</h4>
-      <p>Movimento civil, acadêmico (CEBES, ABRASCO, Sergio Arouca) e profissional que defendia a redemocratização e o <strong>conceito ampliado de saúde</strong>.<br>
-      • <strong>8ª CNS (1986):</strong> Marco histórico! Primeira conferência com ampla participação popular (+4.000 participantes). Seu relatório final definiu os 3 pilares que criariam o SUS na Constituição: (1) Saúde como direito de cidadania e dever do Estado; (2) Reformulação do Sistema Nacional de Saúde; (3) Financiamento setorial próprio.</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>5. SUDS (1987) → Constituição Federal de 1988 → Leis Orgânicas da Saúde (1990)</h4>
-      <p>• <strong>SUDS (Sistema Unificado e Descentralizado de Saúde, 1987):</strong> Ponte de transição entre o INAMPS e o SUS (iniciou a estadualização e universalização).<br>
-      • <strong>CF/1988 (Arts. 196 a 200):</strong> Cria institucionalmente o <strong>SUS</strong> dentro da <strong>Seguridade Social</strong> (Saúde + Previdência + Assistência Social).<br>
-      • <strong>Leis 8.080/90 e 8.142/90:</strong> Regulamentam o funcionamento, a gestão, o financiamento e o controle social do SUS.</p>
-    </div>
-  </div>
-
-  <div class="sub">🔍 Conceito Ampliado de Saúde e Determinantes Sociais (Art. 3º da Lei 8.080/90)</div>
-  <div class="hl hlg">
-    <strong>Superação do Modelo Biomédico:</strong> A saúde deixa de ser vista apenas como "ausência de doença" e passa a ser compreendida como resultante das condições de vida: <strong>alimentação, moradia, saneamento básico, meio ambiente, trabalho, renda, educação, atividade física, transporte, lazer e acesso aos bens e serviços essenciais</strong>.
-  </div>
-
-  <div class="grid g3">
-    <div class="card bta">
-      <h3>🏥 Rede de Atenção à Saúde (RAS)</h3>
-      <p>Arranjos organizativos poliárquicos (sem hierarquia de importância, mas com diferentes densidades tecnológicas) coordenados pela <strong>Atenção Primária à Saúde (APS / ESF)</strong>.</p>
-    </div>
-    <div class="card btg">
-      <h3>🛡️ Vigilâncias em Saúde</h3>
-      <p>Integra a <strong>Vigilância Epidemiológica</strong> (doenças/agravos), <strong>Vigilância Sanitária</strong> (bens, produtos e serviços), <strong>Vigilância Ambiental</strong> e <strong>Saúde do Trabalhador</strong>.</p>
-    </div>
-    <div class="card bty">
-      <h3>🤝 Participação Complementar Privada</h3>
-      <p>Quando a capacidade instalada pública for insuficiente, o SUS pode recorrer à iniciativa privada via contrato/convênio, tendo <strong>preferência as entidades filantrópicas e sem fins lucrativos</strong> (Art. 199, §1º CF/88).</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 2: PRINCÍPIOS DO SUS ==================== -->
-<section id="s2" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">⚖️</div>
-    <div>
-      <h2>2. Princípios e Diretrizes do SUS</h2>
-      <p>Princípios Doutrinários (Ético-Políticos) vs. Princípios Organizativos (Operacionais)</p>
-    </div>
-  </div>
-
-  <div class="hl hlb">
-    <strong>💡 Dica de Ouro para Provas:</strong> Os princípios do SUS dividem-se em dois grandes grupos:
-    <br>• <strong>Doutrinários (Éticos / Filosóficos):</strong> Respondem <em>"Quais valores guiam o SUS?"</em> — Universalidade, Integralidade e Equidade.
-    <br>• <strong>Organizativos (Operacionais / Diretrizes):</strong> Respondem <em>"Como o SUS se organiza na prática?"</em> — Descentralização, Regionalização, Hierarquização e Participação Social.
-  </div>
-
-  <div class="sub">🌟 1. Princípios Doutrinários (Ético-Políticos)</div>
-  <div class="grid g3">
-    <div class="card bta">
-      <div class="ch"><span class="ci">🌍</span><div><h3>Universalidade</h3></div></div>
-      <p><strong>"Saúde é direito de todos."</strong></p>
-      <p>Garante o acesso às ações e serviços de saúde em todos os níveis de assistência a <strong>qualquer pessoa em território nacional</strong>, sem qualquer discriminação ou exigência de contribuição financeira prévia (supera a lógica previdenciária do antigo INAMPS).</p>
-    </div>
-    <div class="card btg">
-      <div class="ch"><span class="ci">🧩</span><div><h3>Integralidade</h3></div></div>
-      <p><strong>"Olhar o indivíduo como um todo biopsicossocial."</strong></p>
-      <p>Conjunto articulado e contínuo das ações e serviços <strong>preventivos e curativos, individuais e coletivos</strong>, exigidos para cada caso em <strong>todos os níveis de complexidade</strong> do sistema. Proíbe dicotomizar prevenção e assistência (Art. 7º, II da Lei 8.080/90).</p>
-    </div>
-    <div class="card btv">
-      <div class="ch"><span class="ci">⚖️</span><div><h3>Equidade</h3></div></div>
-      <p><strong>"Tratar desigualmente os desiguais na medida de suas desigualdades."</strong></p>
-      <p>Justiça social distributiva: oferecer <strong>mais a quem mais precisa</strong> para reduzir iniquidades em saúde (vulnerabilidade social, triagem por classificação de risco/Protocolo de Manchester).<br>
-      <em>⚠️ Atenção:</em> Na letra literal da Lei 8.080/90 aparece o termo <strong>"Igualdade da assistência"</strong>; o conceito de Equidade veio da doutrina da Reforma Sanitária.</p>
-    </div>
-  </div>
-
-  <div class="sub">⚙️ 2. Princípios Organizativos (Diretrizes Constitucionais — Art. 198 CF/88)</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <div class="ch"><span class="ci">🏛️</span><div><h3>Descentralização com Direção Única</h3></div></div>
-      <p>Redistribuição de poder, responsabilidades e recursos entre as três esferas de governo (<strong>ênfase na municipalização</strong>). Em cada esfera há um <strong>Comando Único</strong>:</p>
-      <ul>
-        <li><strong>União:</strong> Ministério da Saúde (MS)</li>
-        <li><strong>Estados / DF:</strong> Secretaria Estadual de Saúde (SES)</li>
-        <li><strong>Municípios:</strong> Secretaria Municipal de Saúde (SMS)</li>
-      </ul>
-    </div>
-    <div class="card btg">
-      <div class="ch"><span class="ci">🗺️</span><div><h3>Regionalização e Hierarquização</h3></div></div>
-      <ul>
-        <li><strong>Regionalização:</strong> Organização territorial dos serviços em <em>Regiões de Saúde</em> (recortes geográficos de municípios limítrofes que compartilham redes para garantir escala e integralidade).</li>
-        <li><strong>Hierarquização:</strong> Ordenamento do fluxo assistencial por níveis de densidade tecnológica: <strong>Atenção Primária (porta de entrada preferencial) → Secundária (especialidades/UPAs) → Terciária (alta complexidade hospitalar)</strong>, com sistema de referência e contrarreferência.</li>
-      </ul>
-    </div>
-    <div class="card bty">
-      <div class="ch"><span class="ci">🗣️</span><div><h3>Participação da Comunidade (Controle Social)</h3></div></div>
-      <p>Garantia constitucional de que a população participe ativamente da formulação de estratégias, do controle e da fiscalização da execução da política de saúde por meio dos <strong>Conselhos de Saúde</strong> e das <strong>Conferências de Saúde</strong>.</p>
-    </div>
-    <div class="card btr">
-      <div class="ch"><span class="ci">📋</span><div><h3>Outros Princípios Expressos no Art. 7º da Lei 8.080/90</h3></div></div>
-      <ul>
-        <li><strong>Preservação da autonomia</strong> das pessoas na defesa de sua integridade física e moral.</li>
-        <li><strong>Direito à informação</strong> às pessoas assistidas sobre sua saúde.</li>
-        <li><strong>Utilização da epidemiologia</strong> para estabelecer prioridades, alocar recursos e orientar programas.</li>
-        <li><strong>Resolubilidade:</strong> capacidade de resolver problemas em todos os níveis de assistência.</li>
-        <li><strong>Conjugação de recursos</strong> financeiros, tecnológicos, materiais e humanos da União, Estados, DF e Municípios.</li>
-        <li><strong>Proteção às mulheres, vítimas de violência doméstica</strong> e atendimento especializado (incluído pela Lei 13.427/2017).</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 3: LEGISLAÇÃO DO SUS ==================== -->
-<section id="s3" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">📜</div>
-    <div>
-      <h2>3. Legislação Estruturante do SUS</h2>
-      <p>Constituição Federal (Arts. 196–200) · Lei 8.080/1990 · Lei 8.142/1990 · Decreto 7.508/2011 · Normas Operacionais</p>
-    </div>
-  </div>
-
-  <div class="sub">📘 1. Constituição Federal de 1988 (Artigos 196 a 200)</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Artigo</th><th>Tema Central</th><th>Pontos Mais Cobrados em Provas</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Art. 196</strong></td><td>Direito à Saúde e Dever do Estado</td><td>Acesso universal e igualitário às ações e serviços para <strong>promoção, proteção e recuperação</strong>.</td></tr>
-        <tr><td><strong>Art. 197</strong></td><td>Relevância Pública</td><td>As ações de saúde são de relevância pública, cabendo ao Poder Público dispor sobre sua <strong>regulamentação, fiscalização e controle</strong> (execução direta ou por terceiros/privados).</td></tr>
-        <tr><td><strong>Art. 198</strong></td><td>Diretrizes, Financiamento e Agentes (ACS/ACE)</td><td>Rede regionalizada e hierarquizada; 3 diretrizes (Descentralização, Atendimento integral com prioridade para atividades preventivas, Participação da comunidade); percentuais mínimos de financiamento e regime dos <strong>Agentes Comunitários de Saúde (ACS) e de Combate às Endemias (ACE)</strong> (piso salarial de 2 salários mínimos — EC 120/2022).</td></tr>
-        <tr><td><strong>Art. 199</strong></td><td>Assistência à Saúde pela Iniciativa Privada</td><td>A assistência à saúde é <strong>livre à iniciativa privada</strong>.<br>• §1º Participação complementar no SUS (preferência para filantrópicas/sem fins lucrativos).<br>• §2º <strong>É VEDADA</strong> a destinação de recursos públicos para auxílios ou subvenções às instituições privadas <em>com fins lucrativos</em>.<br>• §3º <strong>É VEDADA</strong> a participação direta ou indireta de empresas ou capitais estrangeiros na assistência à saúde no País, salvo nos casos previstos em lei (exceções abertas pela Lei 13.097/2015).<br>• §4º Proibição de todo tipo de comercialização de órgãos, tecidos e sangue humano.</td></tr>
-        <tr><td><strong>Art. 200</strong></td><td>Competências Constitucionais do SUS</td><td>Controlar e fiscalizar alimentos, bebidas, águas, medicamentos e imunobiológicos; executar vigilância sanitária, epidemiológica e <strong>saúde do trabalhador</strong>; ordenar a <strong>formação de recursos humanos</strong> na área de saúde; participar da política e execução das ações de <strong>saneamento básico</strong>; incrementar o desenvolvimento científico/tecnológico; fiscalizar produtos psicoativos, tóxicos e radioativos; colaborar na proteção do <strong>meio ambiente</strong>, nele compreendido o do trabalho.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">📕 2. Lei nº 8.080/1990 (Lei Orgânica da Saúde — LOS)</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <h3>Campo de Atuação do SUS (Art. 6º)</h3>
-      <ul>
-        <li>Execução de ações de: <strong>Vigilância Sanitária, Vigilância Epidemiológica, Saúde do Trabalhador</strong> e de <strong>Assistência Terapêutica Integral, inclusive farmacêutica</strong>.</li>
-        <li>Formulação da política de medicamentos, equipamentos, imunobiológicos e sangue/hemoderivados.</li>
-        <li>Vigilância nutricional e orientação alimentar; proteção do meio ambiente e saneamento básico; controle de zoonoses e produtos tóxicos/radioativos.</li>
-      </ul>
-    </div>
-    <div class="card btg">
-      <h3>Comissões Intergestores (Art. 14-A e 14-B)</h3>
-      <p>Foros permanentes de <strong>negociação e pactuação consensual</strong> entre gestores quanto aos aspectos operacionais, financeiros e administrativos (<em>não têm participação popular, são apenas gestores!</em>):</p>
-      <ul>
-        <li><strong>CIT (Comissão Intergestores Tripartite):</strong> Âmbito Nacional (MS + CONASS + CONASEMS).</li>
-        <li><strong>CIB (Comissão Intergestores Bipartite):</strong> Âmbito Estadual (SES + COSEMS).</li>
-        <li><strong>CIR (Comissão Intergestores Regional):</strong> Âmbito da Região de Saúde (SES + todos os Secretários Municipais da região).</li>
-      </ul>
-    </div>
-    <div class="card bty">
-      <h3>Subsistema de Atenção à Saúde Indígena (Art. 19-A a 19-H)</h3>
-      <p>Incluído pela Lei 9.836/1999 (Lei Arouca). Organizado em <strong>DSEIs (Distritos Sanitários Especiais Indígenas)</strong>. É <strong>financiado cabendo exclusivamente à União</strong> (Estados e Municípios podem atuar de forma complementar), respeitando a realidade local e as práticas tradicionais indígenas.</p>
-    </div>
-    <div class="card btv">
-      <h3>Outros Subsistemas e Atualizações da Lei 8.080/90</h3>
-      <ul>
-        <li><strong>Atendimento e Internação Domiciliar (Art. 19-I):</strong> Por indicação médica, com concordância do paciente e da família.</li>
-        <li><strong>Acompanhante no Parto (Art. 19-J):</strong> Direito a 1 acompanhante de livre escolha da parturiente no pré-natal, trabalho de parto, parto e pós-parto imediato.</li>
-        <li><strong>Incorporação Tecnológica (CONITEC — Art. 19-Q):</strong> Prazo de 180 dias (prorrogável por +90 dias) baseado em evidências científicas e avaliação econômica.</li>
-        <li><strong>Telessaúde (Art. 26-A a 26-H — Lei 14.510/2022):</strong> Regulamenta a assistência remota em saúde com autonomia profissional e consentimento livre e esclarecido do paciente.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">📗 3. Lei nº 8.142/1990 (Participação Social e Transferências Intergovernamentais)</div>
-  <div class="hl hlg">
-    <strong>Por que a Lei 8.142/90 foi criada?</strong> Porque o Presidente Fernando Collor vetou os artigos da Lei 8.080/90 que tratavam da participação popular e das transferências financeiras diretas (fundo a fundo). A pressão social levou à promulgação da Lei 8.142 três meses depois, regulamentando:
-    <br>1️⃣ As duas instâncias colegiadas de Controle Social: <strong>Conferências de Saúde</strong> e <strong>Conselhos de Saúde</strong>;
-    <br>2️⃣ As condições para transferência regular e automática de recursos financeiros do FNS para Estados e Municípios.
-  </div>
-
-  <div class="sub">📙 4. Decreto nº 7.508/2011 (Regulamentação da Lei 8.080/90)</div>
-  <div class="grid g3">
-    <div class="card bta">
-      <h3>🗺️ Região de Saúde</h3>
-      <p>Espaço geográfico contínuo constituído por agrupamentos de <strong>municípios limítrofes</strong>. Para ser instituída pelo Estado (em articulação com os municípios na CIB), deve conter, <strong>no mínimo, 5 ações e serviços</strong>:</p>
-      <p><span class="tag tag-b">1. Atenção Primária</span> <span class="tag tag-b">2. Urgência e Emergência</span> <span class="tag tag-b">3. Atenção Psicossocial</span> <span class="tag tag-b">4. Atenção Ambulatorial Especializada e Hospitalar</span> <span class="tag tag-b">5. Vigilância em Saúde</span></p>
-    </div>
-    <div class="card btg">
-      <h3>🚪 Portas de Entrada da RAS</h3>
-      <p>Serviços de atendimento inicial à saúde do usuário no SUS (Art. 9º). São <strong>apenas 4 portas de entrada</strong>:</p>
-      <ol style="padding-left:1.1rem;font-size:.82rem;color:var(--muted)">
-        <li><strong>Atenção Primária</strong> (principal ordenadora do acesso)</li>
-        <li><strong>Urgência e Emergência</strong> (UPAs, SAMU, Prontos-Socorros)</li>
-        <li><strong>Atenção Psicossocial</strong> (CAPS)</li>
-        <li><strong>Especiais de Acesso Aberto</strong> (ex: CEREST, CTA/IST)</li>
-      </ol>
-    </div>
-    <div class="card bty">
-      <h3>📑 COAP, RENASES e RENAME</h3>
-      <ul>
-        <li><strong>COAP (Contrato Organizativo da Ação Pública da Saúde):</strong> Acordo de colaboração multilateral firmado entre União, Estado e Municípios de uma Região de Saúde definindo metas, responsabilidades e financiamento.</li>
-        <li><strong>RENASES:</strong> Relação Nacional de Ações e Serviços de Saúde (atualizada a cada 2 anos).</li>
-        <li><strong>RENAME:</strong> Relação Nacional de Medicamentos Essenciais (atualizada a cada 2 anos).</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 4: CONTROLE SOCIAL ==================== -->
-<section id="s4" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(168,85,247,.12);color:var(--a7)">🗳️</div>
-    <div>
-      <h2>4. Controle Social no SUS (Lei nº 8.142/1990 e Resolução CNS nº 453/2012)</h2>
-      <p>Instâncias colegiadas · Composição paritária · Conselhos de Saúde vs. Conferências de Saúde</p>
-    </div>
-  </div>
-
-  <div class="hl hlv">
-    <strong>O que é Controle Social no SUS?</strong> Ao contrário da sociologia clássica (onde o Estado controla a sociedade), na Saúde Coletiva brasileira <strong>Controle Social significa o controle da sociedade civil organizada sobre as ações, políticas e gastos do Estado</strong>, garantindo a democratização da gestão pública.
-  </div>
-
-  <div class="sub">🏛️ Comparativo Direto: Conselhos de Saúde vs. Conferências de Saúde</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Característica</th><th>Conselhos de Saúde (Municipal, Estadual, Nacional)</th><th>Conferências de Saúde (Municipal, Estadual, Nacional)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Natureza e Caráter</strong></td><td>Órgão colegiado de caráter <strong>Permanente e Deliberativo</strong></td><td>Instância colegiada de caráter <strong>Consultivo / Propositivo e Periódico</strong></td></tr>
-        <tr><td><strong>Periodicidade de Reunião</strong></td><td>Reuniões plenárias ordinárias <strong>no mínimo 1 vez por mês</strong> (e extraordinárias quando necessário)</td><td>Realizadas ordinariamente a cada <strong>4 anos</strong></td></tr>
-        <tr><td><strong>Quem Convoca?</strong></td><td>Presidência do próprio Conselho ou maioria de seus membros</td><td>Convocada pelo <strong>Poder Executivo</strong> ou, extraordinariamente, por esta ou pelo <strong>Conselho de Saúde</strong></td></tr>
-        <tr><td><strong>Função Principal</strong></td><td>Atua na <strong>formulação de estratégias e no controle da execução da política de saúde</strong> na instância correspondente, <strong>inclusive nos aspectos econômicos e financeiros</strong> (aprova o Plano de Saúde e o Relatório Anual de Gestão — RAG)</td><td><strong>Avaliar a situação de saúde e propor as diretrizes</strong> para a formulação da política de saúde nos níveis correspondentes</td></tr>
-        <tr><td><strong>Homologação das Decisões</strong></td><td>As decisões do Conselho (Resoluções) devem ser <strong>homologadas pelo chefe do poder legalmente constituído</strong> em cada esfera de governo em até 30 dias</td><td>Elabora o Relatório Final que orienta os Planos de Saúde plurianuais</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🥧 A Regra da Paridade nos Conselhos e Conferências (Resolução CNS nº 453/2012)</div>
-  <div class="hl hlg">
-    <strong>A representação dos USUÁRIOS é sempre PARITÁRIA (50%) em relação ao conjunto dos demais segmentos (50%)!</strong> Isso garante que os cidadãos que utilizam o sistema tenham metade dos votos nas deliberações.
-  </div>
-
-  <div class="grid g3">
-    <div class="card btg">
-      <div class="ch"><span class="ci">👥</span><div><h3>50% — Usuários do SUS</h3></div></div>
-      <p>Representantes de entidades e movimentos sociais de usuários do SUS (associações de moradores, sindicatos de trabalhadores rurais/urbanos, associações de portadores de patologias/deficiências, movimentos indígenas, negros, LGBTQIAPN+, mulheres, aposentados).</p>
-    </div>
-    <div class="card bta">
-      <div class="ch"><span class="ci">🩺</span><div><h3>25% — Trabalhadores da Saúde</h3></div></div>
-      <p>Representantes das entidades de profissionais e trabalhadores da área da saúde (sindicatos, conselhos profissionais, associações científicas e comunitárias da área da saúde). <em>Quem ocupa cargo de gestão/confiança não pode representar os trabalhadores!</em></p>
-    </div>
-    <div class="card bty">
-      <div class="ch"><span class="ci">🏢</span><div><h3>25% — Governo + Prestadores</h3></div></div>
-      <p>Dividido entre representantes do <strong>Governo (Gestores do SUS)</strong> e <strong>Prestadores de Serviços de Saúde</strong> (públicos, filantrópicos e privados conveniados ao SUS).</p>
-    </div>
-  </div>
-
-  <div class="sub">📢 Outros Mecanismos de Participação Social no SUS</div>
-  <div class="grid g2">
-    <div class="card btv">
-      <h3>📞 Ouvidorias do SUS</h3>
-      <p>Canal democrático direto e individual/coletivo entre o cidadão e a gestão para acolher <strong>reclamações, denúncias, sugestões, elogios e solicitações de informação</strong>, subsidiando a melhoria da qualidade dos serviços.</p>
-    </div>
-    <div class="card btr">
-      <h3>⚖️ Audiências e Consultas Públicas</h3>
-      <p>Mecanismos de transparência obrigatórios (ex: prestação quadrimestral de contas pelo gestor de saúde em audiência pública na Casa Legislativa — LC 141/2012; consultas públicas da CONITEC para incorporação de medicamentos).</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 5: FINANCIAMENTO DA SAÚDE ==================== -->
-<section id="s5" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">💰</div>
-    <div>
-      <h2>5. Financiamento da Saúde no Brasil</h2>
-      <p>Orçamento da Seguridade Social · Lei 8.142/90 · EC 29/2000 · Lei Complementar nº 141/2012 · Blocos de Financiamento</p>
-    </div>
-  </div>
-
-  <div class="sub">🏦 1. Fontes Constitucionais e Fundo de Saúde (Art. 198 CF/88)</div>
-  <div class="hl hlg">
-    <strong>Financiamento Tripartite e Solidário:</strong> O SUS é financiado com recursos do <strong>Orçamento da Seguridade Social</strong>, da <strong>União</strong>, dos <strong>Estados</strong>, do <strong>Distrito Federal</strong> e dos <strong>Municípios</strong>, além de outras fontes (impostos gerais e contribuições sociais como CSLL, COFINS, PIS/PASEP e DPVAT). Em cada esfera, os recursos são depositados em conta única chamada <strong>Fundo de Saúde</strong> (FNS, FES, FMS) e fiscalizados pelo respectivo Conselho de Saúde.
-  </div>
-
-  <div class="sub">📊 2. Piso Constitucional de Gastos em Ações e Serviços Públicos de Saúde (ASPS)</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Regulamentado pela <strong>Emenda Constitucional nº 29/2000</strong> e pela <strong>Lei Complementar nº 141/2012</strong> (e atualizado pelas ECs 86/2015, 95/2016 e Novo Arcabouço Fiscal LC 200/2023):</p>
-
-  <div class="grid g3">
-    <div class="card bta">
-      <div class="ch"><span class="ci">🏘️</span><div><h3>Municípios: Mínimo de 15%</h3></div></div>
-      <p>Devem aplicar anualmente, no mínimo, <strong>15% da arrecadação de impostos municipais</strong> (IPTU, ISS, ITBI) somada às transferências constitucionais recebidas (FPM, cota-parte do ICMS, IPVA, ITR).</p>
-    </div>
-    <div class="card btg">
-      <div class="ch"><span class="ci">🗺️</span><div><h3>Estados: Mínimo de 12%</h3></div></div>
-      <p>Devem aplicar anualmente, no mínimo, <strong>12% da arrecadação de impostos estaduais</strong> (ICMS, IPVA, ITCMD) somada às transferências constitucionais recebidas (FPE, IPI-Exportação), deduzidas as parcelas transferidas aos municípios.</p>
-      <p style="margin-top:.3rem"><em>*O Distrito Federal aplica 12% ou 15% conforme a origem estadual ou municipal da receita tributária.</em></p>
-    </div>
-    <div class="card bty">
-      <div class="ch"><span class="ci">🇧🇷</span><div><h3>União: Mínimo de 15% da RCL</h3></div></div>
-      <p>Pela regra constitucional retomada em 2023 (EC 86/2015 + LC 200/2023), a União deve aplicar no mínimo <strong>15% da Receita Corrente Líquida (RCL)</strong> do respectivo exercício financeiro em Ações e Serviços Públicos de Saúde.</p>
-    </div>
-  </div>
-
-  <div class="sub">✅❌ 3. O que PODE e o que NÃO PODE ser considerado Gasto em Saúde (ASPS — LC 141/2012)</div>
-  <div class="hl hly">
-    <strong>Diretrizes Gerais (Art. 2º da LC 141/2012):</strong> Para contar no piso mínimo constitucional, a despesa deve: (I) ser destinada a ações de <strong>acesso universal, igualitário e gratuito</strong>; (II) estar em conformidade com os objetivos e metas do <strong>Plano de Saúde</strong>; e (III) ser de responsabilidade específica do setor da saúde (<strong>não podendo se confundir com despesas de outras políticas públicas</strong>).
-  </div>
-
-  <div class="grid g2">
-    <div class="card btg">
-      <h3 style="color:var(--a4);margin-bottom:.5rem">✅ CONTA como Despesa em Saúde (Art. 3º)</h3>
-      <ul>
-        <li>Vigilância em saúde (epidemiológica e sanitária) e controle de agravos.</li>
-        <li>Atenção integral e universal à saúde em todos os níveis de complexidade, incluindo assistência terapêutica e recuperação de deficiências nutricionais.</li>
-        <li>Capacitação do pessoal de saúde do SUS e desenvolvimento científico/tecnológico.</li>
-        <li>Produção, aquisição e distribuição de insumos específicos (medicamentos, imunobiológicos, sangue e hemoderivados, equipamentos).</li>
-        <li>Saneamento básico de <strong>domicílios ou de pequenas comunidades</strong> (desde que aprovado pelo Conselho de Saúde) e em <strong>distritos sanitários especiais indígenas (DSEIs)</strong> e comunidades quilombolas.</li>
-        <li>Remuneração de profissionais da saúde <strong>em atividade</strong> e ações de apoio administrativo/gestão do SUS.</li>
-      </ul>
-    </div>
-    <div class="card btr">
-      <h3 style="color:var(--a6);margin-bottom:.5rem">❌ NÃO CONTA como Despesa em Saúde (Art. 4º — CAI MUITO!)</h3>
-      <ul>
-        <li>Pagamento de <strong>aposentadorias e pensões (inativos)</strong>, inclusive dos servidores da saúde.</li>
-        <li>Pessoal ativo da área de saúde quando em <strong>desvio de função</strong> ou cedido a outros órgãos fora da saúde.</li>
-        <li><strong>Assistência à saúde que NÃO atenda ao princípio de universalidade</strong> (ex: planos de saúde fechados para servidores públicos ou militares).</li>
-        <li><strong>Programas de alimentação e nutrição</strong>, como <strong>merenda escolar</strong>, cesta básica ou vale-alimentação.</li>
-        <li><strong>Saneamento básico geral</strong> (obras urbanas de água/esgoto financiadas por taxas/tarifas ou fundos de desenvolvimento urbano).</li>
-        <li><strong>Limpeza urbana e remoção de resíduos</strong> sólidos (coleta de lixo).</li>
-        <li>Preservação e correção do meio ambiente.</li>
-        <li>Ações de <strong>assistência social</strong> (ex: Bolsa Família, BPC) e obras de infraestrutura urbana (asfalto, iluminação pública).</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">🔑 4. Os 6 Requisitos para Transferência Fundo a Fundo (Art. 4º da Lei 8.142/90)</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Para que Estados, DF e Municípios recebam repasses federais de forma regular e automática (Fundo a Fundo), precisam comprovar <strong>6 condições obrigatórias</strong>:</p>
-  <div class="grid g3">
-    <div class="card"><p><span class="num">1</span><strong>Fundo de Saúde</strong> instituído e em funcionamento.</p></div>
-    <div class="card"><p><span class="num">2</span><strong>Conselho de Saúde</strong> com composição paritária.</p></div>
-    <div class="card"><p><span class="num">3</span><strong>Plano de Saúde</strong> plurianual aprovado.</p></div>
-    <div class="card"><p><span class="num">4</span><strong>Relatórios de Gestão</strong> (RAG) que permitam controle.</p></div>
-    <div class="card"><p><span class="num">5</span><strong>Contrapartida de recursos</strong> para a saúde no respectivo orçamento.</p></div>
-    <div class="card"><p><span class="num">6</span><strong>Comissão de elaboração do Plano de Carreira, Cargos e Salários (PCCS)</strong>.</p></div>
-  </div>
-
-  <div class="sub">📦 5. Blocos de Financiamento do SUS (Portaria de Consolidação / SUS Legal 2017)</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <h3>1. Bloco de Manutenção das ASPS (Custeio)</h3>
-      <p>Recursos destinados à manutenção diária das ações e serviços existentes (Atenção Primária, Atenção Especializada MAC, Assistência Farmacêutica, Vigilância em Saúde e Gestão do SUS).</p>
-    </div>
-    <div class="card btv">
-      <h3>2. Bloco de Estruturação da Rede de Serviços (Investimento)</h3>
-      <p>Recursos de capital destinados exclusivamente à <strong>construção, ampliação ou reforma</strong> de unidades de saúde (UBS, UPA, Hospitais) e à <strong>aquisição de equipamentos permanentes</strong>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 6: ECONOMIA DA SAÚDE ==================== -->
-<section id="s6" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">📈</div>
-    <div>
-      <h2>6. Economia da Saúde e Avaliação Econômica em Saúde</h2>
-      <p>Escassez e Custo de Oportunidade · Falhas de Mercado em Saúde · Eficiência vs. Eficácia vs. Efetividade · Estudos de Avaliação Econômica</p>
+      <h4>Estágio 03: Alta Fidelidade (High-Fi / Visual &amp; Código)</h4>
+      <p>Concretização em componentes reativos, tipografia definitiva, tokens de cores, microinterações e código executável em produção (Flutter / React).</p>
     </div>
   </div>
 
   <div class="hl hlr">
-    <strong>O Problema Fundamental da Economia da Saúde:</strong> Como conciliar <strong>necessidades de saúde infinitas e crescentes</strong> (envelhecimento populacional, transição epidemiológica, novas tecnologias de alto custo, judicialização) com <strong>recursos financeiros e físicos finitos e escassos</strong>? A Economia da Saúde fornece ferramentas racionais para otimizar a alocação de recursos maximizando o bem-estar social.
+    <strong>⚠️ ALERTA DE ENGENHARIA — O Risco de Pular a Média Fidelidade:</strong>
+    <br>Saltar direto do rabisco para o código resulta em: (1) Desenho sem escala matemática real; (2) Erros constantes de estouro de layout (como o temido <code>RenderFlex overflow</code> no Flutter); (3) Perda do foco da usabilidade enquanto o desenvolvedor gasta horas tentando corrigir alinhamentos arbitrários.
   </div>
 
-  <div class="sub">🧠 1. Conceitos Fundamentais de Economia Aplicados à Saúde</div>
+  <div class="sub">🤖 O Impacto da Inteligência Artificial na Prototipagem (Cenário 2026)</div>
   <div class="grid g3">
     <div class="card bta">
-      <h3>⚖️ Custo de Oportunidade</h3>
-      <p>É o <strong>benefício em saúde perdido (sacrificado)</strong> por não se ter aplicado aquele mesmo recurso na melhor alternativa disponível. Ex: usar R$ 10 milhões em um medicamento sem evidência significa deixar de vacinar ou construir 5 UBS.</p>
+      <h3>Text-to-UI</h3>
+      <p>Geração de layouts a partir de requisitos textuais e descritivos. Acelera a exploração visual inicial.</p>
     </div>
-    <div class="card btg">
-      <h3>🎯 Eficácia, Efetividade e Eficiência</h3>
+    <div class="card btb">
+      <h3>Sketch-to-Layout</h3>
+      <p>Vetorização instantânea: converte "rabiscoframes" manuais em wireframes digitais estruturados e editáveis.</p>
+    </div>
+    <div class="card btr">
+      <h3>Supervisão Humana Essencial</h3>
+      <p>O engenheiro atua como auditor crítico obrigatório em: <strong>Acessibilidade (WCAG), Ergonomia e Regras de Negócio</strong>.</p>
+    </div>
+  </div>
+
+  <div class="sub">🖥️ O Desktop NÃO É um Celular Esticado!</div>
+  <div class="grid g2">
+    <div class="card btv">
+      <div class="ch"><span class="ci">💻</span><div><h3>Ambiente Desktop (&ge; 900dp)</h3></div></div>
       <ul>
-        <li><strong>Eficácia:</strong> Funciona em condições <em>ideais / controladas</em> (ensaio clínico randomizado).</li>
-        <li><strong>Efetividade:</strong> Funciona no <em>mundo real / prática clínica cotidiana</em>.</li>
-        <li><strong>Eficiência:</strong> Atingir a máxima efetividade com o <em>menor custo possível</em> (relação custo/resultado).</li>
+        <li><strong>Proporção Panorâmica:</strong> Exploração do eixo horizontal e múltiplos painéis paralelos simultâneos.</li>
+        <li><strong>Precisão Milimétrica:</strong> O cursor do mouse possui precisão de <strong>1 a 2 pixels</strong>, permitindo elementos menores e maior densidade informativa.</li>
+        <li><strong>Erro Crítico de UX:</strong> Esticar campos de texto ou botões por toda a largura da tela (cria linhas de leitura excessivamente longas e desgastantes).</li>
       </ul>
     </div>
     <div class="card bty">
-      <h3>🔀 Equidade Horizontal vs. Vertical</h3>
+      <div class="ch"><span class="ci">📱</span><div><h3>Ambiente Mobile (Alvo de Toque)</h3></div></div>
       <ul>
-        <li><strong>Equidade Horizontal:</strong> Tratamento igual para indivíduos com necessidades iguais.</li>
-        <li><strong>Equidade Vertical:</strong> Tratamento desigual (prioritário) para indivíduos com necessidades diferentes/maiores.</li>
+        <li><strong>Dispersão do Toque:</strong> A ponta do polegar cobre uma área física de <strong>8 a 10 mm</strong>.</li>
+        <li>Exige alvos aumentados, espaçamentos generosos e foco no eixo vertical.</li>
       </ul>
     </div>
   </div>
 
-  <div class="sub">⚠️ 2. Peculiaridades do Setor Saúde e "Falhas de Mercado" (Kenneth Arrow, 1963)</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">A saúde <strong>não funciona como um mercado competitivo comum</strong> de bens de consumo devido a características únicas que exigem forte intervenção e regulação estatal:</p>
+  <div class="sub">📐 Topologias Estruturais de Telas</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>Topologia 1: Desktop Operacional</h3>
+      <ul>
+        <li><strong>Módulo Superior (Header):</strong> Identidade, busca global contextual e perfil do usuário.</li>
+        <li><strong>Navegação Lateral (Sidebar):</strong> Menu estrutural, árvore de pastas e ações de nível de sistema.</li>
+        <li><strong>Área Principal (Work Area):</strong> Conteúdo nobre, tabelas de dados e espaço de edição.</li>
+      </ul>
+    </div>
+    <div class="card btg">
+      <h3>Topologia 2: Autenticação (Login)</h3>
+      <ul>
+        <li><strong>Centralização Absoluta:</strong> Posicionamento no eixo focal primário do usuário.</li>
+        <li><strong>Limitação Estrita de Largura:</strong> Container restrito rigidamente a <code>maxWidth: 400px a 480px</code>.</li>
+        <li><strong>Zero Ruído Visual:</strong> Eliminação de distrações para reduzir a carga cognitiva e prevenir a desistência no funil de conversão.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 2: UX 6 - LEIS DE UI/UX & FLUTTER ==================== -->
+<section id="t2" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">📐</div>
+    <div>
+      <h2>2. Leis e Boas Práticas de UI/UX &amp; Implementação Flutter</h2>
+      <p>Slides UX 6 · 8 Leis de Ergonomia · Box Model &amp; SafeArea · Reatividade com setState()</p>
+    </div>
+  </div>
+
+  <div class="sub">📜 As 8 Leis e Princípios Fundamentais de Ergonomia de Interface</div>
+
+  <div class="grid g2">
+    <div class="card bta">
+      <div class="ch"><span class="ci">🎯</span><div><h3>1. Lei de Fitts (Ergonomia e Alvos)</h3></div></div>
+      <p><strong>Conceito Matemático:</strong> O tempo necessário para alcançar um alvo depende da <em>distância até ele</em> ($D$) e da <em>largura do alvo</em> ($W$):</p>
+      <div class="hl hlv" style="text-align:center;font-weight:700">T = a + b · log₂(2D / W)</div>
+      <p><strong>Aplicação Prática:</strong> Alvos mais próximos e maiores são acionados mais rápido. Ex: FAB do Gmail, botão de captura do Instagram, e botões principais ocupando 100% da largura útil do rodapé.</p>
+    </div>
+
+    <div class="card btg">
+      <div class="ch"><span class="ci">👍</span><div><h3>2. Thumb Zone (Biomecânica do Polegar)</h3></div></div>
+      <p><strong>Conceito:</strong> Mapeamento fundamentado no fato de que <strong>mais de 75% dos usuários</strong> utilizam o smartphone com apenas uma das mãos.</p>
+      <ul>
+        <li><strong>Zona Natural:</strong> Base e centro da tela (acesso fácil e sem esforço).</li>
+        <li><strong>Zona Esticada:</strong> Requer extensão do tendão do polegar.</li>
+        <li><strong>Zona Difícil:</strong> Topo da tela (exige reajuste da pegada ou uso das duas mãos).</li>
+      </ul>
+      <p><strong>Exemplos:</strong> Barra de endereços do Safari/Chrome realocada para a base; botão de solicitar viagem na base do app Uber.</p>
+    </div>
+
+    <div class="card bty">
+      <div class="ch"><span class="ci">👆</span><div><h3>3. Target Size (Área Mínima de Toque)</h3></div></div>
+      <p><strong>Mínimo Obrigatório:</strong> <strong>48px</strong> (Google Material Design: 48×48px; Apple iOS: 44×44px).</p>
+      <p><strong>Propósito:</strong> Evitar o <em>"fat-finger problem"</em> (toques acidentais em elementos vizinhos). O padding visual garante a área física sem poluir a estética.</p>
+      <p><strong>No Flutter:</strong> <code>minimumSize: Size.fromHeight(48.0)</code>.</p>
+    </div>
+
+    <div class="card btc">
+      <div class="ch"><span class="ci">📏</span><div><h3>4. Sistema de Grid de 8 Pontos (8-pt Grid)</h3></div></div>
+      <p><strong>Conceito:</strong> Todos os espaçamentos, margens, paddings e alturas de componentes devem ser múltiplos exatos de 8px (<code>8, 16, 24, 32, 40, 48...</code>).</p>
+      <p><strong>Fundamento Técnico:</strong> Divisibilidade perfeita entre as principais densidades de tela de smartphones (1x, 2x, 3x), eliminando decisões arbitrárias e renderização de subpixels embaçados.</p>
+    </div>
+
+    <div class="card btr">
+      <div class="ch"><span class="ci">👁️</span><div><h3>5. Hierarquia Visual &amp; Padrões de Leitura</h3></div></div>
+      <ul>
+        <li><strong>Pilares:</strong> Variação tipográfica, peso da fonte (<em>font-weight</em>), contraste cromático e <em>White Space</em> (espaço em branco que dá respiro ao layout).</li>
+        <li><strong>Padrão em "F":</strong> Escaneamento típico para textos e telas densas de leitura.</li>
+        <li><strong>Padrão em "Z":</strong> Escaneamento visual típico de landing pages e dashboards.</li>
+        <li><strong>Botões:</strong> Primários preenchidos (<em>FilledButton</em>) vs. Secundários vazados (<em>OutlinedButton</em>).</li>
+      </ul>
+    </div>
+
+    <div class="card btv">
+      <div class="ch"><span class="ci">🧠</span><div><h3>6. Carga Cognitiva e Lei de Miller (7 ± 2)</h3></div></div>
+      <p><strong>Conceito:</strong> A memória de trabalho humana consegue reter e processar entre <strong>5 e 9 pacotes (chunks)</strong> de informação simultaneamente.</p>
+      <p><strong>Técnica de Chunking:</strong> Fatiar formulários ou fluxos complexos em etapas sequenciais menores. Ex: Checkouts divididos em (1) Endereço &rarr; (2) Pagamento &rarr; (3) Confirmação.</p>
+    </div>
+
+    <div class="card bta">
+      <div class="ch"><span class="ci">💡</span><div><h3>7. Affordance e Signifiers</h3></div></div>
+      <ul>
+        <li><strong>Affordance:</strong> A relação física entre o objeto e o usuário indicando o potencial de ação (ex: uma maçaneta convida a puxar).</li>
+        <li><strong>Signifier (Sinalizador):</strong> Pista visual explícita que comunica <em>onde e como</em> agir. Telas touch são "vidros planos", logo exigem sombras, elevações, bordas, ícones e estados para indicar clicabilidade.</li>
+      </ul>
+    </div>
+
+    <div class="card btg">
+      <div class="ch"><span class="ci">⚡</span><div><h3>8. Skeleton Screens e Tempo Percebido</h3></div></div>
+      <p><strong>Conceito:</strong> Blocos cinzas pulsantes com efeito <em>shimmer</em> que antecipam a silhueta do layout que está sendo carregado.</p>
+      <p><strong>Psicologia de UX:</strong> Reduz sensivelmente a ansiedade do usuário em comparação aos tradicionais spinners circulares de loading (ex: feeds do YouTube, Facebook).</p>
+    </div>
+  </div>
+
+  <div class="sub">💻 Da Teoria ao Código: Reatividade e Layout em Flutter</div>
+
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>StatelessWidget vs. StatefulWidget</h3>
+      <ul>
+        <li><strong>StatelessWidget:</strong> Componentes imutáveis cuja interface não muda ao longo do tempo (apenas renderizam os dados recebidos).</li>
+        <li><strong>StatefulWidget:</strong> Componentes reativos que mantêm um objeto de <code>State</code> interno, capaz de sofrer mutações dinâmicas ao longo do ciclo de vida.</li>
+        <li><strong>Material 3:</strong> Ativado por padrão nas versões modernas do SDK via <code>ThemeData(useMaterial3: true)</code>.</li>
+      </ul>
+    </div>
+    <div class="card btb">
+      <h3>O Box Model e Área Nobre</h3>
+      <ul>
+        <li><strong>SafeArea:</strong> Evita que o conteúdo seja cortado por notches, ilhas dinâmicas ou barras de status do sistema operacional.</li>
+        <li><strong>Padding &amp; Grid:</strong> Margens consistentes com <code>EdgeInsets.all(16.0)</code> (múltiplo do grid 8pt).</li>
+        <li><strong>Expanded + SingleChildScrollView:</strong> Essenciais dentro de <code>Column</code> para conter textos extensos e eliminar o estouro <code>RenderFlex overflow</code>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">🛠️ Exemplos de Implementação em Flutter (Extraídos dos Slides)</div>
+
+  <div class="grid g2">
+    <div>
+      <p style="font-size:.85rem;font-weight:700;color:var(--a2);margin-bottom:.3rem">1. Rodapé Ergonômico na Thumb Zone com Grid de 8pt</p>
+      <pre><code>Widget buildBottomBar() {
+  return Padding(
+    padding: const EdgeInsets.all(16.0), // Grid 8pt
+    child: Row(
+      children: [
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: const Text('Voltar'),
+          ),
+        ),
+        const SizedBox(width: 16.0), // Espaçamento 8pt
+        Expanded(
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(48.0), // Target Size!
+            ),
+            onPressed: () {},
+            child: const Text('Confirmar'),
+          ),
+        ),
+      ],
+    ),
+  );
+}</code></pre>
+    </div>
+
+    <div>
+      <p style="font-size:.85rem;font-weight:700;color:var(--a4);margin-bottom:.3rem">2. Reatividade com setState() &amp; 1ª Heurística de Nielsen</p>
+      <pre><code>void _toggleFavorite() {
+  setState(() {
+    // 1. Notifica o framework e dispara novo build()
+    isFavorited = !isFavorited;
+  });
+
+  // 2. Feedback imediato (Status do Sistema - H1 de Nielsen)
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text('Item adicionado aos favoritos!'),
+      duration: Duration(seconds: 2),
+    ),
+  );
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 3: UX 7 - DESIGN SYSTEM, HANDOFF & TESTES ==================== -->
+<section id="t3" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">🚀</div>
+    <div>
+      <h2>3. Design System Avançado, Handoff e Testes de Homologação</h2>
+      <p>Slides UX 7 · Engenharia de Prompts para UI · Tokens Globais · Design Atômico · Handoff Package · Protocolo Think Aloud</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    "Hoje qualquer IA gera código Dart em segundos. O diferencial do engenheiro de software não é escrever linhas isoladas, mas estruturar o sistema inteiro com consistência arquitetural." — <strong>Prof. Wallas Froes (Cenário 2026)</strong>
+  </div>
+
+  <div class="sub">🧩 Os 4 Pilares de um Bom Prompt de Engenharia de UI</div>
   <div class="grid g2">
     <div class="card btr">
-      <h3>1. Assimetria de Informação e Demanda Induzida pela Oferta</h3>
-      <p>• <strong>Assimetria de Informação:</strong> O paciente (consumidor) não detém o conhecimento técnico sobre seu diagnóstico ou tratamento; ele depende do médico (agente) para decidir o que consumir.<br>
-      • <strong>Demanda Induzida pela Oferta (Relação de Agência Imperfeita):</strong> Como o próprio fornecedor do serviço (médico/hospital) define a demanda do paciente, pode haver incentivo econômico para solicitar mais exames ou procedimentos desnecessários (especialmente no modelo de pagamento por procedimento — <em>Fee-for-Service</em>).</p>
+      <h3 style="color:var(--a6)">❌ Prompt Vago = Colcha de Retalhos</h3>
+      <p>Instruções genéricas ("crie uma tela de login bonita") produzem telas desconexas, cores arbitrárias, paddings aleatórios e violação de acessibilidade.</p>
     </div>
-    <div class="card btv">
-      <h3>2. Incerteza, Risco Moral, Seleção Adversa e Externalidades</h3>
+    <div class="card btg">
+      <h3 style="color:var(--a4)">✅ Prompt Estruturado = Sistema Coeso</h3>
+      <p>Instruções baseadas nos 4 pilares geram código padronizado e pronto para integração em produção:</p>
       <ul>
-        <li><strong>Incerteza (Imprevisibilidade):</strong> Ninguém sabe quando ficará doente nem quanto custará o tratamento.</li>
-        <li><strong>Risco Moral (Moral Hazard):</strong> Quando o indivíduo tem cobertura total (seguro ou sistema gratuito sem regulação), tende a consumir mais serviços de saúde ou cuidar menos da prevenção.</li>
-        <li><strong>Seleção Adversa:</strong> Indivíduos com maior risco de adoecer procuram mais os planos de saúde, enquanto as operadoras tentam selecionar apenas jovens saudáveis ("<em>cream skimming</em>").</li>
-        <li><strong>Externalidades Positivas:</strong> O consumo de um serviço por um indivíduo beneficia toda a coletividade (ex: <strong>vacinação / imunidade de rebanho</strong> e saneamento básico).</li>
+        <li><strong>1. Tokens Visuais:</strong> Paleta hex restrita, tipografia padronizada e grid de 8 pontos.</li>
+        <li><strong>2. Papel do Módulo:</strong> Contexto Core, Transacional ou Relatórios.</li>
+        <li><strong>3. Máquina de Estados:</strong> Comportamento visual explícito em loading, vazio, sucesso e erro.</li>
+        <li><strong>4. Ergonomia Mobile:</strong> Alvos mínimos de 48px e ações prioritárias na Thumb Zone.</li>
       </ul>
     </div>
   </div>
 
-  <div class="sub">📊 3. Métodos de Avaliação Econômica Completa em Saúde (CONITEC / ATS)</div>
-  <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem">Todo método de avaliação econômica completa compara <strong>duas ou mais alternativas tecnológicas</strong> analisando simultaneamente os <strong>Custos (em unidades monetárias, R$)</strong> e os <strong>Desfechos/Consequências em Saúde</strong>. O que diferencia os 4 métodos é <strong>como o desfecho é medido</strong>:</p>
-
+  <div class="sub">🏛️ Arquitetura Funcional do Projeto em 3 Pilares</div>
   <div class="tw">
     <table>
       <thead>
-        <tr><th>Método de Análise</th><th>Medida de Custo</th><th>Como Mede o Desfecho (Consequência)</th><th>Quando Utilizar / Exemplo Prático</th></tr>
+        <tr><th>Módulo</th><th>Responsabilidade Técnica</th><th>Exemplo no App Guia (Extrator PDF - Persona Ana)</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>1. Custo-Minimização (ACM)</strong></td>
-          <td>Unidades monetárias (R$)</td>
-          <td><strong>Desfechos idênticos / equivalentes</strong> (eficácia comprovadamente igual)</td>
-          <td>Comparar um medicamento de referência com seu <strong>genérico bioequivalente</strong>: escolhe-se simplesmente a opção mais barata.</td>
+          <td><strong>1. Core &amp; Onboarding</strong></td>
+          <td>Identidade visual, tokens globais, autenticação e tema base Material 3.</td>
+          <td>Telas de Login, Seleção de Perfil (Estudante/Advogado) e Home de Documentos Recentes.</td>
         </tr>
         <tr>
-          <td><strong>2. Custo-Efetividade (ACE)</strong></td>
-          <td>Unidades monetárias (R$)</td>
-          <td><strong>Unidades clínicas naturais</strong> (unidimensionais): mmHg de pressão arterial reduzidos, casos de dengue evitados, <strong>anos de vida ganhos (AVG)</strong></td>
-          <td>Comparar dois anti-hipertensivos na redução de AVC. Calcula-se a <strong>RCEI (Razão de Custo-Efetividade Incremental)</strong>: $\Delta \text{Custo} / \Delta \text{Efetividade}$.</td>
+          <td><strong>2. Transacional</strong></td>
+          <td>Operação principal do negócio, filtros dinâmicos, processamento em tempo real e Thumb Zone.</td>
+          <td>Upload de PDF / Foto da Câmera, Processamento OCR com Shimmer e visualização do Texto Extraído.</td>
         </tr>
         <tr>
-          <td><strong>3. Custo-Utilidade (ACU)</strong></td>
-          <td>Unidades monetárias (R$)</td>
-          <td>Combina <strong>Quantidade + Qualidade de vida</strong> percebida: <strong>QALY (AVAQ — Anos de Vida Ajustados pela Qualidade)</strong> ou DALY (Anos de Vida Ajustados por Incapacidade)</td>
-          <td><strong>Padrão-ouro da CONITEC!</strong> Essencial para doenças crônicas ou oncológicas (onde o tratamento não apenas prolonga a sobrevida, mas impacta a qualidade de vida). No Brasil, o limiar de custo-efetividade da CONITEC é de <strong>1 a 3 PIB per capita por QALY ganho</strong> (~R$ 40 mil a R$ 120 mil/QALY).</td>
-        </tr>
-        <tr>
-          <td><strong>4. Custo-Benefício (ACB)</strong></td>
-          <td>Unidades monetárias (R$)</td>
-          <td><strong>Unidades monetárias (R$)</strong> — transforma vidas salvas ou dias sem doença em dinheiro</td>
-          <td>Permite comparar investimentos entre setores diferentes (ex: investir em uma campanha de vacinação vs. construir uma rodovia). É se o Benefício Líquido (B − C) &gt; 0. Pouco usado na clínica por questões éticas de precificar a vida humana.</td>
+          <td><strong>3. Relatórios &amp; Histórico</strong></td>
+          <td>Rastreabilidade, métricas, exportação de dados, compartilhamento e tratamento de Empty States.</td>
+          <td>Meu Caderno de Notas, Histórico de Extrações e Exportação em formato TXT.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="sub">💸 4. Classificação dos Custos em Saúde</div>
+  <div class="sub">🎨 Centralização de Tokens em Código: Zero Valores Mágicos</div>
+  <div class="grid g2">
+    <div>
+      <p style="font-size:.84rem;color:var(--muted);margin-bottom:.4rem">Nenhuma tela usa cores ou paddings soltos fora de <code>AppTokens</code>. Ao colar essa classe no prompt da IA, o código gerado respeita automaticamente o sistema:</p>
+      <pre><code>// core/theme/app_tokens.dart
+class AppTokens {
+  // Cores
+  static const primary = Color(0xFF4F46E5);
+  static const surface = Color(0xFFF8FAFC);
+  static const error   = Color(0xFFDC2626);
+
+  // Espaçamentos (Grid de 8pt)
+  static const space8  = 8.0;
+  static const space16 = 16.0;
+
+  // Ergonomia
+  static const touchMin = 48.0;
+}</code></pre>
+    </div>
+    <div>
+      <div class="sub" style="margin-top:0">⚛️ Design Atômico Aplicado ao App</div>
+      <div class="card bta">
+        <p>• <strong>Átomos:</strong> Blocos indivisíveis com tokens aplicados. Ex: <code>AppButton</code> (altura de 48px), <code>StatusBadge</code>.<br>
+        • <strong>Moléculas:</strong> Combinação funcional de átomos simples. Ex: <code>PdfSearchBar</code> e <code>ActionBottomBar</code>.<br>
+        • <strong>Organismos:</strong> Seções completas com lógica de negócio. Ex: <code>ExtractionHistoryCard</code> e <code>OcrViewer</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">⚙️ Máquina de Estados: Especificação Visual &amp; Comportamental</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Estado</th><th>Especificação Visual (Prompt / Doc)</th><th>Regra Lógica no App de Extração de PDF</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Default</strong></td><td>Fundo primário, texto branco, elevação sutil.</td><td>Arquivo PDF carregado e pronto para a extração.</td></tr>
+        <tr><td><strong>Disabled</strong></td><td>Fundo cinza, opacidade em 40%, cursor e clique bloqueados.</td><td>Nenhum PDF selecionado (restrição de segurança de fluxo).</td></tr>
+        <tr><td><strong>Loading</strong></td><td>Rótulo "Lendo OCR..." + Skeleton Shimmer pulsante.</td><td>Bloqueia duplo clique durante o processamento do arquivo.</td></tr>
+        <tr><td><strong>Success</strong></td><td>Fundo verde, ícone de check, rótulo "Copiado!".</td><td>Feedback temporário exibido por 3 segundos na tela.</td></tr>
+        <tr><td><strong>Error</strong></td><td>Borda vermelha e alerta humano contextual explicativo.</td><td>PDF protegido por senha ou arquivo corrompido.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">📦 O Design Handoff Package &amp; Regras de Engenharia</div>
+  <div class="grid g2">
+    <div class="card bty">
+      <h3>Do "Jogar por Cima do Muro" ao Handoff Blindado</h3>
+      <p>Historicamente, designers entregavam telas estáticas sem prever erros, gerando retrabalho na engenharia. O Handoff Package moderno é um <strong>contrato técnico único</strong>:</p>
+      <ul>
+        <li><strong>Regras de Quebra:</strong> Uso mandatório de <code>SafeArea</code> e <code>SingleChildScrollView</code> contra estouros de layout.</li>
+        <li><strong>Ações Reversíveis:</strong> Ao apagar uma anotação, exibir SnackBar com ação "Desfazer" ativa por 5 segundos.</li>
+        <li><strong>Exceções Humanas:</strong> Zero <em>Exception 500</em> ou telas vermelhas para o usuário; mensagens claras com botão de recuperação segura.</li>
+      </ul>
+    </div>
+    <div class="card btg">
+      <h3>Checklist Oficial de Entrega Técnica</h3>
+      <ol style="padding-left:1.15rem;font-size:.83rem;color:var(--muted)">
+        <li><strong>Arquitetura de Pastas:</strong> Separação limpa em <code>core/</code>, <code>modules/</code> e <code>shared/widgets/</code>.</li>
+        <li><strong>Guia de Reprodução (README):</strong> Versão do SDK, comando <code>flutter pub get</code> e passo a passo reproduzível do zero.</li>
+        <li><strong>Artefato de Deploy:</strong> Build funcional em produção via <code>flutter build web</code> (Vercel) ou APK compilado.</li>
+        <li><strong>Rastreabilidade e Autoria:</strong> Demonstração clara de como as decisões de UI resolveram as dores mapeadas no início.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sub">🧪 Metodologia de Validação: Homologação Técnica (QA) vs. Teste de Usabilidade</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Critério</th><th>Homologação Técnica (QA)</th><th>Teste de Usabilidade com Usuários</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Foco</strong></td><td>Conformidade técnica, layout e estabilidade de código.</td><td>Comportamento humano, clareza cognitiva e eficácia da jornada.</td></tr>
+        <tr><td><strong>Itens Auditados</strong></td><td>Zero estouros de tela (<code>overflow</code>), alvos de toque &ge; 48px, tratamento de estados vazios (empty states) e erros.</td><td>Autonomia (usuário conclui sem ajuda), compreensão de ícones/rótulos, tempo de tarefa e contagem de cliques.</td></tr>
+        <tr><td><strong>Protocolo Prático</strong></td><td>Inspeção com linter, DevTools e testes em múltiplos dispositivos.</td><td><strong>Técnica Think Aloud:</strong> usuário narra seus pensamentos em voz alta enquanto tenta cumprir um cenário sem ser induzido pelo avaliador.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">📋 Matriz de Evidências e Mitigação de Falhas (Heurísticas de Nielsen)</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Cenário de Tarefa</th><th>Falha Observada no Teste</th><th>Heurística Violada</th><th>Mitigação de Engenharia no Flutter</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Abrir PDF com senha</td>
+          <td>O app travou exibindo uma tela de erro técnico genérico.</td>
+          <td><strong>H9 · Reconhecimento e Recuperação de Erros</strong></td>
+          <td>Exibição de um Modal amigável com input de senha e mensagem humana explicativa.</td>
+        </tr>
+        <tr>
+          <td>Copiar texto do OCR</td>
+          <td>O usuário clicou 4 vezes seguidas sem saber se o texto foi copiado.</td>
+          <td><strong>H1 · Visibilidade do Status do Sistema</strong></td>
+          <td>O botão altera para o estado "Copiado!" com fundo verde e ícone de check por 3 segundos.</td>
+        </tr>
+        <tr>
+          <td>Abrir Histórico sem dados</td>
+          <td>Apareceu uma tela em branco que fez o usuário achar que o app quebrou.</td>
+          <td><strong>H10 · Ajuda e Documentação</strong></td>
+          <td>Implementação de um <em>Empty State</em> amigável com ilustração e botão direto para "Importar Primeiro Arquivo".</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== ABA 4: SÍNTESE COMPARATIVA & GUIA RÁPIDO ==================== -->
+<section id="t4" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(6,182,212,.12);color:var(--a3)">📊</div>
+    <div>
+      <h2>4. Síntese Comparativa, Fórmulas &amp; Checklist de Revisão</h2>
+      <p>Resumo executivo de fórmulas, medidas essenciais, regras de layout e heurísticas para exames</p>
+    </div>
+  </div>
+
+  <div class="sub">🔢 Constantes e Medidas Absolutas de Engenharia de Interface</div>
   <div class="grid g3">
     <div class="card bta">
-      <h3>🏥 Custos Diretos</h3>
-      <p>Gastos diretamente ligados à intervenção:<br>
-      • <strong>Diretos Médicos:</strong> medicamentos, diárias de UTI, honorários médicos, exames.<br>
-      • <strong>Diretos Não Médicos:</strong> transporte do paciente (TFD), alimentação hospitalar, adaptação da residência.</p>
+      <h3>Target Size Mínimo</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a2);margin:.3rem 0">48 × 48 px</p>
+      <p>Material Design (Google). No iOS são 44×44px. Evita o <em>fat-finger problem</em>.</p>
+    </div>
+    <div class="card btb">
+      <h3>Sistema de Grid</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a3);margin:.3rem 0">Múltiplos de 8 px</p>
+      <p>8, 16, 24, 32, 40, 48... Perfeita divisibilidade em telas 1x, 2x e 3x.</p>
+    </div>
+    <div class="card btc">
+      <h3>Largura de Login Desktop</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a4);margin:.3rem 0">400 a 480 px</p>
+      <p>Centralização absoluta para evitar dispersão visual e abandono.</p>
     </div>
     <div class="card bty">
-      <h3>📉 Custos Indiretos</h3>
-      <p>Perda de produtividade econômica do paciente ou de seus familiares cuidadores para a sociedade:<br>
-      • <strong>Absenteísmo</strong> (faltas ao trabalho)<br>
-      • <strong>Presenteísmo</strong> (baixa produtividade)<br>
-      • Aposentadoria precoce ou morte prematura.</p>
+      <h3>Memória de Trabalho</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a5);margin:.3rem 0">7 ± 2 Chunks</p>
+      <p>Lei de Miller: quebrar fluxos em etapas (técnica de <em>chunking</em>).</p>
     </div>
     <div class="card btv">
-      <h3>💔 Custos Intangíveis</h3>
-      <p>Custos subjetivos de difícil mensuração monetária, como a <strong>dor física, o sofrimento psicológico, a ansiedade, o estigma social</strong> e a perda de lazer causados pela doença ou pelo tratamento.</p>
+      <h3>Breakpoint Desktop</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a2);margin:.3rem 0">&ge; 900 dp</p>
+      <p>Panorâmico, alta precisão do cursor (1-2px) e múltiplos painéis paralelos.</p>
     </div>
+    <div class="card btr">
+      <h3>Feedback Visual Reversível</h3>
+      <p style="font-size:1.4rem;font-weight:800;color:var(--a6);margin:.3rem 0">3 a 5 segundos</p>
+      <p>Duração do SnackBar com ação "Desfazer" para prevenção de erros.</p>
+    </div>
+  </div>
+
+  <div class="sub">🧠 Resumo Mnemônico das Heurísticas e Leis nos Slides</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Princípio / Lei</th><th>Equação ou Mecanismo Central</th><th>Onde e Como Aplicar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Lei de Fitts</strong></td><td>$T = a + b \log_2(2D / W)$</td><td>Alvos essenciais devem estar próximos da mão e possuir largura generosa (ex: rodapé 100% de largura).</td></tr>
+        <tr><td><strong>Thumb Zone</strong></td><td>Mapeamento do alcance do polegar</td><td>Posicionar ações primárias na base (área confortável de acesso com 1 mão) e manter ações de risco no topo.</td></tr>
+        <tr><td><strong>Lei de Miller</strong></td><td>Capacidade de $7 \pm 2$ itens</td><td>Fatiamento de formulários complexos em passos com stepper visual (ex: endereço &rarr; pagamento &rarr; revisão).</td></tr>
+        <tr><td><strong>Affordance &amp; Signifier</strong></td><td>Potencial de ação + Pistas visuais</td><td>Uso de elevações, sombras, bordas e ícones reconhecíveis em telas touch planas para indicar interatividade.</td></tr>
+        <tr><td><strong>Skeleton Screen</strong></td><td>Blocos <em>shimmer</em> pulsantes</td><td>Antecipar a estrutura da tela no carregamento para diminuir a percepção de espera do usuário.</td></tr>
+        <tr><td><strong>H1 (Nielsen)</strong></td><td>Visibilidade do Status do Sistema</td><td>Feedback imediato ao clicar (ex: alterar botão para "Copiado!" por 3s e exibir SnackBar).</td></tr>
+        <tr><td><strong>H9 (Nielsen)</strong></td><td>Recuperação de Erros</td><td>Mensagens humanas explicativas informando a causa do erro e como resolvê-lo (evitar códigos de erro 500).</td></tr>
+        <tr><td><strong>H10 (Nielsen)</strong></td><td>Ajuda e Documentação</td><td>Tratamento obrigatório de <em>Empty States</em> com orientação e botão de ação direta para o próximo passo.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -653,4 +671,3 @@ window.addEventListener('scroll',()=>t.classList.toggle('show',window.scrollY>40
 </script>
 </body>
 </html>
-
