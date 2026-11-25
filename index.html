@@ -3,654 +3,583 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Revisão Completa — UX/UI & Engenharia de Interfaces</title>
+<title>Revisão — Computação de Alto Desempenho (C &amp; OpenMP)</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0b0f17;
-  --card:#131b26;
-  --bord:#223042;
-  --a1:#6366f1;
-  --a2:#818cf8;
+  --bg:#090e14;
+  --card:#111923;
+  --bord:#1f2e40;
+  --a1:#10b981;
+  --a2:#34d399;
   --a3:#06b6d4;
-  --a4:#10b981;
+  --a4:#3b82f6;
   --a5:#f59e0b;
   --a6:#f43f5e;
-  --a7:#ec4899;
+  --a7:#a855f7;
   --text:#e6edf3;
-  --muted:#8ea1b4;
-  --code-bg:#090d14;
+  --muted:#8b9eb0;
+  --code:#070b10
 }
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-header{background:linear-gradient(135deg,#131828,#0b0f17);border-bottom:1px solid var(--bord);padding:3rem 2rem 2.4rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.18),transparent 70%);pointer-events:none}
-.badge{display:inline-block;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.35);color:var(--a2);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.32rem .95rem;border-radius:999px;margin-bottom:1rem}
-header h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;background:linear-gradient(135deg,#f8fafc 30%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
-header p{color:var(--muted);font-size:.95rem;max-width:720px;margin:0 auto}
-.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.3rem}
-.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.28rem .85rem;font-size:.78rem;color:var(--muted)}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.68}
+header{background:linear-gradient(135deg,#0d1b24,#090e14);border-bottom:1px solid var(--bord);padding:2.8rem 2rem 2.3rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.16),transparent 68%);pointer-events:none}
+.badge{display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);color:var(--a2);font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
+header h1{font-size:clamp(1.6rem,4vw,2.45rem);font-weight:800;background:linear-gradient(135deg,#f8fafc 25%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem}
+header p{color:var(--muted);font-size:.94rem;max-width:720px;margin:0 auto}
+.mpills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:1.25rem}
+.mpill{background:var(--card);border:1px solid var(--bord);border-radius:999px;padding:.26rem .82rem;font-size:.77rem;color:var(--muted)}
 .mpill span{color:var(--text);font-weight:600}
-.print-btn{margin-top:1.3rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(99,102,241,.14);border:1px solid var(--a1);color:var(--a2);padding:.48rem 1.15rem;border-radius:8px;font-size:.83rem;font-weight:600;cursor:pointer;transition:all .2s}
-.print-btn:hover{background:var(--a1);color:#fff}
-.tabs{position:sticky;top:0;z-index:100;background:rgba(11,15,23,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.print-btn{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,.14);border:1px solid var(--a1);color:var(--a2);padding:.46rem 1.15rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.print-btn:hover{background:var(--a1);color:#090e14}
+.tabs{position:sticky;top:0;z-index:100;background:rgba(9,14,20,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.83rem;font-weight:600;padding:.9rem 1.2rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab{flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--muted);font-size:.82rem;font-weight:600;padding:.9rem 1.15rem;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--a2);border-bottom-color:var(--a2)}
-main{max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
-.sec{display:none;animation:fi .3s ease}
+main{max-width:1060px;margin:0 auto;padding:2.4rem 1.5rem 5rem}
+.sec{display:none;animation:fi .28s ease}
 .sec.active{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.sh{display:flex;align-items:center;gap:.9rem;margin-bottom:2rem;padding-bottom:1.1rem;border-bottom:1px solid var(--bord)}
-.si{width:2.8rem;height:2.8rem;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;flex-shrink:0}
-.sh h2{font-size:1.45rem;font-weight:800}
-.sh p{font-size:.85rem;color:var(--muted);margin-top:.15rem}
-.sub{font-size:1.06rem;font-weight:700;margin:1.9rem 0 .9rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.sh{display:flex;align-items:center;gap:.85rem;margin-bottom:1.9rem;padding-bottom:1rem;border-bottom:1px solid var(--bord)}
+.si{width:2.7rem;height:2.7rem;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+.sh h2{font-size:1.4rem;font-weight:800}
+.sh p{font-size:.84rem;color:var(--muted);margin-top:.15rem}
+.sub{font-size:1.04rem;font-weight:700;margin:1.85rem 0 .85rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
 .grid{display:grid;gap:1rem}
 .g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.25rem 1.4rem;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--a2);transform:translateY(-2px)}
-.ch{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.6rem}
-.ci{font-size:1.3rem;flex-shrink:0;margin-top:.05rem}
-.card h3{font-size:.95rem;font-weight:700;color:var(--text)}
-.card p,.card li{font-size:.84rem;color:var(--muted);margin-bottom:.32rem}
-.card ul{padding-left:1.15rem}
+.g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:1.2rem 1.35rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--a1);transform:translateY(-2px)}
+.ch{display:flex;align-items:flex-start;gap:.65rem;margin-bottom:.55rem}
+.ci{font-size:1.25rem;flex-shrink:0;margin-top:.05rem}
+.card h3{font-size:.93rem;font-weight:700;color:var(--text)}
+.card p,.card li{font-size:.83rem;color:var(--muted);margin-bottom:.32rem}
+.card ul,.card ol{padding-left:1.15rem}
 .card strong{color:var(--text)}
-.hl{border-radius:10px;padding:.95rem 1.25rem;margin:1rem 0;font-size:.85rem;color:var(--text)}
-.hlv{background:rgba(99,102,241,.09);border:1px solid rgba(99,102,241,.28)}.hlv strong{color:var(--a2)}
-.hlc{background:rgba(6,182,212,.09);border:1px solid rgba(6,182,212,.28)}.hlc strong{color:var(--a3)}
-.hlg{background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.28)}.hlg strong{color:var(--a4)}
-.hly{background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.28)}.hly strong{color:var(--a5)}
-.hlr{background:rgba(244,63,94,.09);border:1px solid rgba(244,63,94,.28)}.hlr strong{color:var(--a6)}
-.quote{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(6,182,212,.05));border:1px solid rgba(99,102,241,.25);border-radius:12px;padding:1.15rem 1.45rem;margin:1.1rem 0;font-style:italic;color:var(--text);font-size:.88rem}
+.hl{border-radius:10px;padding:.92rem 1.2rem;margin:1rem 0;font-size:.84rem;color:var(--text)}
+.hlg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.26)}.hlg strong{color:var(--a2)}
+.hlc{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.26)}.hlc strong{color:var(--a3)}
+.hlb{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.26)}.hlb strong{color:var(--a4)}
+.hly{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.26)}.hly strong{color:var(--a5)}
+.hlr{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.26)}.hlr strong{color:var(--a6)}
+.hlv{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.26)}.hlv strong{color:var(--a7)}
 .tw{overflow-x:auto;margin:1rem 0;border-radius:10px;border:1px solid var(--bord)}
-table{width:100%;border-collapse:collapse;font-size:.83rem}
-thead th{background:rgba(99,102,241,.12);color:var(--a2);font-weight:700;text-align:left;padding:.65rem .95rem}
-tbody td{padding:.6rem .95rem;border-top:1px solid var(--bord);color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:rgba(16,185,129,.12);color:var(--a2);font-weight:700;text-align:left;padding:.62rem .9rem}
+tbody td{padding:.55rem .9rem;border-top:1px solid var(--bord);color:var(--muted)}
 tbody td strong{color:var(--text)}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 .tl{position:relative;padding-left:2rem}
-.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a4));border-radius:2px}
-.ti{position:relative;margin-bottom:1.15rem}
+.tl::before{content:'';position:absolute;left:.65rem;top:.4rem;width:2px;height:calc(100% - .8rem);background:linear-gradient(to bottom,var(--a1),var(--a3),var(--a7));border-radius:2px}
+.ti{position:relative;margin-bottom:1.1rem}
 .dot{position:absolute;left:-1.45rem;top:.35rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--a1);border:2px solid var(--bg)}
 .ti:nth-child(2) .dot{background:var(--a3)}.ti:nth-child(3) .dot{background:var(--a4)}.ti:nth-child(4) .dot{background:var(--a5)}.ti:nth-child(5) .dot{background:var(--a6)}
-.ti h4{font-size:.92rem;font-weight:700;color:var(--text)}
-.ti p{font-size:.83rem;color:var(--muted);margin-top:.2rem}
+.ti h4{font-size:.9rem;font-weight:700;color:var(--text)}
+.ti p{font-size:.82rem;color:var(--muted);margin-top:.2rem}
 .bta{border-top:3px solid var(--a1)!important}
 .btb{border-top:3px solid var(--a3)!important}
-.btg{border-top:3px solid var(--a4)!important}
+.btc{border-top:3px solid var(--a4)!important}
 .bty{border-top:3px solid var(--a5)!important}
 .btr{border-top:3px solid var(--a6)!important}
-.num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;font-size:.72rem;font-weight:800;margin-right:.45rem;flex-shrink:0;vertical-align:middle;background:rgba(99,102,241,.16);color:var(--a2)}
-.tag{display:inline-block;padding:.15rem .55rem;border-radius:6px;font-size:.72rem;font-weight:700;margin-right:.3rem}
-.tag-v{background:rgba(99,102,241,.16);color:var(--a2)}
-.tag-c{background:rgba(6,182,212,.16);color:var(--a3)}
-.tag-g{background:rgba(16,185,129,.16);color:var(--a4)}
-.tag-y{background:rgba(245,158,11,.16);color:var(--a5)}
-.tag-r{background:rgba(244,63,94,.16);color:var(--a6)}
-pre{background:var(--code-bg);border:1px solid var(--bord);border-radius:9px;padding:1rem 1.2rem;overflow-x:auto;font-family:'Consolas','Fira Code',monospace;font-size:.82rem;color:#cbd5e1;margin:.8rem 0;line-height:1.5}
-code{font-family:'Consolas','Fira Code',monospace;background:rgba(99,102,241,.12);color:var(--a2);padding:.15rem .4rem;border-radius:4px;font-size:.84rem}
-#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#fff;border:none;border-radius:999px;width:2.8rem;height:2.8rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(99,102,241,.38);display:none;place-items:center;transition:transform .2s}
+.btv{border-top:3px solid var(--a7)!important}
+.tag{display:inline-block;padding:.14rem .52rem;border-radius:6px;font-size:.72rem;font-weight:700;margin-right:.3rem}
+.tag-g{background:rgba(16,185,129,.15);color:var(--a2)}
+.tag-c{background:rgba(6,182,212,.15);color:var(--a3)}
+.tag-y{background:rgba(245,158,11,.15);color:var(--a5)}
+.tag-r{background:rgba(244,63,94,.15);color:var(--a6)}
+.tag-v{background:rgba(168,85,247,.15);color:var(--a7)}
+pre{background:var(--code);border:1px solid var(--bord);border-radius:9px;padding:.95rem 1.15rem;overflow-x:auto;font-family:'Consolas','Fira Code',monospace;font-size:.81rem;color:#cbd5e1;margin:.7rem 0;line-height:1.52}
+code{font-family:'Consolas','Fira Code',monospace;background:rgba(16,185,129,.12);color:var(--a2);padding:.12rem .38rem;border-radius:4px;font-size:.82rem}
+pre code{background:none;color:inherit;padding:0;font-size:inherit}
+.formula{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.3);border-radius:10px;padding:.9rem 1.2rem;text-align:center;font-family:'Cambria Math','Segoe UI',serif;font-size:1.05rem;font-weight:700;color:var(--a3);margin:.8rem 0}
+#top{position:fixed;bottom:2rem;right:1.5rem;background:var(--a1);color:#090e14;border:none;border-radius:999px;width:2.7rem;height:2.7rem;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(16,185,129,.35);display:none;place-items:center;transition:transform .2s}
 #top:hover{transform:scale(1.1)}#top.show{display:grid}
 
 @media print{
-  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#4338ca;--a2:#4f46e5;--a3:#0891b2;--a4:#059669;--a5:#d97706;--a6:#e11d48;--code-bg:#f1f5f9}
-  body{background:#fff;color:#0f172a;font-size:9.5pt}
-  header{background:#f8fafc;padding:1.5rem;border-bottom:2px solid #4f46e5}
-  header h1{-webkit-text-fill-color:#4f46e5;color:#4f46e5}
+  :root{--bg:#fff;--card:#fff;--bord:#cbd5e1;--text:#0f172a;--muted:#334155;--a1:#047857;--a2:#065f46;--a3:#0369a1;--a4:#1d4ed8;--a5:#b45309;--a6:#be123c;--a7:#6d28d9;--code:#f1f5f9}
+  body{background:#fff;color:#0f172a;font-size:9.3pt}
+  header{background:#f8fafc;padding:1.4rem;border-bottom:2px solid #047857}
+  header h1{-webkit-text-fill-color:#047857;color:#047857}
   .tabs,.print-btn,#top{display:none!important}
   .sec{display:block!important;page-break-before:always;margin-bottom:2rem}
   .sec:first-of-type{page-break-before:avoid}
-  .card,.hl,.tw,tr,.quote,pre{page-break-inside:avoid}
+  .card,.hl,.tw,tr,pre,.formula{page-break-inside:avoid}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="badge">🎨 UX Design &amp; Prototipação de Interfaces · UNEX</div>
-  <h1>Engenharia de Interfaces &amp; Design System</h1>
-  <p>Resumo aprofundado dos slides de UX 5, 6 e 7 · Prof. Msc. Wallas Froes de Oliveira · Da modelagem estrutural à reatividade em Flutter, ergonomia e testes.</p>
+  <div class="badge">⚡ Sistemas de Informação · Computação de Alto Desempenho</div>
+  <h1>Linguagem C &amp; Programação Paralela com OpenMP</h1>
+  <p>Resumo completo das Aulas 9 a 15 · Prof. Silas Santos · Fundamentos de C, Ponteiros, Memória, Lei de Amdahl, Falso Compartilhamento, Sincronização, Laços Paralelos, Tasks e SIMD.</p>
   <div class="mpills">
-    <div class="mpill">📑 <span>3 Apostilas · 50 Slides Analisados</span></div>
-    <div class="mpill">🏗️ <span>UX 5: Engenharia de Interfaces &amp; Web Apps</span></div>
-    <div class="mpill">📐 <span>UX 6: Leis de UI/UX &amp; Reatividade Flutter</span></div>
-    <div class="mpill">🚀 <span>UX 7: Design System, Handoff &amp; Homologação</span></div>
+    <div class="mpill">📚 <span>7 PDFs · 171 Slides</span></div>
+    <div class="mpill">💻 <span>Aulas 9–10: Linguagem C</span></div>
+    <div class="mpill">⚡ <span>Aula 11: OpenMP &amp; Amdahl</span></div>
+    <div class="mpill">🔥 <span>Aulas 12–13: Cache &amp; Sincronização</span></div>
+    <div class="mpill">🔄 <span>Aulas 14–15: Loops, Tasks &amp; SIMD</span></div>
   </div>
   <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" onclick="show('t1',this)">🏗️ 1. Engenharia de Interfaces (UX 5)</button>
-  <button class="tab" onclick="show('t2',this)">📐 2. Leis de UI/UX &amp; Flutter (UX 6)</button>
-  <button class="tab" onclick="show('t3',this)">🚀 3. Design System &amp; Handoff (UX 7)</button>
-  <button class="tab" onclick="show('t4',this)">📊 4. Síntese Comparativa &amp; Guia Rápido</button>
+  <button class="tab active" onclick="show('a1',this)">💻 1. Intro a C (Aula 9)</button>
+  <button class="tab" onclick="show('a2',this)">🧠 2. Dados &amp; Ponteiros (Aula 10)</button>
+  <button class="tab" onclick="show('a3',this)">⚡ 3. OpenMP &amp; Amdahl (Aula 11)</button>
+  <button class="tab" onclick="show('a4',this)">🔥 4. Cache &amp; Sincronização (12–13)</button>
+  <button class="tab" onclick="show('a5',this)">🔄 5. Laços &amp; Schedule (Aula 14)</button>
+  <button class="tab" onclick="show('a6',this)">🧩 6. Tasks, Escopo &amp; SIMD (Aula 15)</button>
 </nav>
 
 <main>
 
-<!-- ==================== ABA 1: UX 5 - ENGENHARIA DE INTERFACES ==================== -->
-<section id="t1" class="sec active">
+<!-- ==================== ABA 1: AULA 9 - INTRO A C ==================== -->
+<section id="a1" class="sec active">
   <div class="sh">
-    <div class="si" style="background:rgba(99,102,241,.12);color:var(--a2)">🏗️</div>
+    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a2)">💻</div>
     <div>
-      <h2>1. Engenharia de Interfaces: Da Modelagem Estrutural à Arquitetura</h2>
-      <p>Slides UX 5 · Thin Client vs. Thick Client · Espectro de Prototipagem · IA Generativa · Topologias Desktop &amp; Login</p>
+      <h2>1. Introdução à Linguagem C (Aula 9)</h2>
+      <p>Fluxo de compilação · Características · Tipos primitivos · Operadores · Estruturas de decisão e repetição</p>
     </div>
   </div>
 
-  <div class="quote">
-    "Todo sistema web é apenas um website no navegador? Consumo passivo vs. Execução contínua de software: onde o design encontra a engenharia de software?" — <strong>Prof. Wallas Froes</strong>
+  <div class="hl hlg">
+    <strong>Por que C em Alto Desempenho?</strong> C é uma linguagem de <strong>nível intermediário</strong>: combina legibilidade de alto nível com controle direto de hardware e memória. É usada em Sistemas Operacionais (Linux, Windows, Unix), drivers, sistemas embarcados (Arduino), compiladores (GCC), bancos de dados (MySQL) e jogos.
   </div>
 
-  <div class="sub">🌐 Website Tradicional (Thin Client) vs. Web App (Thick Client)</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Critério</th><th>Website Tradicional (Thin Client)</th><th>Web App / Sistema Web (Thick Client)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Propósito Central</strong></td><td>Consumo passivo e leitura informativa de conteúdo.</td><td>Execução contínua de tarefas complexas e rotinas de negócio.</td></tr>
-        <tr><td><strong>Arquitetura Técnica</strong></td><td>Coleção de páginas estáticas ou renderizadas no servidor (SSR clássico) interligadas por hiperlinks.</td><td>Aplicação rica operando no navegador via <strong>Single Page Application (SPA / CSR)</strong>.</td></tr>
-        <tr><td><strong>Modelo de Interação</strong></td><td>Baixa complexidade transacional; forte dependência de recarregamento de tela (<em>page refresh</em>).</td><td>Operações completas de <strong>CRUD</strong>, validações dinâmicas no cliente e gerenciamento de <strong>estado em tempo real</strong>.</td></tr>
-        <tr><td><strong>Casos Práticos</strong></td><td>Portais de notícias, blogs, sites institucionais.</td><td>Gmail, Trello, Google Docs, Figma, painéis bancários.</td></tr>
-      </tbody>
-    </table>
+  <div class="sub">⚙️ Fluxo de Compilação em C &amp; Comando GCC</div>
+  <div class="card bta">
+    <p><strong>Pipeline de Build:</strong> <code>Código Fonte (.c)</code> &rarr; <strong>Pré-processador</strong> (Código Pré-processado) &rarr; <strong>Compilador</strong> (Assembly) &rarr; <strong>Montador / Assembler</strong> (Código Objeto <code>.o</code>) &rarr; <strong>LinkEditor</strong> (Executável <code>.exe</code>).</p>
+    <pre><code>gcc hello.c -o hello -Wall -Wextra
+# -o     : define o nome do executável de saída
+# -Wall  : ativa avisos principais do compilador
+# -Wextra: ativa avisos adicionais (boas práticas)</code></pre>
+    <p><strong>Características do C:</strong> Compilada · Portável · Alta eficiência/desempenho · Acesso de baixo nível · Estruturada e procedural · Tipagem estática · <strong>Case-Sensitive</strong> (<code>idade</code> &ne; <code>Idade</code>).</p>
   </div>
 
-  <div class="sub">🏛️ Os Pilares Fundamentais do Web App Moderno</div>
+  <div class="sub">📚 Bibliotecas Padrão &amp; Tipos Primitivos</div>
   <div class="grid g2">
-    <div class="card bta">
-      <h3>Pilar 1: Interatividade e Ergonomia Ativa</h3>
-      <ul>
-        <li><strong>Resposta Imediata:</strong> Feedback instantâneo sem necessidade de recarregar a página inteira, garantindo fluidez e alta disponibilidade na UX.</li>
-        <li><strong>Processamento no Cliente:</strong> Regras de negócio e pré-validações executadas diretamente no front-end.</li>
-        <li><strong>Ergonomia Ativa:</strong> Componentes complexos, interações drag-and-drop e filtros contextuais sem latência de rede.</li>
-      </ul>
-    </div>
     <div class="card btb">
-      <h3>Pilar 2: Serviços, Sessão e Persistência</h3>
+      <h3>Principais Diretivas <code>#include</code></h3>
       <ul>
-        <li><strong>Arquitetura Cliente-Servidor:</strong> Front-end totalmente desacoplado consumindo APIs estruturadas (REST ou GraphQL).</li>
-        <li><strong>Gestão de Sessão:</strong> Controle rigoroso de autenticação, tokens de segurança (JWT) e níveis de permissão.</li>
-        <li><strong>Persistência de Estado:</strong> Retenção de dados temporários e cache na memória local (LocalStorage / IndexedDB / Memory Cache).</li>
+        <li><code>#include &lt;stdio.h&gt;</code> — Entrada e saída (<code>printf</code>, <code>scanf</code>, <code>puts</code>, <code>gets</code>)</li>
+        <li><code>#include &lt;stdlib.h&gt;</code> — Funções padrão e memória (<code>malloc</code>, <code>free</code>, <code>exit</code>)</li>
+        <li><code>#include &lt;math.h&gt;</code> — Funções matemáticas (<code>sqrt</code>, <code>pow</code>, etc.)</li>
+        <li><code>#include &lt;string.h&gt;</code> — Manipulação de strings (<code>strcpy</code>, <code>strcat</code>, <code>strlen</code>, <code>strcmp</code>)</li>
       </ul>
+      <p style="margin-top:.4rem"><strong>Dicas:</strong> Sempre encerrar comandos com <code>;</code> · Salvar e recompilar após cada edição · Comentários: <code>// linha</code> ou <code>/* bloco */</code>.</p>
     </div>
-  </div>
-
-  <div class="sub">📁 Case Study: Fábricas Documentais (iLovePDF &amp; Sejda)</div>
-  <div class="hl hlc">
-    <strong>Arquitetura Web Além do Catálogo:</strong> Ferramentas modernas de processamento documental operam como verdadeiras fábricas integradas no browser.
-    <br>• <strong>Execução Client-Side:</strong> Renderização, fusão de PDFs e reconhecimento óptico de caracteres (OCR) são processados via <strong>WebAssembly (WASM) e JavaScript</strong> diretamente na máquina do usuário, reduzindo custos de servidor e latência.
-    <br>• <strong>Estado &amp; Controle:</strong> Gestão eficiente de cotas de uso, limites de arquivo e histórico em tempo real.
-  </div>
-
-  <div class="sub">📈 O Espectro de Prototipagem: Por Que Não Pular Etapas?</div>
-  <div class="tl">
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Estágio 01: Baixa Fidelidade (Low-Fi / Sketches)</h4>
-      <p><strong>Objetivo:</strong> Explorar rotas de navegação, fluxos alternativos e arquitetura com agilidade.<br>
-      <strong>Regra de Ouro:</strong> <em>"Erre rápido, erre barato antes de escrever código."</em><br>
-      <strong>Características:</strong> Traços livres, ausência de réguas e desapego visual total.<br>
-      <strong>Ferramentas:</strong> Papel e caneta, Excalidraw, tldraw.</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Estágio 02: Média Fidelidade (Mid-Fi / Wireframe Estrutural)</h4>
-      <p><strong>Objetivo:</strong> Estabelecer a <strong>Arquitetura da Informação</strong> e a <strong>hierarquia visual</strong> com precisão lógica.<br>
-      <strong>Wireframe Neutro (P&amp;B):</strong> Desenhado estritamente em escala de cinza.<br>
-      <strong>Princípio Filosófico:</strong> <em>"Se a tela não funciona em preto e branco, cores bonitas só vão camuflar falhas graves de usabilidade."</em><br>
-      <strong>Ferramentas:</strong> Balsamiq Mockups (estética de rascunho forçando foco no fluxo), Whimsical (blocos padronizados magnéticos), Axure RP (lógica condicional e tabelas complexas).</p>
-    </div>
-    <div class="ti">
-      <div class="dot"></div>
-      <h4>Estágio 03: Alta Fidelidade (High-Fi / Visual &amp; Código)</h4>
-      <p>Concretização em componentes reativos, tipografia definitiva, tokens de cores, microinterações e código executável em produção (Flutter / React).</p>
-    </div>
-  </div>
-
-  <div class="hl hlr">
-    <strong>⚠️ ALERTA DE ENGENHARIA — O Risco de Pular a Média Fidelidade:</strong>
-    <br>Saltar direto do rabisco para o código resulta em: (1) Desenho sem escala matemática real; (2) Erros constantes de estouro de layout (como o temido <code>RenderFlex overflow</code> no Flutter); (3) Perda do foco da usabilidade enquanto o desenvolvedor gasta horas tentando corrigir alinhamentos arbitrários.
-  </div>
-
-  <div class="sub">🤖 O Impacto da Inteligência Artificial na Prototipagem (Cenário 2026)</div>
-  <div class="grid g3">
-    <div class="card bta">
-      <h3>Text-to-UI</h3>
-      <p>Geração de layouts a partir de requisitos textuais e descritivos. Acelera a exploração visual inicial.</p>
-    </div>
-    <div class="card btb">
-      <h3>Sketch-to-Layout</h3>
-      <p>Vetorização instantânea: converte "rabiscoframes" manuais em wireframes digitais estruturados e editáveis.</p>
-    </div>
-    <div class="card btr">
-      <h3>Supervisão Humana Essencial</h3>
-      <p>O engenheiro atua como auditor crítico obrigatório em: <strong>Acessibilidade (WCAG), Ergonomia e Regras de Negócio</strong>.</p>
-    </div>
-  </div>
-
-  <div class="sub">🖥️ O Desktop NÃO É um Celular Esticado!</div>
-  <div class="grid g2">
-    <div class="card btv">
-      <div class="ch"><span class="ci">💻</span><div><h3>Ambiente Desktop (&ge; 900dp)</h3></div></div>
-      <ul>
-        <li><strong>Proporção Panorâmica:</strong> Exploração do eixo horizontal e múltiplos painéis paralelos simultâneos.</li>
-        <li><strong>Precisão Milimétrica:</strong> O cursor do mouse possui precisão de <strong>1 a 2 pixels</strong>, permitindo elementos menores e maior densidade informativa.</li>
-        <li><strong>Erro Crítico de UX:</strong> Esticar campos de texto ou botões por toda a largura da tela (cria linhas de leitura excessivamente longas e desgastantes).</li>
-      </ul>
-    </div>
-    <div class="card bty">
-      <div class="ch"><span class="ci">📱</span><div><h3>Ambiente Mobile (Alvo de Toque)</h3></div></div>
-      <ul>
-        <li><strong>Dispersão do Toque:</strong> A ponta do polegar cobre uma área física de <strong>8 a 10 mm</strong>.</li>
-        <li>Exige alvos aumentados, espaçamentos generosos e foco no eixo vertical.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">📐 Topologias Estruturais de Telas</div>
-  <div class="grid g2">
-    <div class="card bta">
-      <h3>Topologia 1: Desktop Operacional</h3>
-      <ul>
-        <li><strong>Módulo Superior (Header):</strong> Identidade, busca global contextual e perfil do usuário.</li>
-        <li><strong>Navegação Lateral (Sidebar):</strong> Menu estrutural, árvore de pastas e ações de nível de sistema.</li>
-        <li><strong>Área Principal (Work Area):</strong> Conteúdo nobre, tabelas de dados e espaço de edição.</li>
-      </ul>
-    </div>
-    <div class="card btg">
-      <h3>Topologia 2: Autenticação (Login)</h3>
-      <ul>
-        <li><strong>Centralização Absoluta:</strong> Posicionamento no eixo focal primário do usuário.</li>
-        <li><strong>Limitação Estrita de Largura:</strong> Container restrito rigidamente a <code>maxWidth: 400px a 480px</code>.</li>
-        <li><strong>Zero Ruído Visual:</strong> Eliminação de distrações para reduzir a carga cognitiva e prevenir a desistência no funil de conversão.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 2: UX 6 - LEIS DE UI/UX & FLUTTER ==================== -->
-<section id="t2" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(16,185,129,.12);color:var(--a4)">📐</div>
-    <div>
-      <h2>2. Leis e Boas Práticas de UI/UX &amp; Implementação Flutter</h2>
-      <p>Slides UX 6 · 8 Leis de Ergonomia · Box Model &amp; SafeArea · Reatividade com setState()</p>
-    </div>
-  </div>
-
-  <div class="sub">📜 As 8 Leis e Princípios Fundamentais de Ergonomia de Interface</div>
-
-  <div class="grid g2">
-    <div class="card bta">
-      <div class="ch"><span class="ci">🎯</span><div><h3>1. Lei de Fitts (Ergonomia e Alvos)</h3></div></div>
-      <p><strong>Conceito Matemático:</strong> O tempo necessário para alcançar um alvo depende da <em>distância até ele</em> ($D$) e da <em>largura do alvo</em> ($W$):</p>
-      <div class="hl hlv" style="text-align:center;font-weight:700">T = a + b · log₂(2D / W)</div>
-      <p><strong>Aplicação Prática:</strong> Alvos mais próximos e maiores são acionados mais rápido. Ex: FAB do Gmail, botão de captura do Instagram, e botões principais ocupando 100% da largura útil do rodapé.</p>
-    </div>
-
-    <div class="card btg">
-      <div class="ch"><span class="ci">👍</span><div><h3>2. Thumb Zone (Biomecânica do Polegar)</h3></div></div>
-      <p><strong>Conceito:</strong> Mapeamento fundamentado no fato de que <strong>mais de 75% dos usuários</strong> utilizam o smartphone com apenas uma das mãos.</p>
-      <ul>
-        <li><strong>Zona Natural:</strong> Base e centro da tela (acesso fácil e sem esforço).</li>
-        <li><strong>Zona Esticada:</strong> Requer extensão do tendão do polegar.</li>
-        <li><strong>Zona Difícil:</strong> Topo da tela (exige reajuste da pegada ou uso das duas mãos).</li>
-      </ul>
-      <p><strong>Exemplos:</strong> Barra de endereços do Safari/Chrome realocada para a base; botão de solicitar viagem na base do app Uber.</p>
-    </div>
-
-    <div class="card bty">
-      <div class="ch"><span class="ci">👆</span><div><h3>3. Target Size (Área Mínima de Toque)</h3></div></div>
-      <p><strong>Mínimo Obrigatório:</strong> <strong>48px</strong> (Google Material Design: 48×48px; Apple iOS: 44×44px).</p>
-      <p><strong>Propósito:</strong> Evitar o <em>"fat-finger problem"</em> (toques acidentais em elementos vizinhos). O padding visual garante a área física sem poluir a estética.</p>
-      <p><strong>No Flutter:</strong> <code>minimumSize: Size.fromHeight(48.0)</code>.</p>
-    </div>
-
     <div class="card btc">
-      <div class="ch"><span class="ci">📏</span><div><h3>4. Sistema de Grid de 8 Pontos (8-pt Grid)</h3></div></div>
-      <p><strong>Conceito:</strong> Todos os espaçamentos, margens, paddings e alturas de componentes devem ser múltiplos exatos de 8px (<code>8, 16, 24, 32, 40, 48...</code>).</p>
-      <p><strong>Fundamento Técnico:</strong> Divisibilidade perfeita entre as principais densidades de tela de smartphones (1x, 2x, 3x), eliminando decisões arbitrárias e renderização de subpixels embaçados.</p>
-    </div>
-
-    <div class="card btr">
-      <div class="ch"><span class="ci">👁️</span><div><h3>5. Hierarquia Visual &amp; Padrões de Leitura</h3></div></div>
-      <ul>
-        <li><strong>Pilares:</strong> Variação tipográfica, peso da fonte (<em>font-weight</em>), contraste cromático e <em>White Space</em> (espaço em branco que dá respiro ao layout).</li>
-        <li><strong>Padrão em "F":</strong> Escaneamento típico para textos e telas densas de leitura.</li>
-        <li><strong>Padrão em "Z":</strong> Escaneamento visual típico de landing pages e dashboards.</li>
-        <li><strong>Botões:</strong> Primários preenchidos (<em>FilledButton</em>) vs. Secundários vazados (<em>OutlinedButton</em>).</li>
-      </ul>
-    </div>
-
-    <div class="card btv">
-      <div class="ch"><span class="ci">🧠</span><div><h3>6. Carga Cognitiva e Lei de Miller (7 ± 2)</h3></div></div>
-      <p><strong>Conceito:</strong> A memória de trabalho humana consegue reter e processar entre <strong>5 e 9 pacotes (chunks)</strong> de informação simultaneamente.</p>
-      <p><strong>Técnica de Chunking:</strong> Fatiar formulários ou fluxos complexos em etapas sequenciais menores. Ex: Checkouts divididos em (1) Endereço &rarr; (2) Pagamento &rarr; (3) Confirmação.</p>
-    </div>
-
-    <div class="card bta">
-      <div class="ch"><span class="ci">💡</span><div><h3>7. Affordance e Signifiers</h3></div></div>
-      <ul>
-        <li><strong>Affordance:</strong> A relação física entre o objeto e o usuário indicando o potencial de ação (ex: uma maçaneta convida a puxar).</li>
-        <li><strong>Signifier (Sinalizador):</strong> Pista visual explícita que comunica <em>onde e como</em> agir. Telas touch são "vidros planos", logo exigem sombras, elevações, bordas, ícones e estados para indicar clicabilidade.</li>
-      </ul>
-    </div>
-
-    <div class="card btg">
-      <div class="ch"><span class="ci">⚡</span><div><h3>8. Skeleton Screens e Tempo Percebido</h3></div></div>
-      <p><strong>Conceito:</strong> Blocos cinzas pulsantes com efeito <em>shimmer</em> que antecipam a silhueta do layout que está sendo carregado.</p>
-      <p><strong>Psicologia de UX:</strong> Reduz sensivelmente a ansiedade do usuário em comparação aos tradicionais spinners circulares de loading (ex: feeds do YouTube, Facebook).</p>
-    </div>
-  </div>
-
-  <div class="sub">💻 Da Teoria ao Código: Reatividade e Layout em Flutter</div>
-
-  <div class="grid g2">
-    <div class="card bta">
-      <h3>StatelessWidget vs. StatefulWidget</h3>
-      <ul>
-        <li><strong>StatelessWidget:</strong> Componentes imutáveis cuja interface não muda ao longo do tempo (apenas renderizam os dados recebidos).</li>
-        <li><strong>StatefulWidget:</strong> Componentes reativos que mantêm um objeto de <code>State</code> interno, capaz de sofrer mutações dinâmicas ao longo do ciclo de vida.</li>
-        <li><strong>Material 3:</strong> Ativado por padrão nas versões modernas do SDK via <code>ThemeData(useMaterial3: true)</code>.</li>
-      </ul>
-    </div>
-    <div class="card btb">
-      <h3>O Box Model e Área Nobre</h3>
-      <ul>
-        <li><strong>SafeArea:</strong> Evita que o conteúdo seja cortado por notches, ilhas dinâmicas ou barras de status do sistema operacional.</li>
-        <li><strong>Padding &amp; Grid:</strong> Margens consistentes com <code>EdgeInsets.all(16.0)</code> (múltiplo do grid 8pt).</li>
-        <li><strong>Expanded + SingleChildScrollView:</strong> Essenciais dentro de <code>Column</code> para conter textos extensos e eliminar o estouro <code>RenderFlex overflow</code>.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">🛠️ Exemplos de Implementação em Flutter (Extraídos dos Slides)</div>
-
-  <div class="grid g2">
-    <div>
-      <p style="font-size:.85rem;font-weight:700;color:var(--a2);margin-bottom:.3rem">1. Rodapé Ergonômico na Thumb Zone com Grid de 8pt</p>
-      <pre><code>Widget buildBottomBar() {
-  return Padding(
-    padding: const EdgeInsets.all(16.0), // Grid 8pt
-    child: Row(
-      children: [
-        Expanded(
-          child: OutlinedButton(
-            onPressed: () {},
-            child: const Text('Voltar'),
-          ),
-        ),
-        const SizedBox(width: 16.0), // Espaçamento 8pt
-        Expanded(
-          child: FilledButton(
-            style: FilledButton.styleFrom(
-              minimumSize: const Size.fromHeight(48.0), // Target Size!
-            ),
-            onPressed: () {},
-            child: const Text('Confirmar'),
-          ),
-        ),
-      ],
-    ),
-  );
-}</code></pre>
-    </div>
-
-    <div>
-      <p style="font-size:.85rem;font-weight:700;color:var(--a4);margin-bottom:.3rem">2. Reatividade com setState() &amp; 1ª Heurística de Nielsen</p>
-      <pre><code>void _toggleFavorite() {
-  setState(() {
-    // 1. Notifica o framework e dispara novo build()
-    isFavorited = !isFavorited;
-  });
-
-  // 2. Feedback imediato (Status do Sistema - H1 de Nielsen)
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text('Item adicionado aos favoritos!'),
-      duration: Duration(seconds: 2),
-    ),
-  );
-}</code></pre>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABA 3: UX 7 - DESIGN SYSTEM, HANDOFF & TESTES ==================== -->
-<section id="t3" class="sec">
-  <div class="sh">
-    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">🚀</div>
-    <div>
-      <h2>3. Design System Avançado, Handoff e Testes de Homologação</h2>
-      <p>Slides UX 7 · Engenharia de Prompts para UI · Tokens Globais · Design Atômico · Handoff Package · Protocolo Think Aloud</p>
-    </div>
-  </div>
-
-  <div class="quote">
-    "Hoje qualquer IA gera código Dart em segundos. O diferencial do engenheiro de software não é escrever linhas isoladas, mas estruturar o sistema inteiro com consistência arquitetural." — <strong>Prof. Wallas Froes (Cenário 2026)</strong>
-  </div>
-
-  <div class="sub">🧩 Os 4 Pilares de um Bom Prompt de Engenharia de UI</div>
-  <div class="grid g2">
-    <div class="card btr">
-      <h3 style="color:var(--a6)">❌ Prompt Vago = Colcha de Retalhos</h3>
-      <p>Instruções genéricas ("crie uma tela de login bonita") produzem telas desconexas, cores arbitrárias, paddings aleatórios e violação de acessibilidade.</p>
-    </div>
-    <div class="card btg">
-      <h3 style="color:var(--a4)">✅ Prompt Estruturado = Sistema Coeso</h3>
-      <p>Instruções baseadas nos 4 pilares geram código padronizado e pronto para integração em produção:</p>
-      <ul>
-        <li><strong>1. Tokens Visuais:</strong> Paleta hex restrita, tipografia padronizada e grid de 8 pontos.</li>
-        <li><strong>2. Papel do Módulo:</strong> Contexto Core, Transacional ou Relatórios.</li>
-        <li><strong>3. Máquina de Estados:</strong> Comportamento visual explícito em loading, vazio, sucesso e erro.</li>
-        <li><strong>4. Ergonomia Mobile:</strong> Alvos mínimos de 48px e ações prioritárias na Thumb Zone.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sub">🏛️ Arquitetura Funcional do Projeto em 3 Pilares</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Módulo</th><th>Responsabilidade Técnica</th><th>Exemplo no App Guia (Extrator PDF - Persona Ana)</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Core &amp; Onboarding</strong></td>
-          <td>Identidade visual, tokens globais, autenticação e tema base Material 3.</td>
-          <td>Telas de Login, Seleção de Perfil (Estudante/Advogado) e Home de Documentos Recentes.</td>
-        </tr>
-        <tr>
-          <td><strong>2. Transacional</strong></td>
-          <td>Operação principal do negócio, filtros dinâmicos, processamento em tempo real e Thumb Zone.</td>
-          <td>Upload de PDF / Foto da Câmera, Processamento OCR com Shimmer e visualização do Texto Extraído.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Relatórios &amp; Histórico</strong></td>
-          <td>Rastreabilidade, métricas, exportação de dados, compartilhamento e tratamento de Empty States.</td>
-          <td>Meu Caderno de Notas, Histórico de Extrações e Exportação em formato TXT.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">🎨 Centralização de Tokens em Código: Zero Valores Mágicos</div>
-  <div class="grid g2">
-    <div>
-      <p style="font-size:.84rem;color:var(--muted);margin-bottom:.4rem">Nenhuma tela usa cores ou paddings soltos fora de <code>AppTokens</code>. Ao colar essa classe no prompt da IA, o código gerado respeita automaticamente o sistema:</p>
-      <pre><code>// core/theme/app_tokens.dart
-class AppTokens {
-  // Cores
-  static const primary = Color(0xFF4F46E5);
-  static const surface = Color(0xFFF8FAFC);
-  static const error   = Color(0xFFDC2626);
-
-  // Espaçamentos (Grid de 8pt)
-  static const space8  = 8.0;
-  static const space16 = 16.0;
-
-  // Ergonomia
-  static const touchMin = 48.0;
-}</code></pre>
-    </div>
-    <div>
-      <div class="sub" style="margin-top:0">⚛️ Design Atômico Aplicado ao App</div>
-      <div class="card bta">
-        <p>• <strong>Átomos:</strong> Blocos indivisíveis com tokens aplicados. Ex: <code>AppButton</code> (altura de 48px), <code>StatusBadge</code>.<br>
-        • <strong>Moléculas:</strong> Combinação funcional de átomos simples. Ex: <code>PdfSearchBar</code> e <code>ActionBottomBar</code>.<br>
-        • <strong>Organismos:</strong> Seções completas com lógica de negócio. Ex: <code>ExtractionHistoryCard</code> e <code>OcrViewer</code>.</p>
+      <h3>Tipos Primitivos e Tamanhos</h3>
+      <div class="tw" style="margin:.4rem 0 0">
+        <table>
+          <thead><tr><th>Tipo</th><th>Bits</th><th>Intervalo / Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>bool</code></td><td>8</td><td><code>0</code> (false) ou <code>1</code> (true)</td></tr>
+            <tr><td><code>char</code></td><td>8</td><td>±128 (com sinal) ou 0–255 (sem sinal)</td></tr>
+            <tr><td><code>int</code></td><td>32</td><td>±2.147.483.648 ou 0–4.294.967.296</td></tr>
+            <tr><td><code>float</code></td><td>32</td><td>Ponto flutuante (±1.4e-45 até 3.4e+38)</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <div class="sub">⚙️ Máquina de Estados: Especificação Visual &amp; Comportamental</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Estado</th><th>Especificação Visual (Prompt / Doc)</th><th>Regra Lógica no App de Extração de PDF</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Default</strong></td><td>Fundo primário, texto branco, elevação sutil.</td><td>Arquivo PDF carregado e pronto para a extração.</td></tr>
-        <tr><td><strong>Disabled</strong></td><td>Fundo cinza, opacidade em 40%, cursor e clique bloqueados.</td><td>Nenhum PDF selecionado (restrição de segurança de fluxo).</td></tr>
-        <tr><td><strong>Loading</strong></td><td>Rótulo "Lendo OCR..." + Skeleton Shimmer pulsante.</td><td>Bloqueia duplo clique durante o processamento do arquivo.</td></tr>
-        <tr><td><strong>Success</strong></td><td>Fundo verde, ícone de check, rótulo "Copiado!".</td><td>Feedback temporário exibido por 3 segundos na tela.</td></tr>
-        <tr><td><strong>Error</strong></td><td>Borda vermelha e alerta humano contextual explicativo.</td><td>PDF protegido por senha ou arquivo corrompido.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sub">📦 O Design Handoff Package &amp; Regras de Engenharia</div>
-  <div class="grid g2">
-    <div class="card bty">
-      <h3>Do "Jogar por Cima do Muro" ao Handoff Blindado</h3>
-      <p>Historicamente, designers entregavam telas estáticas sem prever erros, gerando retrabalho na engenharia. O Handoff Package moderno é um <strong>contrato técnico único</strong>:</p>
+  <div class="sub">🔢 Operadores e Estruturas de Controle</div>
+  <div class="grid g3">
+    <div class="card bta">
+      <h3>Operadores</h3>
       <ul>
-        <li><strong>Regras de Quebra:</strong> Uso mandatório de <code>SafeArea</code> e <code>SingleChildScrollView</code> contra estouros de layout.</li>
-        <li><strong>Ações Reversíveis:</strong> Ao apagar uma anotação, exibir SnackBar com ação "Desfazer" ativa por 5 segundos.</li>
-        <li><strong>Exceções Humanas:</strong> Zero <em>Exception 500</em> ou telas vermelhas para o usuário; mensagens claras com botão de recuperação segura.</li>
+        <li><strong>Aritméticos:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (divisão inteira entre ints), <code>%</code> (módulo/resto), <code>++</code>, <code>--</code></li>
+        <li><strong>Relacionais:</strong> <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+        <li><strong>Lógicos:</strong> <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
       </ul>
     </div>
-    <div class="card btg">
-      <h3>Checklist Oficial de Entrega Técnica</h3>
-      <ol style="padding-left:1.15rem;font-size:.83rem;color:var(--muted)">
-        <li><strong>Arquitetura de Pastas:</strong> Separação limpa em <code>core/</code>, <code>modules/</code> e <code>shared/widgets/</code>.</li>
-        <li><strong>Guia de Reprodução (README):</strong> Versão do SDK, comando <code>flutter pub get</code> e passo a passo reproduzível do zero.</li>
-        <li><strong>Artefato de Deploy:</strong> Build funcional em produção via <code>flutter build web</code> (Vercel) ou APK compilado.</li>
-        <li><strong>Rastreabilidade e Autoria:</strong> Demonstração clara de como as decisões de UI resolveram as dores mapeadas no início.</li>
-      </ol>
+    <div class="card bty">
+      <h3>Decisão</h3>
+      <ul>
+        <li><strong>Condicional Simples:</strong> <code>if (cond) { ... }</code></li>
+        <li><strong>Condicional Composto:</strong> <code>if (cond) { ... } else { ... }</code></li>
+        <li><strong>Condicional Seletivo:</strong> <code>switch (var) { case X: ... break; default: ... }</code> (ideal para múltipla escolha)</li>
+      </ul>
+    </div>
+    <div class="card btv">
+      <h3>Repetição (Laços)</h3>
+      <ul>
+        <li><strong><code>while</code> (Pré-teste):</strong> Testa a condição <em>antes</em> de executar; pode rodar 0 vezes.</li>
+        <li><strong><code>do...while</code> (Pós-teste):</strong> Testa no <em>final</em>; garante pelo menos 1 execução.</li>
+        <li><strong><code>for</code> (Determinado):</strong> 3 partes — início, condição de parada e incremento.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABA 2: AULA 10 - DADOS, FUNÇÕES E PONTEIROS ==================== -->
+<section id="a2" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(6,182,212,.12);color:var(--a3)">🧠</div>
+    <div>
+      <h2>2. Estruturas de Dados, Strings, Funções e Ponteiros (Aula 10)</h2>
+      <p>Vetores e matrizes · Strings terminadas em '\0' · Passagem por valor vs. ponteiro · Stack vs. Heap (malloc/free)</p>
     </div>
   </div>
 
-  <div class="sub">🧪 Metodologia de Validação: Homologação Técnica (QA) vs. Teste de Usabilidade</div>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Critério</th><th>Homologação Técnica (QA)</th><th>Teste de Usabilidade com Usuários</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Foco</strong></td><td>Conformidade técnica, layout e estabilidade de código.</td><td>Comportamento humano, clareza cognitiva e eficácia da jornada.</td></tr>
-        <tr><td><strong>Itens Auditados</strong></td><td>Zero estouros de tela (<code>overflow</code>), alvos de toque &ge; 48px, tratamento de estados vazios (empty states) e erros.</td><td>Autonomia (usuário conclui sem ajuda), compreensão de ícones/rótulos, tempo de tarefa e contagem de cliques.</td></tr>
-        <tr><td><strong>Protocolo Prático</strong></td><td>Inspeção com linter, DevTools e testes em múltiplos dispositivos.</td><td><strong>Técnica Think Aloud:</strong> usuário narra seus pensamentos em voz alta enquanto tenta cumprir um cenário sem ser induzido pelo avaliador.</td></tr>
-      </tbody>
-    </table>
+  <div class="sub">📦 Estruturas de Dados, Vetores e Matrizes</div>
+  <div class="grid g2">
+    <div class="card btb">
+      <h3>Classificação &amp; Vetores (Arrays)</h3>
+      <ul>
+        <li><strong>Lineares:</strong> Vetores/Matrizes, Listas encadeadas, Pilhas, Filas.</li>
+        <li><strong>Não Lineares:</strong> Árvores e Grafos.</li>
+        <li><strong>Vetor:</strong> Conjunto de elementos <strong>consecutivos em memória</strong>, todos do mesmo tipo, acessados por índice a partir de um único nome. <em>Cuidado:</em> C não bloqueia acesso fora dos limites do vetor!</li>
+      </ul>
+    </div>
+    <div class="card bta">
+      <h3>Matrizes Multidimensionais</h3>
+      <p>Vetores de 2 ou mais dimensões (sem limite teórico de dimensões):</p>
+      <pre><code>float Notas[Prova][Aluno];        // 2D
+float Notas[Turma][Prova][Aluno]; // 3D</code></pre>
+    </div>
   </div>
 
-  <div class="sub">📋 Matriz de Evidências e Mitigação de Falhas (Heurísticas de Nielsen)</div>
+  <div class="sub">🔤 Strings em C e Biblioteca <code>&lt;string.h&gt;</code></div>
+  <div class="hl hlc">
+    <strong>C não possui um tipo nativo <code>string</code>!</strong> Uma string é um <strong>vetor de <code>char</code> terminado pelo caractere nulo <code>'\0'</code></strong>. Por isso: <code>'a'</code> (aspas simples = 1 char) &ne; <code>"a"</code> (aspas duplas = <code>{'a', '\0'}</code>). Sempre reserve +1 posição para o <code>'\0'</code>!
+  </div>
+  <div class="grid g2">
+    <div class="card bty">
+      <h3>Leitura e Escrita de Strings</h3>
+      <ul>
+        <li><code>scanf("%s", nome)</code> — <strong>NÃO usa <code>&amp;</code></strong>; para ao encontrar espaço, tab ou Enter.</li>
+        <li><code>printf("%s", nome)</code> — Imprime até encontrar <code>'\0'</code>.</li>
+        <li><code>gets(nome)</code> — Lê várias palavras com espaços.</li>
+        <li><code>puts(nome)</code> — Imprime a string e quebra a linha automaticamente.</li>
+      </ul>
+    </div>
+    <div class="card btv">
+      <h3>Funções de <code>&lt;string.h&gt;</code></h3>
+      <ul>
+        <li><code>strcpy(dest, orig)</code> — Copia a string de origem para destino.</li>
+        <li><code>strcat(dest, orig)</code> — Concatena origem ao final do destino (cuidado com tamanho!).</li>
+        <li><code>strlen(str)</code> — Retorna a quantidade de caracteres válidos (sem contar <code>'\0'</code>).</li>
+        <li><code>strcmp(s1, s2)</code> — Compara via tabela ASCII: <code>0</code> (iguais), <code>&gt; 0</code> (s1 maior), <code>&lt; 0</code> (s1 menor).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">🎯 Funções, Ponteiros e Alocação Dinâmica (Stack vs. Heap)</div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>Funções: Argumentos e Retorno</h3>
+      <ul>
+        <li>Pode ter múltiplos argumentos, mas retorna <strong>apenas um único valor</strong> (ou <code>void</code>). A função <code>main()</code> retorna <code>int</code> (<code>0</code> = sucesso; outro valor = erro).</li>
+        <li><strong>Tipos primitivos:</strong> Passagem por <em>cópia (valor)</em> — alterar dentro da função não muda a variável original.</li>
+        <li><strong>Vetores e Matrizes:</strong> Passam um <em>ponteiro para a primeira posição</em> — alterar dentro da função <strong>modifica o original</strong>!</li>
+      </ul>
+    </div>
+    <div class="card btr">
+      <h3>Ponteiros: <code>*</code> e <code>&amp;</code></h3>
+      <p>Ponteiros são variáveis que armazenam <strong>endereços de memória</strong> (podem iniciar com <code>NULL</code>).</p>
+      <ul>
+        <li><code>int *p;</code> — Declara ponteiro para inteiro.</li>
+        <li><code>&amp;var</code> — Operador de <strong>endereço</strong> (obtém onde <code>var</code> está na memória).</li>
+        <li><code>*p</code> — Operador de <strong>desreferência</strong> (acessa o valor guardado no endereço apontado).</li>
+      </ul>
+      <pre><code>int idade = 28;
+int *p = &amp;idade; // p guarda o endereço de idade
+printf("%d", *p); // imprime 28</code></pre>
+    </div>
+  </div>
+
   <div class="tw">
     <table>
-      <thead>
-        <tr><th>Cenário de Tarefa</th><th>Falha Observada no Teste</th><th>Heurística Violada</th><th>Mitigação de Engenharia no Flutter</th></tr>
-      </thead>
+      <thead><tr><th>Memória</th><th>Alocação</th><th>Ciclo de Vida</th><th>Capacidade / Uso</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Abrir PDF com senha</td>
-          <td>O app travou exibindo uma tela de erro técnico genérico.</td>
-          <td><strong>H9 · Reconhecimento e Recuperação de Erros</strong></td>
-          <td>Exibição de um Modal amigável com input de senha e mensagem humana explicativa.</td>
-        </tr>
-        <tr>
-          <td>Copiar texto do OCR</td>
-          <td>O usuário clicou 4 vezes seguidas sem saber se o texto foi copiado.</td>
-          <td><strong>H1 · Visibilidade do Status do Sistema</strong></td>
-          <td>O botão altera para o estado "Copiado!" com fundo verde e ícone de check por 3 segundos.</td>
-        </tr>
-        <tr>
-          <td>Abrir Histórico sem dados</td>
-          <td>Apareceu uma tela em branco que fez o usuário achar que o app quebrou.</td>
-          <td><strong>H10 · Ajuda e Documentação</strong></td>
-          <td>Implementação de um <em>Empty State</em> amigável com ilustração e botão direto para "Importar Primeiro Arquivo".</td>
-        </tr>
+        <tr><td><strong>Stack (Pilha)</strong></td><td>Automática (variáveis locais sem <code>malloc</code>)</td><td>Morre automaticamente ao fim da função</td><td>Limitada; rápida; variáveis fixas</td></tr>
+        <tr><td><strong>Heap (Monte)</strong></td><td>Dinâmica com <code>malloc()</code></td><td>Só é liberada manualmente com <code>free()</code></td><td>Muito maior; matrizes dinâmicas, listas, pilhas, filas</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ==================== ABA 4: SÍNTESE COMPARATIVA & GUIA RÁPIDO ==================== -->
-<section id="t4" class="sec">
+<!-- ==================== ABA 3: AULA 11 - INTRO OPENMP & AMDAHL ==================== -->
+<section id="a3" class="sec">
   <div class="sh">
-    <div class="si" style="background:rgba(6,182,212,.12);color:var(--a3)">📊</div>
+    <div class="si" style="background:rgba(245,158,11,.12);color:var(--a5)">⚡</div>
     <div>
-      <h2>4. Síntese Comparativa, Fórmulas &amp; Checklist de Revisão</h2>
-      <p>Resumo executivo de fórmulas, medidas essenciais, regras de layout e heurísticas para exames</p>
+      <h2>3. Introdução à OpenMP, Concorrência e Lei de Amdahl (Aula 11)</h2>
+      <p>Limites do paralelismo · Sintaxe e compilação OpenMP · Processos vs. Multithreads · Modelo Fork-Join</p>
     </div>
   </div>
 
-  <div class="sub">🔢 Constantes e Medidas Absolutas de Engenharia de Interface</div>
-  <div class="grid g3">
+  <div class="sub">📈 Lei de Amdahl (Limite Teórico do Speedup)</div>
+  <div class="hl hly">
+    <strong>Princípio:</strong> Nem toda tarefa é paralelizável (ex: 2 fornos não assam <em>1 bolo</em> na metade do tempo, mas assam <em>10 bolos</em> mais rápido). A Lei de Amdahl demonstra que o ganho máximo de velocidade (<strong>Speedup</strong>) é estritamente limitado pela <strong>fração sequencial</strong> do programa!
+  </div>
+  <div class="formula">
+    Speedup(n) = 1 / [ s + (1 &minus; s) / n ]
+  </div>
+  <div class="card bty">
+    <p>Onde: <strong><code>s</code></strong> = fração estritamente sequencial · <strong><code>1 &minus; s</code></strong> = fração paralelizável · <strong><code>n</code></strong> = número de processadores/núcleos.</p>
+    <p><strong>Exemplo da Aula:</strong> Se 95% de um programa é paralelizável, então <code>s = 0,05</code> (5%). Mesmo com infinitos núcleos (<code>n &rarr; &infin;</code>), o ganho máximo teórico é: <code>1 / 0,05 = 20×</code> mais rápido.</p>
+  </div>
+
+  <div class="sub">🛠️ OpenMP (Open Multi-Processing): Sintaxe e Compilação</div>
+  <div class="grid g2">
     <div class="card bta">
-      <h3>Target Size Mínimo</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a2);margin:.3rem 0">48 × 48 px</p>
-      <p>Material Design (Google). No iOS são 44×44px. Evita o <em>fat-finger problem</em>.</p>
+      <h3>Diretivas e Compilação</h3>
+      <p>API de memória compartilhada para <strong>C, C++ e Fortran</strong> baseada em diretivas de compilador (<code>#pragma</code>) e biblioteca <code>&lt;omp.h&gt;</code>.</p>
+      <pre><code>// Compilação obrigatória com -fopenmp:
+gcc -fopenmp codigo.c -o saida
+.\saida.exe</code></pre>
+      <pre><code>#include &lt;omp.h&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+  #pragma omp parallel num_threads(4)
+  {
+    int id = omp_get_thread_num();
+    printf("Ola da thread %d\n", id);
+  }
+  return 0;
+}</code></pre>
     </div>
     <div class="card btb">
-      <h3>Sistema de Grid</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a3);margin:.3rem 0">Múltiplos de 8 px</p>
-      <p>8, 16, 24, 32, 40, 48... Perfeita divisibilidade em telas 1x, 2x e 3x.</p>
-    </div>
-    <div class="card btc">
-      <h3>Largura de Login Desktop</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a4);margin:.3rem 0">400 a 480 px</p>
-      <p>Centralização absoluta para evitar dispersão visual e abandono.</p>
-    </div>
-    <div class="card bty">
-      <h3>Memória de Trabalho</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a5);margin:.3rem 0">7 ± 2 Chunks</p>
-      <p>Lei de Miller: quebrar fluxos em etapas (técnica de <em>chunking</em>).</p>
-    </div>
-    <div class="card btv">
-      <h3>Breakpoint Desktop</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a2);margin:.3rem 0">&ge; 900 dp</p>
-      <p>Panorâmico, alta precisão do cursor (1-2px) e múltiplos painéis paralelos.</p>
-    </div>
-    <div class="card btr">
-      <h3>Feedback Visual Reversível</h3>
-      <p style="font-size:1.4rem;font-weight:800;color:var(--a6);margin:.3rem 0">3 a 5 segundos</p>
-      <p>Duração do SnackBar com ação "Desfazer" para prevenção de erros.</p>
+      <h3>Funções Essenciais e Modelo Fork-Join</h3>
+      <ul>
+        <li><code>omp_get_thread_num()</code> — Retorna o ID inteiro da thread atual (<code>0</code> é a Master), muito usado para dividir tarefas.</li>
+        <li><code>omp_set_num_threads(N)</code> — Define o número de threads criadas (ou usar a cláusula <code>num_threads(N)</code> direto no <code>#pragma</code>).</li>
+      </ul>
+      <div class="hl hlc" style="margin:.6rem 0 0;padding:.7rem .9rem">
+        <strong>Modelo Fork-Join:</strong> O programa inicia sequencialmente na <strong>Thread Master (ID 0)</strong>. Ao atingir <code>#pragma omp parallel</code> ocorre o <strong>Fork</strong> (cria/despacha um time de threads que executam o mesmo bloco). Ao final do bloco há uma barreira implícita (<strong>Join</strong>): todas aguardam as demais terminarem antes de retomar a execução sequencial.
+      </div>
     </div>
   </div>
 
-  <div class="sub">🧠 Resumo Mnemônico das Heurísticas e Leis nos Slides</div>
+  <div class="sub">🔀 Concorrência: Processos vs. Subprocessos vs. Multithreads</div>
   <div class="tw">
     <table>
-      <thead>
-        <tr><th>Princípio / Lei</th><th>Equação ou Mecanismo Central</th><th>Onde e Como Aplicar</th></tr>
-      </thead>
+      <thead><tr><th>Modelo</th><th>Memória &amp; Contexto</th><th>Comunicação / Custo</th></tr></thead>
       <tbody>
-        <tr><td><strong>Lei de Fitts</strong></td><td>$T = a + b \log_2(2D / W)$</td><td>Alvos essenciais devem estar próximos da mão e possuir largura generosa (ex: rodapé 100% de largura).</td></tr>
-        <tr><td><strong>Thumb Zone</strong></td><td>Mapeamento do alcance do polegar</td><td>Posicionar ações primárias na base (área confortável de acesso com 1 mão) e manter ações de risco no topo.</td></tr>
-        <tr><td><strong>Lei de Miller</strong></td><td>Capacidade de $7 \pm 2$ itens</td><td>Fatiamento de formulários complexos em passos com stepper visual (ex: endereço &rarr; pagamento &rarr; revisão).</td></tr>
-        <tr><td><strong>Affordance &amp; Signifier</strong></td><td>Potencial de ação + Pistas visuais</td><td>Uso de elevações, sombras, bordas e ícones reconhecíveis em telas touch planas para indicar interatividade.</td></tr>
-        <tr><td><strong>Skeleton Screen</strong></td><td>Blocos <em>shimmer</em> pulsantes</td><td>Antecipar a estrutura da tela no carregamento para diminuir a percepção de espera do usuário.</td></tr>
-        <tr><td><strong>H1 (Nielsen)</strong></td><td>Visibilidade do Status do Sistema</td><td>Feedback imediato ao clicar (ex: alterar botão para "Copiado!" por 3s e exibir SnackBar).</td></tr>
-        <tr><td><strong>H9 (Nielsen)</strong></td><td>Recuperação de Erros</td><td>Mensagens humanas explicativas informando a causa do erro e como resolvê-lo (evitar códigos de erro 500).</td></tr>
-        <tr><td><strong>H10 (Nielsen)</strong></td><td>Ajuda e Documentação</td><td>Tratamento obrigatório de <em>Empty States</em> com orientação e botão de ação direta para o próximo passo.</td></tr>
+        <tr><td><strong>Processos Independentes</strong></td><td>Sem vínculo criador/criado; novo PCB, espaço de endereçamento, hardware e software próprios.</td><td>Comunicação por mensagens; alto custo de criação.</td></tr>
+        <tr><td><strong>Subprocessos</strong></td><td>Hierarquia pai-filho; PCB e espaço de endereçamento próprios (compartilha quotas com pai).</td><td>Sincronização por mensagens; custo alto.</td></tr>
+        <tr><td><strong>Multithreads (OpenMP)</strong></td><td>Compartilham <strong>mesmo espaço de endereçamento, código, Heap e variáveis globais</strong>. Cada thread possui sua própria <strong>Stack e Registradores</strong>.</td><td>Comunicação rápida via variáveis compartilhadas; baixo custo. <strong>Risco:</strong> Condições de Corrida (<em>Race Conditions</em>, ex: saldo em conta conjunta).</td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<!-- ==================== ABA 4: AULAS 12 E 13 - FALSE SHARING E SINCRONIZAÇÃO ==================== -->
+<section id="a4" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(244,63,94,.12);color:var(--a6)">🔥</div>
+    <div>
+      <h2>4. Falso Compartilhamento e Sincronização (Aulas 12 e 13)</h2>
+      <p>Memória Cache e False Sharing · Critical, Atomic, Barrier · Single, Master, Nowait · Sections</p>
+    </div>
+  </div>
+
+  <div class="sub">💥 Falso Compartilhamento (False Sharing) — Por que o Paralelo Ficou Mais Lento?</div>
+  <div class="hl hlr">
+    <strong>O Problema na Série Harmônica (V1):</strong> Ao criar um vetor compartilhado <code>double soma[4]</code> onde cada thread escreve apenas em <code>soma[id]</code>, parece não haver conflito. Porém, uma <strong>linha de cache típica tem 64 bytes</strong> (cabem 8 <code>double</code> de 8 bytes!). Como <code>soma[0..3]</code> ficam na <em>mesma linha de cache</em>, toda vez que a Thread 0 atualiza <code>soma[0]</code>, o hardware precisa invalidar e sincronizar a linha inteira nos caches dos outros núcleos — destruindo o desempenho!
+  </div>
+
+  <div class="grid g2">
+    <div class="card bty">
+      <h3>Solução Didática V2: Padding em Matriz</h3>
+      <p>Usar uma matriz <code>double soma[NUM_THREADS][8]</code> (8 colunas × 8 bytes = <strong>64 bytes por linha</strong>), acessando apenas <code>soma[id][0]</code>. Cada thread isola-se em sua própria linha de cache.</p>
+      <p><em>Limitação:</em> Prova o efeito da cache e acelera o código, mas desperdiça memória.</p>
+    </div>
+    <div class="card bta">
+      <h3>Solução V3: Variável Local + <code>critical</code> Fora do Laço</h3>
+      <p>Cada thread acumula em uma variável <strong>local (na Stack)</strong> durante todo o <code>for</code>, e só entra na região <code>#pragma omp critical</code> <strong>uma única vez ao final</strong> para somar na variável global!</p>
+      <p><strong>Regra de Ouro:</strong> Nunca coloque <code>critical</code> dentro de um laço com milhões de iterações — o custo de sincronização serializa o programa.</p>
+    </div>
+  </div>
+
+  <div class="sub">🔒 Diretivas de Sincronização de Alto Nível</div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Diretiva OpenMP</th><th>Comportamento</th><th>Barreira Implícita no Final?</th><th>Observações de Prova</th></tr></thead>
+      <tbody>
+        <tr><td><code>#pragma omp critical</code></td><td><strong>Exclusão mútua</strong>: apenas 1 thread por vez executa o bloco inteiro.</td><td>Não</td><td>Alto custo (overhead); manter fora de laços quentes.</td></tr>
+        <tr><td><code>#pragma omp atomic</code></td><td>Exclusão mútua otimizada por hardware apenas para <strong>atualizações simples de memória</strong> (<code>x++</code>, <code>+=</code>, <code>-=</code>).</td><td>Não</td><td>Mais leve e rápido que <code>critical</code>, mas só aceita uma expressão simples.</td></tr>
+        <tr><td><code>#pragma omp barrier</code></td><td>Todas as threads pausam e aguardam até que toda a equipe chegue neste ponto.</td><td>Sim (é a barreira)</td><td>Usada quando uma etapa depende do resultado completo anterior (ex: vetor A pronto).</td></tr>
+        <tr><td><code>#pragma omp single</code></td><td>Apenas <strong>1 thread qualquer</strong> (a primeira que chegar) executa o bloco.</td><td><strong>Sim</strong></td><td>Use <code>nowait</code> para remover a barreira se as demais puderem seguir.</td></tr>
+        <tr><td><code>#pragma omp master</code></td><td>Apenas a <strong>thread Master (ID == 0)</strong> executa o bloco.</td><td><strong>NÃO</strong></td><td>Diferença clássica de prova: <code>single</code> tem barreira, <code>master</code> não tem!</td></tr>
+        <tr><td><code>nowait</code> (cláusula)</td><td>Remove a barreira implícita ao final de construções como <code>single</code>, <code>for</code> ou <code>sections</code>.</td><td>Remove barreira</td><td>Ex: <code>#pragma omp single nowait</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">🔀 Paralelização Sem Laços: <code>sections</code> e <code>section</code></div>
+  <div class="card btv">
+    <p>Permite atribuir <strong>blocos estruturados / funções diferentes</strong> para serem executados em paralelo por threads distintas (paralelismo funcional). Possui <strong>barreira implícita</strong> ao final de <code>sections</code>.</p>
+    <pre><code>#pragma omp parallel
+{
+  #pragma omp sections
+  {
+    #pragma omp section
+    { tarefa_A(); }
+
+    #pragma omp section
+    { tarefa_B(); }
+  } // Barreira implícita aqui (a menos que use nowait)
+}</code></pre>
+  </div>
+</section>
+
+<!-- ==================== ABA 5: AULA 14 - LAÇOS PARALELOS ==================== -->
+<section id="a5" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(59,130,246,.12);color:var(--a4)">🔄</div>
+    <div>
+      <h2>5. Laços Paralelos, Redução e Escalonamento (Aula 14)</h2>
+      <p>omp for · Independência de iterações · collapse(n) · reduction · Políticas de schedule</p>
+    </div>
+  </div>
+
+  <div class="sub">🔁 Diretiva <code>#pragma omp for</code> e <code>parallel for</code></div>
+  <div class="grid g2">
+    <div class="card btc">
+      <h3>Regras Fundamentais</h3>
+      <ul>
+        <li>Instrui o compilador a dividir automaticamente as iterações do <code>for</code> entre as threads da equipe.</li>
+        <li>Forma compacta: <code>#pragma omp parallel for</code> (quando o laço é o único comando da região paralela).</li>
+        <li><strong>Restrição:</strong> O índice do <code>omp for</code> <strong>não aceita tipo <code>double</code></strong> (apenas inteiros/ponteiros).</li>
+        <li>A variável de controle <code>i</code> é <strong>privada por padrão</strong> (pode ser declarada explicitamente com <code>private(i)</code>).</li>
+      </ul>
+    </div>
+    <div class="card btr">
+      <h3>Independência &amp; Laços Aninhados (<code>collapse</code>)</h3>
+      <ul>
+        <li><strong>Independência obrigatória:</strong> Uma iteração não pode depender do valor calculado na iteração anterior (ex: <code>j</code> acumulado). Solução: tornar <code>j</code> privado e recalculá-lo em função direta de <code>i</code>.</li>
+        <li><strong><code>collapse(n)</code>:</strong> Para laços aninhados sem dependência (especialmente com desbalanceamento no laço interno), achata <code>n</code> laços em um único espaço de tamanho <code>N * M</code> e distribui entre as threads.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub">➕ Redução (<code>reduction</code>) — A Forma Mais Limpa de Acumular</div>
+  <div class="hl hlg">
+    <strong>Como funciona <code>reduction(op : lista)</code>:</strong> Cria automaticamente uma <strong>cópia privada</strong> da variável em cada thread, inicializada com o <strong>elemento neutro</strong> da operação (ex: <code>0</code> para <code>+</code>, <code>1</code> para <code>*</code>). Ao final do laço, combina todas as cópias parciais na variável global sem condição de corrida e sem falso compartilhamento!
+  </div>
+  <div class="grid g2">
+    <div class="card bta">
+      <h3>Operadores Suportados em C/C++</h3>
+      <p>
+        <span class="tag tag-g">+</span>
+        <span class="tag tag-g">-</span>
+        <span class="tag tag-g">*</span>
+        <span class="tag tag-c">max</span>
+        <span class="tag tag-c">min</span>
+        <span class="tag tag-v">&amp; (AND bit)</span>
+        <span class="tag tag-v">| (OR bit)</span>
+        <span class="tag tag-v">^ (XOR bit)</span>
+        <span class="tag tag-y">&amp;&amp;</span>
+        <span class="tag tag-y">||</span>
+      </p>
+    </div>
+    <div class="card btb">
+      <h3>Série Harmônica — Versão V5 Simplificada</h3>
+      <pre><code>double soma = 0.0;
+#pragma omp parallel for reduction(+:soma)
+for (long long i = 1; i &lt;= 1000000000; i++) {
+    soma += 1.0 / i;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="sub">⚖️ Escalonamento de Iterações: Cláusula <code>schedule</code></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Política de Schedule</th><th>Funcionamento</th><th>Quando Utilizar?</th></tr></thead>
+      <tbody>
+        <tr><td><code>schedule(static[,chunk])</code></td><td>Divide iterações em blocos fixos de tamanho <code>chunk</code> de forma pré-determinada antes do laço.</td><td><strong>Cargas homogêneas / previsíveis</strong> (todas as iterações levam tempo similar). Menor overhead.</td></tr>
+        <tr><td><code>schedule(dynamic[,chunk])</code></td><td>Threads pegam um <code>chunk</code> de uma fila sob demanda; quem termina antes pega o próximo.</td><td><strong>Cargas imprevisíveis / desbalanceadas</strong> (custo por iteração varia muito). Maior overhead de fila.</td></tr>
+        <tr><td><code>schedule(guided[,chunk])</code></td><td>Dinâmico que começa distribuindo <strong>blocos grandes</strong> e reduz gradualmente até o tamanho mínimo <code>chunk</code>.</td><td>Cargas variáveis onde se deseja <strong>reduzir o overhead</strong> do escalonamento <code>dynamic</code>.</td></tr>
+        <tr><td><code>schedule(runtime)</code></td><td>Define a política em tempo de execução via variável de ambiente <code>OMP_SCHEDULE</code> ou <code>omp_set_schedule()</code>.</td><td>Testes e benchmarks sem precisar recompilar o código.</td></tr>
+        <tr><td><code>schedule(auto)</code></td><td>Delega a decisão totalmente para o compilador/biblioteca em tempo de execução.</td><td>Quando não se sabe previamente qual política é ideal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== ABA 6: AULA 15 - TASKS, ESCOPO E SIMD ==================== -->
+<section id="a6" class="sec">
+  <div class="sh">
+    <div class="si" style="background:rgba(168,85,247,.12);color:var(--a7)">🧩</div>
+    <div>
+      <h2>6. OpenMP Tasks, Compartilhamento de Dados e SIMD (Aula 15)</h2>
+      <p>Tarefas assíncronas e recursão · shared, private, firstprivate, lastprivate · Vetorização SIMD</p>
+    </div>
+  </div>
+
+  <div class="sub">📋 OpenMP Tasks (<code>#pragma omp task</code> e <code>taskwait</code>)</div>
+  <div class="grid g2">
+    <div class="card btv">
+      <h3>Conceito e Padrão de Criação</h3>
+      <ul>
+        <li><strong>Tasks</strong> são unidades de trabalho independentes executadas dinamicamente (imediatamente ou atrasadas) por qualquer thread livre da equipe. Ideais para <strong>recursão, árvores e listas encadeadas</strong>.</li>
+        <li>Normalmente criadas dentro de <code>#pragma omp parallel</code> + <code>#pragma omp single</code> (uma thread gera as tarefas e as demais executam).</li>
+        <li><strong>Sem barreira automática:</strong> Use <code>#pragma omp taskwait</code> para esperar todas as tasks filhas concluírem antes de usar seus resultados!</li>
+      </ul>
+    </div>
+    <div class="card bta">
+      <h3>Exemplo Clássico: Fibonacci Recursivo</h3>
+      <pre><code>int fib(int n) {
+  int x, y;
+  if (n &lt; 2) return n;
+  #pragma omp task shared(x) firstprivate(n)
+  x = fib(n - 1);
+  #pragma omp task shared(y) firstprivate(n)
+  y = fib(n - 2);
+  #pragma omp taskwait // Aguarda x e y ficarem prontos
+  return x + y;
+}
+// Chamada na main:
+#pragma omp parallel
+#pragma omp single
+res = fib(30);</code></pre>
+    </div>
+  </div>
+
+  <div class="sub">🔐 Cláusulas de Compartilhamento de Dados (Escopo de Variáveis)</div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Cláusula</th><th>Cria cópia local?</th><th>Inicializa com valor original?</th><th>Altera a variável original?</th><th>Uso / Padrão</th></tr></thead>
+      <tbody>
+        <tr><td><code>shared(v)</code></td><td>Não (única na memória)</td><td>Usa o valor atual</td><td><strong>Sim</strong></td><td>Padrão para variáveis globais / declaradas fora da região paralela.</td></tr>
+        <tr><td><code>private(v)</code></td><td><strong>Sim</strong> (1 por thread)</td><td><strong>Não</strong> (lixo de memória)</td><td>Não</td><td>Variáveis temporárias de trabalho por thread.</td></tr>
+        <tr><td><code>firstprivate(v)</code></td><td><strong>Sim</strong> (1 por thread)</td><td><strong>Sim</strong> (copia valor inicial)</td><td>Não</td><td><strong>Padrão em <code>omp task</code></strong>; preserva o valor de entrada sem alterar a original.</td></tr>
+        <tr><td><code>lastprivate(v)</code></td><td><strong>Sim</strong> (1 por thread)</td><td><strong>Não</strong></td><td><strong>Sim</strong> (copia o valor da <em>última</em> iteração/seção)</td><td>Quando precisa recuperar o resultado final do último passo de um <code>for</code> ou <code>sections</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">🚀 Instruções SIMD (Single Instruction, Multiple Data)</div>
+  <div class="hl hlc">
+    <strong>Vetorização em Hardware:</strong> Diferente do modelo escalar <strong>SISD</strong> (1 instrução sobre 1 dado), processadores modernos possuem <strong>unidades vetoriais SIMD</strong> que aplicam uma única instrução simultaneamente sobre <strong>2, 4, 8 ou mais elementos independentes</strong> (ex: soma de vetores <code>C[i] = A[i] + B[i]</code>).
+  </div>
+  <div class="grid g2">
+    <div class="card btb">
+      <h3>Diretiva <code>#pragma omp simd</code></h3>
+      <p>Garante ao compilador que as iterações não têm dependência e podem ser vetorizadas em registradores SIMD:</p>
+      <pre><code>#pragma omp simd
+for (int i = 0; i &lt; N; i++) {
+    C[i] = A[i] + B[i];
+}</code></pre>
+    </div>
+    <div class="card bta">
+      <h3>Combinando Threads + Vetorização + Collapse</h3>
+      <p>É possível combinar paralelismo multicore (<code>parallel for</code>), achatamento de laços (<code>collapse</code>) e vetorização (<code>simd</code>):</p>
+      <pre><code>#pragma omp parallel for simd collapse(2)
+for (int i = 0; i &lt; N; i++)
+  for (int j = 0; j &lt; M; j++)
+    C[i][j] = A[i][j] + B[i][j];</code></pre>
+    </div>
   </div>
 </section>
 
